@@ -597,54 +597,69 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
         <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
         
         <guid>/p/wargame-whitehat-11-writeups/</guid>
-        <description>&lt;p&gt;Writeups một số challenge mình giải được trong thời gian giải diễn ra&lt;/p&gt;
-&lt;h2 id=&#34;misc&#34;&gt;MISC&lt;/h2&gt;
+        <description>&lt;img src="/p/wargame-whitehat-11-writeups/featured.png" alt="Featured image of post Wargame Whitehat 11 | Writeups" /&gt;&lt;h2 id=&#34;misc&#34;&gt;MISC&lt;/h2&gt;
 &lt;h3 id=&#34;discord-check&#34;&gt;Discord check&lt;/h3&gt;
 &lt;p&gt;Flag được ghim ở &lt;code&gt;Annoucements&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/194205206-809b86c6-52e1-4083-900b-8ab2090c36df.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image.png&#34;
+	width=&#34;656&#34;
+	height=&#34;34&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image_hu515d9c7165f9a6875c06c99344e7549c_6029_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image_hu515d9c7165f9a6875c06c99344e7549c_6029_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1929&#34;
+		data-flex-basis=&#34;4630px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;flag: &lt;code&gt;WhiteHat{Ready_for_WhiteHatPlay11_Ready_for_a_vibrant_summer}&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;audio&#34;&gt;Audio&lt;/h3&gt;
 &lt;p&gt;Ở bài này chúng ta sẽ nhận được 1 file wav (file âm thanh). Ta tiến hành mở file bằng &lt;a class=&#34;link&#34; href=&#34;https://www.audacityteam.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Audacity&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/194205436-69a1ff05-5e9e-4231-a43f-37be92fc39eb.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-1.png&#34;
+	width=&#34;927&#34;
+	height=&#34;370&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-1_hu4f3ac86ea6800bbb4c9aa27233e5a30c_88516_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-1_hu4f3ac86ea6800bbb4c9aa27233e5a30c_88516_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;250&#34;
+		data-flex-basis=&#34;601px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Chuyển qua xem dưới dạng ảnh phổ ta được:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/194205786-65d0f9aa-b1f7-436c-885a-39027efeb7e2.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-2.png&#34;
+	width=&#34;918&#34;
+	height=&#34;364&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-2_hud8d97ca9e13640b2ccf2bb8bb289acd0_59293_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-2_hud8d97ca9e13640b2ccf2bb8bb289acd0_59293_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;252&#34;
+		data-flex-basis=&#34;605px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Sử dụng cài đặt ảnh phổ và điều chỉnh thông số sao cho phù hợp, hoặc lăn chuột để phổ giãn đều:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/194205835-6527f8d2-1f16-4d5a-ad17-5e709d00f0c1.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-3.png&#34;
+	width=&#34;268&#34;
+	height=&#34;363&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-3_hu5feda2f6bb52dc0b1770b4d8e475a1d9_14615_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-3_hu5feda2f6bb52dc0b1770b4d8e475a1d9_14615_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;73&#34;
+		data-flex-basis=&#34;177px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;-–&amp;gt; 3u1b_51_n0dn01 (ở đây vẫn chẳng có nghĩa gì)&lt;/p&gt;
@@ -653,59 +668,95 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;h2 id=&#34;reverse-engineering&#34;&gt;REVERSE ENGINEERING&lt;/h2&gt;
 &lt;h3 id=&#34;whitehatplay11v1&#34;&gt;WhiteHatPlay11v1&lt;/h3&gt;
 &lt;p&gt;Load file vào IDA, để ý &lt;code&gt;_main&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/CUhZMdd.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-4.png&#34;
+	width=&#34;727&#34;
+	height=&#34;481&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-4_hua251a0c771f2f1046ac61d98ac49d0e6_37447_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-4_hua251a0c771f2f1046ac61d98ac49d0e6_37447_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;362px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;ở đây có hàm &lt;code&gt;sub_4010A0&lt;/code&gt;, &lt;code&gt;sub_401190&lt;/code&gt; và &lt;code&gt;sub_401440&lt;/code&gt; là đáng chú ý, kiểm tra từng hàm một&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;sub_4010A0&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/cgIeoyN.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-5.png&#34;
+	width=&#34;508&#34;
+	height=&#34;554&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-5_hu20f0ef58e62e57d4ab1d22d532e067cd_26399_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-5_hu20f0ef58e62e57d4ab1d22d532e067cd_26399_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;91&#34;
+		data-flex-basis=&#34;220px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Tới đây thì có &lt;code&gt;byte_40EFB0&lt;/code&gt; là không rõ ràng, tìm hiểu sâu vào&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/UchJQlL.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-6.png&#34;
+	width=&#34;719&#34;
+	height=&#34;80&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-6_huf05af09f2c0e73bad1fcaec131c582a1_9671_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-6_huf05af09f2c0e73bad1fcaec131c582a1_9671_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;898&#34;
+		data-flex-basis=&#34;2157px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Để ý kỹ 1 chút ở ngay bên dưới thì có xuất hiện đặc điểm của base85&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;sub_401190&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/YrMhKuV.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-7.png&#34;
+	width=&#34;261&#34;
+	height=&#34;438&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-7_hu657c2d0904435dc6d735cf16320c52e2_16896_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-7_hu657c2d0904435dc6d735cf16320c52e2_16896_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;59&#34;
+		data-flex-basis=&#34;143px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Thấy có &lt;code&gt;byte_410F0C&lt;/code&gt;, kiểm tra thì có&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/OQxAf3f.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-8.png&#34;
+	width=&#34;656&#34;
+	height=&#34;153&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-8_hu8e430d6ee48036c38f35bf0a4f024b59_15394_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-8_hu8e430d6ee48036c38f35bf0a4f024b59_15394_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;428&#34;
+		data-flex-basis=&#34;1029px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Đến đây là đã xong, dịch base85 bằng cyberchef&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/lfgcKNR.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-9.png&#34;
+	width=&#34;656&#34;
+	height=&#34;153&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-9_hu8e430d6ee48036c38f35bf0a4f024b59_15394_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-9_hu8e430d6ee48036c38f35bf0a4f024b59_15394_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;428&#34;
+		data-flex-basis=&#34;1029px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;flag: &lt;code&gt;Whit3H4t11H4v34N1C3D4yR3VeRs31!&lt;/code&gt;&lt;/p&gt;
@@ -717,47 +768,77 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;p&gt;Hàm WhiteHat()&lt;/p&gt;
 &lt;p&gt;1 số điều cần chú ý ở hàm đặc biệt này:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;biến local:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/NVovlKm.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-10.png&#34;
+	width=&#34;242&#34;
+	height=&#34;330&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-10_hu98e651434c17bc893c468decec850315_13360_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-10_hu98e651434c17bc893c468decec850315_13360_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;73&#34;
+		data-flex-basis=&#34;176px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;check biến vào:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/QpjDskX.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-11.png&#34;
+	width=&#34;481&#34;
+	height=&#34;256&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-11_hu47b6147982031ed1d06f987f4ec5b2e2_11958_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-11_hu47b6147982031ed1d06f987f4ec5b2e2_11958_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;450px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;LABEL_6:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/ImI1A1I.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-12.png&#34;
+	width=&#34;357&#34;
+	height=&#34;378&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-12_huaa4536909c9cc0976a604a24e179ec68_19710_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-12_huaa4536909c9cc0976a604a24e179ec68_19710_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;94&#34;
+		data-flex-basis=&#34;226px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/AQZT4Nu.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-13.png&#34;
+	width=&#34;721&#34;
+	height=&#34;722&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-13_hua80383d2ea097faad7331a9b98ab21b0_41799_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-13_hua80383d2ea097faad7331a9b98ab21b0_41799_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;99&#34;
+		data-flex-basis=&#34;239px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;LABEL_41&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/i7FLJjA.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-14.png&#34;
+	width=&#34;481&#34;
+	height=&#34;48&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-14_huded7b74893035a70acc10f393d1451bf_2868_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-14_huded7b74893035a70acc10f393d1451bf_2868_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1002&#34;
+		data-flex-basis=&#34;2405px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Chức năng&lt;/p&gt;
@@ -771,31 +852,49 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Hàm check 36 ký tự đầu của input và đối chiếu với flag:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/RMMRTpR.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-15.png&#34;
+	width=&#34;378&#34;
+	height=&#34;334&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-15_hu82a465d4f1bdd1e1dea1a587eebfaba1_12753_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-15_hu82a465d4f1bdd1e1dea1a587eebfaba1_12753_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;271px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;mặt khác lại có các byte tương ứng để đối chiếu&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/uh8BuFQ.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-16.png&#34;
+	width=&#34;201&#34;
+	height=&#34;155&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-16_hud74e0c0b71fca583a4bc46ae3a69abb2_6612_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-16_hud74e0c0b71fca583a4bc46ae3a69abb2_6612_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;311px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Theo mình hiểu code sẽ là qua hàm lấy từng ký tự của input xor với&lt;/p&gt;
 &lt;p&gt;Để ý call ngay trước 5 byte cuối sẽ là hàm &lt;code&gt;sub_10001EC0&lt;/code&gt; xử lý 36 byte đầu của input&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/aJZkT0O.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-17.png&#34;
+	width=&#34;411&#34;
+	height=&#34;438&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-17_hu7ac88897064dd7df8bcc0a01d1cd16df_14828_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-17_hu7ac88897064dd7df8bcc0a01d1cd16df_14828_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;93&#34;
+		data-flex-basis=&#34;225px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Hàm này có công dụng gọi 36 byte đầu của input và mỗi ký tự khi gọi sẽ được xor với 0x11 (^ 0x11) và sau đó cộng với 11&lt;/p&gt;
@@ -859,12 +958,18 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;startr3&#34;&gt;startr3&lt;/h3&gt;
 &lt;p&gt;Với bài này mở file bằng ida64 &amp;ndash;&amp;gt; free flag&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/tXQv15A.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-18.png&#34;
+	width=&#34;474&#34;
+	height=&#34;166&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-18_huf558514235812bb81c1b35cead15dd9a_8897_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-18_huf558514235812bb81c1b35cead15dd9a_8897_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;285&#34;
+		data-flex-basis=&#34;685px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;flag: &lt;code&gt;WhiteHat{start_r3_ez_game}&lt;/code&gt;&lt;/p&gt;
@@ -873,23 +978,35 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;baby-re&#34;&gt;Baby RE&lt;/h3&gt;
 &lt;p&gt;Nhìn file tải về là biết nó liên quan đến python, là 1 người chơi rev chắc hẳn sẽ biết đến pyc (đã từng được mình nhắc đến trong chall của BlueHens)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/yb488Vi.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-19.png&#34;
+	width=&#34;137&#34;
+	height=&#34;142&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-19_hua445d8a03dea3a81f4e7672985d9b3e1_11364_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-19_hua445d8a03dea3a81f4e7672985d9b3e1_11364_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;96&#34;
+		data-flex-basis=&#34;231px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Sau một hồi loay hoay thì mình tìm được tool để decompile file này là &lt;a class=&#34;link&#34; href=&#34;https://github.com/extremecoders-re/pyinstxtractor&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;pyinstxtractor&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Sau khi chạy pyinstxtractor:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/JVBREYP.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-20.png&#34;
+	width=&#34;326&#34;
+	height=&#34;620&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-20_hu9d2f04b3871ed5505bde163137d2040b_23679_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-20_hu9d2f04b3871ed5505bde163137d2040b_23679_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Và ra file quewridg.pyc, sử dụng &lt;a class=&#34;link&#34; href=&#34;https://github.com/rocky/python-uncompyle6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1007,12 +1124,18 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;p&gt;ta thấy h và k đã được trải qua nhiều lệnh nhưng lại không để làm gì nên sẽ in ra xem nó sẽ làm gì&lt;/p&gt;
 &lt;p&gt;Khi in ra thì &lt;code&gt;h = V2hpdGVIYXR7VDFOSF&lt;/code&gt; và &lt;code&gt;k = 9OME5HX05IVV9LM019&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Dịch thử base64&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/bpciw0o.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-21.png&#34;
+	width=&#34;814&#34;
+	height=&#34;60&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-21_hu7c04ac74c6f434bfa76f50d39ba97346_7557_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-21_hu7c04ac74c6f434bfa76f50d39ba97346_7557_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1356&#34;
+		data-flex-basis=&#34;3256px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;flag: &lt;code&gt;WhiteHat{T1NH_N0NG_NHU_K3M}&lt;/code&gt;&lt;/p&gt;
@@ -1020,26 +1143,34 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;p&gt;Có lẽ tác giả ra đến đây bí ý tưởng :)) chứ không thể xàm như này được&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;flagcheck&#34;&gt;flagcheck&lt;/h3&gt;
-&lt;p&gt;Check main:
-&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212787344-f09c6b93-049e-43f3-a31f-082960e8d06f.png&#34;
-	
-	
-	
+&lt;p&gt;Check main:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-22.png&#34;
+	width=&#34;491&#34;
+	height=&#34;380&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-22_hu776267a40bbc9fe6c595a08a67e52a13_20429_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-22_hu776267a40bbc9fe6c595a08a67e52a13_20429_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;310px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Qua check hàm main thì dễ thấy hàm này đơn giản là cho 1 dãy ký tự đầu vào, sau đó chúng ta phải nhập flag và hàm này sẽ check từng ký tự rồi xor với số thứ tự của chúng (đã cộng thêm 1)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212787564-e6cb90ed-c0ff-4e6e-9cb7-3324e6e8b09d.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-23.png&#34;
+	width=&#34;243&#34;
+	height=&#34;34&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-23_hu8be9f3dd1fd91f32ab0a425a24352dff_1907_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-23_hu8be9f3dd1fd91f32ab0a425a24352dff_1907_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;714&#34;
+		data-flex-basis=&#34;1715px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Và sau đó so sánh bộ ký tự mới được in ra và bộ ký tự ban đầu cho, vậy nên đến đây có thể viết script để có được flag&lt;/p&gt;
@@ -1060,14 +1191,18 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;h2 id=&#34;cryptography&#34;&gt;CRYPTOGRAPHY&lt;/h2&gt;
 &lt;h3 id=&#34;b64xor&#34;&gt;b64&amp;amp;xor&lt;/h3&gt;
 &lt;p&gt;Đề bài cho 1 đoạn base64 dịch sang thì thành 1 đoạn không hề có nghĩa gì lắm&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212610428-1e796fe0-6324-4608-bbd1-2e24c01ff014.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-24.png&#34;
+	width=&#34;1014&#34;
+	height=&#34;53&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-24_hu5af330d3bdeb275b61707c6f4d0f8f15_8760_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-24_hu5af330d3bdeb275b61707c6f4d0f8f15_8760_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1913&#34;
+		data-flex-basis=&#34;4591px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Mà đề bài lại là xor&amp;amp;b64 nhưng lại chẳng cho thứ cần xor là gì nên mình nghĩ sẽ check thử với format của đề bài: &lt;code&gt;WhiteHat{&lt;/code&gt;&lt;/p&gt;
@@ -1101,14 +1236,18 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Đoạn này ra tương ứng với &lt;code&gt;c4u_v0ng}&lt;/code&gt;, mình thử thêm nhiều &lt;code&gt;WhiteHat{&lt;/code&gt; nữa vào format flag và nó trả về như này&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212610967-27eaa92b-70d2-467f-b71c-26d75f5aea6b.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-25.png&#34;
+	width=&#34;343&#34;
+	height=&#34;45&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-25_hu05f1958b900aa9620443f374fd6f1fcc_4203_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-25_hu05f1958b900aa9620443f374fd6f1fcc_4203_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;762&#34;
+		data-flex-basis=&#34;1829px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Không có ý nghĩa gì lắm nên trở lại thì mình chợt nghĩ ra, nếu xor từ &lt;code&gt;WhiteHat{&lt;/code&gt; thành được &lt;code&gt;c4u_v0ng}&lt;/code&gt; vậy thì từ &lt;code&gt;c4u_v0ng}&lt;/code&gt; cũng về được &lt;code&gt;WhiteHat{&lt;/code&gt;
@@ -1203,57 +1342,77 @@ và mục tiêu bây giờ chỉ cần kiếm cái đoạn đằng sau cái &lt;
 &lt;h2 id=&#34;digital-forensics&#34;&gt;DIGITAL FORENSICS&lt;/h2&gt;
 &lt;h3 id=&#34;corrupt&#34;&gt;Corrupt&lt;/h3&gt;
 &lt;p&gt;Đầu tiên chúng ta sẽ nhận được 1 file .png mở lên thì thấy không được :3&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212944051-880dfff7-7139-40b2-9173-6ddeb276edd1.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-26.png&#34;
+	width=&#34;567&#34;
+	height=&#34;442&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-26_hua85240de2f688569bcecbfc15aba2fcc_22784_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-26_hua85240de2f688569bcecbfc15aba2fcc_22784_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;307px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;kiểm tra hex của nó thì cũng thấy lạ vì không trùng với magic bytes phổ biến nào (các hex đầu)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212944716-d970804a-c23a-4396-a738-fbdaeeb8b283.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-27.png&#34;
+	width=&#34;551&#34;
+	height=&#34;53&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-27_huaed586e59d64e0f67c53f4007f1830d8_12926_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-27_huaed586e59d64e0f67c53f4007f1830d8_12926_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1039&#34;
+		data-flex-basis=&#34;2495px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Và phía sau đoạn hex đó lại có 1 số đoạn strings quen thuộc như &lt;code&gt;.png&lt;/code&gt;, &lt;code&gt;IHDR&lt;/code&gt;, &lt;code&gt;IDAT&lt;/code&gt; nên mình nghĩ tác giả cố tình chèn 1 vài đoạn strings lạ vào để đánh lừa và thực ra file này ban đầu là 1 ảnh PNG thật, việc của chúng ta bây giờ chỉ cần sửa lại các hex để đưa ra ảnh đúng&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212945543-9d5c25e9-59c0-4314-b0c8-ff9f9fa4a03a.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-28.png&#34;
+	width=&#34;1088&#34;
+	height=&#34;354&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-28_hua6ca0f53268f0e43b6c27f04b23ba225_79984_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-28_hua6ca0f53268f0e43b6c27f04b23ba225_79984_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;307&#34;
+		data-flex-basis=&#34;737px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Ở đây mình sử dụng &lt;code&gt;bless&lt;/code&gt; để thay đổi các hex trong file ảnh PNG này&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212945730-5541dd33-63fd-4c73-aedc-916d8fb71900.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-29.png&#34;
+	width=&#34;282&#34;
+	height=&#34;40&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-29_hu17506182adff271d4ba49fb561a728bd_6184_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-29_hu17506182adff271d4ba49fb561a728bd_6184_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;705&#34;
+		data-flex-basis=&#34;1692px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212945860-5e121166-f32d-47f9-a636-65eb4ff856de.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-30.png&#34;
+	width=&#34;1272&#34;
+	height=&#34;676&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-30_huacef9f7b0375545cb5ef5c40d97ff6e8_166178_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-30_huacef9f7b0375545cb5ef5c40d97ff6e8_166178_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;451px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Ở đây có lẽ mình sẽ xoá hết các hex không liên quan đoạn đằng trước &lt;code&gt;.png&lt;/code&gt; và sau đó đổi &lt;code&gt;.png&lt;/code&gt; thành &lt;code&gt;.PNG&lt;/code&gt; bằng cách chuyển bộ số hex từ &lt;code&gt;89 70 6E 67&lt;/code&gt; thành &lt;code&gt;89 50 4e 47&lt;/code&gt; tương ứng &lt;code&gt;.png&lt;/code&gt; &amp;ndash;&amp;gt; &lt;code&gt;.PNG&lt;/code&gt;&lt;/p&gt;
@@ -1268,48 +1427,64 @@ và mục tiêu bây giờ chỉ cần kiếm cái đoạn đằng sau cái &lt;
 &lt;li&gt;&lt;code&gt;0A&lt;/code&gt; Một dòng kiểu Unix kết thúc ( LF ) để phát hiện chuyển đổi kết thúc dòng Unix-DOS.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Lưu lại và chúng ta sẽ thấy sự khác biệt, bình thường sau bước này mình sẽ check thêm bằng &lt;code&gt;pngcheck&lt;/code&gt; để xem có lỗi thêm gì không và ở đây may mắn là không lỗi&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212949862-256f1ae0-8538-430c-9542-0b3b6f36d4bb.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-31.png&#34;
+	width=&#34;615&#34;
+	height=&#34;243&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-31_huac8f69ff605c11fc850af7321070f986_50926_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-31_huac8f69ff605c11fc850af7321070f986_50926_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;253&#34;
+		data-flex-basis=&#34;607px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&amp;ndash;&amp;gt; có &lt;a class=&#34;link&#34; href=&#34;/solutions/Corrupt_full.png&#34; &gt;ảnh ban đầu&lt;/a&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212951189-19e1f834-ae9f-4f90-a56e-3cb83c3f5ff4.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-32.png&#34;
+	width=&#34;405&#34;
+	height=&#34;410&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-32_huc96c8742ad004f9d04086816f7964511_14472_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-32_huc96c8742ad004f9d04086816f7964511_14472_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;237px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Try hard vẽ lại bằng pixel cái QR: thì ở các phần bị thiếu sẽ bổ sung được vài thứ quan trọng&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212953135-1b97b97e-67b3-4014-aa83-7c2c181a43f5.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-33.png&#34;
+	width=&#34;444&#34;
+	height=&#34;446&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-33_hue099cc98a67fb288f266c473df5cd544_20396_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-33_hue099cc98a67fb288f266c473df5cd544_20396_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;99&#34;
+		data-flex-basis=&#34;238px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Giải thích:
 Do sau khi nhập các phần viền của các phần ô vuông, thì nó tự nhận diện và fill nốt cái viền còn lại&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212953322-d9a2ae87-77a8-47cb-94b0-99dd2d70d0c0.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-34.png&#34;
+	width=&#34;438&#34;
+	height=&#34;80&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-34_hubc4ea5dd14e0fe89489e9c449e9f9879_4472_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-34_hubc4ea5dd14e0fe89489e9c449e9f9879_4472_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;547&#34;
+		data-flex-basis=&#34;1314px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Quét cái QR bên trên thì ra flag&lt;/p&gt;
@@ -1321,46 +1496,62 @@ Do sau khi nhập các phần viền của các phần ô vuông, thì nó tự 
 &lt;/blockquote&gt;
 &lt;p&gt;Đề bài có nhắc tới 1 nhân vật Incent Eva –&amp;gt; nghĩ tới việc sử dụng 1 vài công cụ osint để tìm ra các tài khoản mạng xã hội của người này.&lt;/p&gt;
 &lt;p&gt;Sau khi thử, đã tìm được tài khoản twitter có username: &lt;code&gt;@incent_eva&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212586906-475dbfa6-1322-4763-a0d4-04ee212a553f.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-35.png&#34;
+	width=&#34;588&#34;
+	height=&#34;509&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-35_hud98f1a8850449b136098ba1341f403dd_332610_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-35_hud98f1a8850449b136098ba1341f403dd_332610_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;115&#34;
+		data-flex-basis=&#34;277px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Chuyển sang mục Likes, ta thấy có 1 tài khoản khác xuất hiện –&amp;gt; &lt;code&gt;@vy_tran_11&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212586988-a6f459e0-c35f-4bcc-81b8-2f91c6cdd2e5.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-36.png&#34;
+	width=&#34;941&#34;
+	height=&#34;777&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-36_hu2bfde59e9563bc4647d6b9d5b5c7efd2_92358_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-36_hu2bfde59e9563bc4647d6b9d5b5c7efd2_92358_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;121&#34;
+		data-flex-basis=&#34;290px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Check thử link trong trang cá nhân của người kia, và sau khi check ảnh trong page người đó, ta được:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212587028-8e5a260c-0b06-4cd4-abbb-ed24e4b6227d.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-37.png&#34;
+	width=&#34;917&#34;
+	height=&#34;671&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-37_hu9dc65ab617fd85eada084816a5fdc5e5_938703_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-37_hu9dc65ab617fd85eada084816a5fdc5e5_938703_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;327px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/user-images.githubusercontent.com/87920408/212587072-380bb881-caa1-4442-a213-62b005d4c5d8.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-38.png&#34;
+	width=&#34;1323&#34;
+	height=&#34;789&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-38_hub38ce3f1165733757874fd04593ad428_508909_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-38_hub38ce3f1165733757874fd04593ad428_508909_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image&#34;
+		alt=&#34;Alt text&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;402px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;flag: &lt;code&gt;WhiteHat{VYTRAN_VJ375_3F_30MAR}&lt;/code&gt;&lt;/p&gt;
@@ -1369,12 +1560,18 @@ Do sau khi nhập các phần viền của các phần ô vuông, thì nó tự 
 &lt;p&gt;A client hired me as a private investigator to track down her husband, Cuming Brian, because she suspected him of having an affair. Check out his social media accounts to see if there&amp;rsquo;s anything interesting&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Đề bài có nhắc đến 1 nhân vật là &lt;strong&gt;Cuming Brian&lt;/strong&gt;, thì theo thói quen chúng ta cứ tìm kiếm trên instagram hoặc twitter thanh niên này thì có kết quả&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/https:/i.imgur.com/GYtTKoB.jpg&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;/p/wargame-whitehat-11-writeups/image-39.png&#34;
+	width=&#34;832&#34;
+	height=&#34;274&#34;
+	srcset=&#34;/p/wargame-whitehat-11-writeups/image-39_huaa639c0aee0578746de30380311c6934_144736_480x0_resize_box_3.png 480w, /p/wargame-whitehat-11-writeups/image-39_huaa639c0aee0578746de30380311c6934_144736_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;Alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;303&#34;
+		data-flex-basis=&#34;728px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;flag: &lt;code&gt;WhiteHat{N3xt_p4rt_1S_h@rd3r_g0_9o_bruh}&lt;/code&gt;&lt;/p&gt;
