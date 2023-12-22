@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Story on Spid3r&#39;s Blog</title>
+        <link>/categories/story/</link>
+        <description>Recent content in Story on Spid3r&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/story/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cyber SEA Game 2023 | Recap</title>
+        <link>/p/cyber-sea-game-2023-recap/</link>
+        <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/p/cyber-sea-game-2023-recap/</guid>
+        <description>&lt;img src="/p/cyber-sea-game-2023-recap/featured.png" alt="Featured image of post Cyber SEA Game 2023 | Recap" /&gt;&lt;p&gt;Post này chỉ để kể câu chuyện đội mình đi thi Cyber SEA Game 2023 tại Bangkok, Thailand (9-10/11/2023)&lt;/p&gt;
+&lt;h1 id=&#34;cyber-sea-game-2023-bangkok---thailand&#34;&gt;Cyber SEA Game 2023 (Bangkok - Thailand)&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-4.png&#34;
+	width=&#34;2190&#34;
+	height=&#34;1597&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-4_hu8c68abd2bad4fc77f6fc9d24a311e633_5821462_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-4_hu8c68abd2bad4fc77f6fc9d24a311e633_5821462_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;137&#34;
+		data-flex-basis=&#34;329px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tổng-quan-về-cuộc-thi-của-đội-việt-nam&#34;&gt;Tổng quan về cuộc thi của đội Việt Nam&lt;/h2&gt;
+&lt;p&gt;Trong 5 phút đầu tiên, khi team Việt Nam nhận server và tài khoản cũng như thực hiện các thao tác về đổi mật khẩu và kiểm tra, chúng tôi ngạc nhiên khi thấy có tới 6 team khác đã lần lượt submit các chủ đề, nhưng chưa rõ điều gì đã xảy ra.&lt;/p&gt;
+&lt;p&gt;Các thành viên trong đội tự quản lý khối lượng công việc một cách rõ ràng, mặc dù hơi tiếc rằng Huy và Thành, chuyên sâu về Binary và Web Exploitation, lại không có chủ đề nào liên quan đến sở trường của họ. Cụ thể:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Việt Anh đảm nhận &lt;code&gt;Cryptography&lt;/code&gt; và &lt;code&gt;Network&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Hoàng Huy chịu trách nhiệm cho &lt;code&gt;Hacking Challenge 1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Thái Sơn thực hiện các nhiệm vụ &lt;code&gt;OSINT&lt;/code&gt;, &lt;code&gt;Steganography&lt;/code&gt;, &lt;code&gt;Forensic&lt;/code&gt;, &lt;code&gt;Reversing&lt;/code&gt;, và &lt;code&gt;Memory&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Chí Thành đảm nhiệm &lt;code&gt;Hacking Challenge 2&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Chúng tôi cảm thấy áp lực khi đội Singapore thực hiện nhanh chóng và hoàn thành trong thời gian ngắn. Tuy nhiên, RobinHust không nản chí và cố gắng hết mình để hoàn thành các thách thức của mình. Đặc biệt, các thách thức không chỉ đòi hỏi sử dụng các kỹ thuật tấn công cơ bản mà còn đòi hỏi sự sáng tạo và &amp;ldquo;cảm nhận từ giác quan&amp;rdquo; (hay còn gọi 1 cách khác là bruteforce :3):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image.png&#34;
+	width=&#34;500&#34;
+	height=&#34;400&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image_hu2613b2db579ae5d3d85d01f913466686_278177_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image_hu2613b2db579ae5d3d85d01f913466686_278177_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;125&#34;
+		data-flex-basis=&#34;300px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trong bài &lt;code&gt;Flag #03: Cracking a Zip File&lt;/code&gt; của chủ đề &lt;code&gt;Cryptography&lt;/code&gt;, có một yêu cầu là phải giải mã mật khẩu &lt;code&gt;openthesamesenovemberXXXX&lt;/code&gt;, và việc bruteforce 4 ký tự cuối có thể mất một khoảng thời gian (theo lời giải chính thức đến từ BTC). Tuy nhiên, thông qua khả năng suy luận, chúng tôi đã thử nghiệm thành công với 4 ký tự cuối là &lt;code&gt;2023&lt;/code&gt;, giúp quá trình trở nên nhanh chóng và dễ dàng&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hoàng Huy tấn công thành công &lt;code&gt;Hacking Challenge 1&lt;/code&gt;, liên tục vượt qua các thách thức. Team Việt Nam đã thể hiện khả năng xuất sắc trong việc giải quyết thử thách này nhờ đọc kỹ tài liệu từ BTC và thử nghiệm trước.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thái Sơn đã xử lý thành công các thử thách về &lt;code&gt;Steganography&lt;/code&gt;, &lt;code&gt;Memory&lt;/code&gt;, &lt;code&gt;Reversing&lt;/code&gt; và mở các thử thách &lt;code&gt;Forensic&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thành đã chuyển sang hỗ trợ Sơn và Việt Anh trong các thử thách &lt;code&gt;Forensic&lt;/code&gt; và &lt;code&gt;Crypto&lt;/code&gt;, sau đó quay trở lại cùng Hoàng Huy để giải quyết &lt;code&gt;Hacking Challenge 2&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mọi thứ diễn ra mượt mà và suôn sẻ, đội đã hoàn thành toàn bộ các thách thức trong vòng 3 tiếng 30 phút.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trong cuộc thi, hầu hết các đội đều có tỉ lệ submit sai khá lớn cùng 1 lượng thời gian lãng phí quá nhiều vì phải đoán trong thử thách &lt;code&gt;Flag #03 Initial execution&lt;/code&gt; của chủ đề điều tra số &lt;code&gt;Forensic&lt;/code&gt; đưa ra 1 danh sách khá nhiều những flag giả mà chúng tôi phải thử để giải quyết&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-5.png&#34;
+	width=&#34;1381&#34;
+	height=&#34;568&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-5_hu093b01d85f0d6b94ffe6146dcc38bf9a_59012_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-5_hu093b01d85f0d6b94ffe6146dcc38bf9a_59012_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;583px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;phase-1-khởi-đầu-của-cuộc-thi-khoảng-1-tiếng-từ-sau-khi-cuộc-thi-bắt-đầu&#34;&gt;Phase 1: khởi đầu của cuộc thi (Khoảng 1 tiếng từ sau khi cuộc thi bắt đầu)&lt;/h2&gt;
+&lt;p&gt;Đội của chúng tôi khởi đầu không mấy thuận lợi khi trở thành đội chậm nhất trong số 10 đội giải quyết thử thách đầu tiên.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-6.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;559&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-6_hu893ea3014420445cfd18fec3528e2772_222932_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-6_hu893ea3014420445cfd18fec3528e2772_222932_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;325&#34;
+		data-flex-basis=&#34;781px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Các đội khác bắt đầu submit từng thử thách từ 12:00 và đến tận 12:22 team Việt Nam mới submit được challenge đầu của Việt Anh (Thật sự khâm phục các thành viên trong đội vì giữ được sự bình tĩnh đến không ngờ)&lt;/p&gt;
+&lt;p&gt;Sau đó các thành viên lần lượt submit các bài đầu tiên của từng chủ đề (tới lúc này vẫn giữ vị trí cuối bảng do các đội khác đã submit rất nhiều các thử thách khác từ trước đó một lúc)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-2.png&#34;
+	width=&#34;892&#34;
+	height=&#34;283&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-2_hu67758333ccd90867fa52b86671aea235_27318_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-2_hu67758333ccd90867fa52b86671aea235_27318_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;315&#34;
+		data-flex-basis=&#34;756px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;phase-2-mid-game-khoảng-2-tiếng-từ-sau-khi-cuộc-thi-bắt-đầu&#34;&gt;Phase 2: mid game (Khoảng 2 tiếng từ sau khi cuộc thi bắt đầu)&lt;/h2&gt;
+&lt;p&gt;Sau khi bị mắc kẹt ở những thử thách ban đầu, đội của chúng tôi đã khôi phục được phong độ và thành công trong việc giải quyết các thách thức tiếp theo một cách nhanh chóng.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bứt tốc lần 1&lt;/strong&gt;: sau khoảng 30 phút kể từ khi giải được challenge đầu tiên, team đã bứt tốc từ vị trí cuối bảng lên vị trí 6, bị dẫn trước bởi các team Singapore, Malaysia, Thái, Brunei và Myanmar&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-7.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;503&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-7_hu28c1867bb4f21c20780cdfcaf6e5ac16_217633_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-7_hu28c1867bb4f21c20780cdfcaf6e5ac16_217633_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;361&#34;
+		data-flex-basis=&#34;868px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sau hơn một giờ diễn ra cuộc thi, đội Singapore đã gây ấn tượng khi hoàn thành tất cả các thử thách, kèm theo việc lắc chuông mỗi khi &amp;ldquo;clear&amp;rdquo; một chủ đề nào đó. Lúc này, tâm lý của đội chúng tôi có chút &amp;ldquo;sốc&amp;rdquo;, nhưng đã nhanh chóng ổn định tinh thần và tiếp tục vượt qua mọi thách thức.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-8.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;569&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-8_hu104fd973131cd2bcc7e67e8eebcb43db_283170_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-8_hu104fd973131cd2bcc7e67e8eebcb43db_283170_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;319&#34;
+		data-flex-basis=&#34;767px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bứt tốc lần 2&lt;/strong&gt;: Khoảng 1 giờ 45 phút đến 2 giờ sau khi cuộc thi bắt đầu, đội của chúng tôi liên tục giải quyết các thử thách về &lt;code&gt;Crypto&lt;/code&gt;, &lt;code&gt;Hacking Challenge 1&lt;/code&gt; và &lt;code&gt;Forensic&lt;/code&gt;. Việc này giúp đội chúng tôi vượt qua đội Thái Lan, đồng thời chiếm top 3 trên Bảng xếp hạng, chỉ đứng sau đội Singapore và Malaysia.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-9.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;474&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-9_hucfb71be9b083fae39f7cf47ab786a1ec_210567_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-9_hucfb71be9b083fae39f7cf47ab786a1ec_210567_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;383&#34;
+		data-flex-basis=&#34;921px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;phase-3-end-game&#34;&gt;Phase 3: End game&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Bứt tốc lần 3&lt;/strong&gt;: Sau một thời gian dài bế tắc ở các thách thức &lt;code&gt;Forensic&lt;/code&gt; và &lt;code&gt;Hacking Challenge 2&lt;/code&gt; bởi độ guessing của chúng, bằng thiên phú &amp;ldquo;bruteforce&amp;rdquo; của các thành viên, đội của chúng tôi cuối cùng cũng vượt qua khó khăn, giải quyết một lượt toàn bộ các thử thách Forensic (tới lúc này Thái Sơn gần như đã thuộc toàn bộ source của 7 thử thách &lt;code&gt;Forensic&lt;/code&gt; vì luẩn quẩn ở đây quá lâu 🤣)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-10.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;701&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-10_hua0acddcad1c9d04fa0ea08314d524dca_243252_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-10_hua0acddcad1c9d04fa0ea08314d524dca_243252_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;259&#34;
+		data-flex-basis=&#34;623px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Chốt hạ &lt;code&gt;Cyber SEA Game 2023&lt;/code&gt; với Việt Nam là thử thách cuối của &lt;code&gt;Hacking Challenge 2&lt;/code&gt; bằng cú submit của Hoàng Huy. Điều này giúp chúng tôi vượt qua đội Malaysia, trở thành đội thứ hai giải toàn bộ các thử thách, sau gần 4 tiếng đồng hồ.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-11.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;561&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-11_hu78b11554762b5f847b6b89a14a0f3d44_274057_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-11_hu78b11554762b5f847b6b89a14a0f3d44_274057_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;324&#34;
+		data-flex-basis=&#34;778px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;P/s: Sau đó khoảng 1 tiếng thì đội thứ 3 là Team Thailand cũng hoàn thành toàn bộ thử thách và BTC đã có thể định ra 3 đội trao Nhất, Nhì, Ba của toàn giải Cyber SEA Game.&lt;/p&gt;
+&lt;h2 id=&#34;bảng-xếp-hạng&#34;&gt;Bảng xếp hạng&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-12.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;702&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-12_hu81dc5661121b48c4f7ea107e1336e19c_247392_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-12_hu81dc5661121b48c4f7ea107e1336e19c_247392_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;350px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;trao-giải&#34;&gt;Trao Giải&lt;/h2&gt;
+&lt;p&gt;Tuy có chút tiếc nuối về việc không đạt được chiếc cúp vô địch của &lt;strong&gt;Cyber SEA Game&lt;/strong&gt; nhưng &lt;code&gt;Nu_RobinHust&lt;/code&gt; cũng rút ra được bài học rất lớn về việc chuẩn bị kỹ càng mọi thứ trước khi tham gia 1 cuộc thi cũng như sự bình tĩnh khi gặp các khó khăn đột ngột.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-13.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;683&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-13_hub76161efc6f76292563de67e1b107986_1352387_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-13_hub76161efc6f76292563de67e1b107986_1352387_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;149&#34;
+		data-flex-basis=&#34;359px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Đây sẽ là bước tiến rất lớn cho team cũng như Đại học Bách khoa Hà Nội, chúng mình cũng sẽ lấy đó làm kinh nghiệm và động lực để phát triển bản thân mình trong tương lai.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Câu chuyện cào điểm thi Hà Nội đầy gian nan</title>
+        <link>/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/</link>
+        <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/</guid>
+        <description>&lt;img src="/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/featured-image.png" alt="Featured image of post Câu chuyện cào điểm thi Hà Nội đầy gian nan" /&gt;&lt;p&gt;Ban đầu mình cũng không tính là đi cào điểm các bạn nhỏ về để nghiên cứu phổ điểm học sinh Việt Nam cho môn Xác suất thống kê hay gì mà chỉ đơn giản là được 1 đứa em gợi ý :3&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mình làm từ lúc đó mà lười viết nên giờ mới có bài cho các bạn đọc hix&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image.png&#34;
+	width=&#34;675&#34;
+	height=&#34;463&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image_hudf48096ef794f78556f64566e78cfadb_77340_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image_hudf48096ef794f78556f64566e78cfadb_77340_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;349px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;cổng-thông-tin-tuyển-sinh-sở-giáo-dục-và-đào-tạo-hà-nội&#34;&gt;Cổng thông tin tuyển sinh Sở giáo dục và đào tạo Hà Nội&lt;/h2&gt;
+&lt;p&gt;Trang web mà mình sử dụng để thực hiện lấy dữ liệu điểm thi vào 10 của học sinh hà nội là trang &lt;a class=&#34;link&#34; href=&#34;https://tsdaucap.hanoi.gov.vn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Thông tin tuyển sinh - Cổng thông tin tuyển sinh&lt;/a&gt; mình cũng hơi rén với cái domain &lt;strong&gt;gov&lt;/strong&gt; này nhưng mà cứ quất thôi, mình chỉ crawl thôi mà.&lt;/p&gt;
+&lt;p&gt;Bước đầu tiên để cào dữ liệu về là phải &amp;ldquo;tham quan&amp;rdquo; 1 vòng cái website này đã:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-1.png&#34;
+	width=&#34;888&#34;
+	height=&#34;501&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-1_hu06118ea2b402861c8e8e38bf7ccef7ef_288640_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-1_hu06118ea2b402861c8e8e38bf7ccef7ef_288640_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Trông khá đơn giản, không nhiều các thủ tục phức tạp &amp;ndash;&amp;gt; có vẻ việc cào sẽ nhanh gọn&lt;/p&gt;
+&lt;h2 id=&#34;tìm-hướng-để-móc-được-dữ-liệu-từ-trang-web&#34;&gt;Tìm hướng để &amp;ldquo;móc&amp;rdquo; được dữ liệu từ trang web&lt;/h2&gt;
+&lt;p&gt;Trước hết với cái website này thì mình cứ setup với &lt;a class=&#34;link&#34; href=&#34;https://portswigger.net/burp/communitydownload&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Burpsuite&lt;/a&gt; trước đã&lt;/p&gt;
+&lt;p&gt;Mình thử với 1 SBD bất kì thuộc phạm vi học sinh của Hà Nội thì thấy&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-16.png&#34;
+	width=&#34;1918&#34;
+	height=&#34;1038&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-16_hu6a76f9a8560a26d60d369561bcbc100a_623389_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-16_hu6a76f9a8560a26d60d369561bcbc100a_623389_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;184&#34;
+		data-flex-basis=&#34;443px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Trước hết thứ làm mình cảm thấy thu hút là cái &lt;code&gt;getcapcha&lt;/code&gt; ở trong phần network khi mình tạo kết nối và gửi request SBD tới server, với kinh nghiệm với mấy cái encode này thì nó là 1 cái base64 (Sở encrypt mấy cái data đơn giản đến không ngờ - có thể là lười setup)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-3.png&#34;
+	width=&#34;891&#34;
+	height=&#34;336&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-3_hu0ad4a16cec5b6d852181788d81b449db_96632_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-3_hu0ad4a16cec5b6d852181788d81b449db_96632_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;265&#34;
+		data-flex-basis=&#34;636px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Weo giải mã cái base64 này ra thì được 1 file , 1 cái header PNG bình thường, có thể nó là cái capcha được refresh liên tục ở trang xem điểm vừa nãy nhỉ?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-5.png&#34;
+	width=&#34;935&#34;
+	height=&#34;314&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-5_hu157864906d01702ad3b0ac9252e98b3f_53470_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-5_hu157864906d01702ad3b0ac9252e98b3f_53470_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;297&#34;
+		data-flex-basis=&#34;714px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Và đúng như mình đoán, nó chỉ là cái capcha mỗi lần xem điểm, nên lúc này vô dụng mặc dù có thể khai thác được thứ gì đó từ nó :3 Đến tận lúc này mình mới nhận ra cái method của thằng capcha này là &lt;code&gt;GET&lt;/code&gt; đúng là Reverser chơi web belike :)))&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-6.png&#34;
+	width=&#34;209&#34;
+	height=&#34;102&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-6_hu39ddd566fb540273d3e6466d484fd399_3048_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-6_hu39ddd566fb540273d3e6466d484fd399_3048_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;204&#34;
+		data-flex-basis=&#34;491px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tìm-hiểu-cách-mã-hóa-và-giải-mã-dữ-liệu&#34;&gt;Tìm hiểu cách mã hóa và giải mã dữ liệu&lt;/h2&gt;
+&lt;p&gt;Chuyển qua method &lt;code&gt;POST&lt;/code&gt;, mình thấy ngay 1 thằng trả về ở &lt;code&gt;/tra-cuu-diem-thi-10&lt;/code&gt; và khi truy cập thì được 1 cái trang chứa raw điểm của học sinh mình vừa kiểm tra:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-18.png&#34;
+	width=&#34;1121&#34;
+	height=&#34;672&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-18_hubae5c3dc6e62f43848347a5ea49ff641_138720_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-18_hubae5c3dc6e62f43848347a5ea49ff641_138720_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;166&#34;
+		data-flex-basis=&#34;400px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-7.png&#34;
+	width=&#34;617&#34;
+	height=&#34;153&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-7_hu74df72ec4ec9187929d4c83e87f5e0e9_15261_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-7_hu74df72ec4ec9187929d4c83e87f5e0e9_15261_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;403&#34;
+		data-flex-basis=&#34;967px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Thứ mình có thể khai thác hiện tại là cái key với &lt;code&gt;&amp;quot;key&amp;quot;:&amp;quot;aW5wdXREn2MXoaeanYXRhPTEz8XIeX2R8nOTAwMSdV1YtcCkmZ0eXBlQ2hlY2s9MDI=&amp;quot;&lt;/code&gt; trông khả nghi thật sự&lt;/p&gt;
+&lt;p&gt;Key này lại là base64 tiếp :33 decode được 1 đoạn thế này:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-8.png&#34;
+	width=&#34;508&#34;
+	height=&#34;79&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-8_hu43946a14590a3e9936f1e9e48e16fe28_4125_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-8_hu43946a14590a3e9936f1e9e48e16fe28_4125_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;643&#34;
+		data-flex-basis=&#34;1543px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Chưa có gì khai thác được từ đây, mình cào tiếp tầm 5 bạn để so sánh thử các mã base64 này:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-9.png&#34;
+	width=&#34;895&#34;
+	height=&#34;288&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-9_hu4d2a793d491f87154b98a41bb66f1b26_79279_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-9_hu4d2a793d491f87154b98a41bb66f1b26_79279_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;310&#34;
+		data-flex-basis=&#34;745px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;139001: aW5wdXREgBHx5LLwSYXRhPTEzDsqOznbvqOTAwMSh1D0qxcHiZ0eXBlQ2hlY2s9MDI=
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;139003: aW5wdXREpPO8lTzRvYXRhPTEzlFbd9Ew7BOTAwMy55FJ15M20Z0eXBlQ2hlY2s9MDI=
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;139004: aW5wdXRE6kzx1uRP7YXRhPTEziU5NcgmsqOTAwNCP3mx6tsdpZ0eXBlQ2hlY2s9MDI=
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;139009: aW5wdXREBWdLC6O8vYXRhPTEzFCnLjCEOOOTAwOSpNCPhpWEeZ0eXBlQ2hlY2s9MDI=
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;139008: aW5wdXREh1r9OiVkWYXRhPTEzpCJ3JpXAfOTAwOCsupK9zEsgZ0eXBlQ2hlY2s9MDI=
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;139007: aW5wdXRElmrWSo05SYXRhPTEzTPvVcPRLBOTAwNyAK4skQDOqZ0eXBlQ2hlY2s9MDI=
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ở đây mình thấy có các bộ được giữ khi thay đổi số báo danh là &lt;code&gt;aW5wdXRE&lt;/code&gt;, &lt;code&gt;YXRhPTEz&lt;/code&gt;, &lt;code&gt;OTAw&lt;/code&gt;, &lt;code&gt;Z0eXBlQ2hlY2s9MDI=&lt;/code&gt; tương ứng với &lt;code&gt;inputD&lt;/code&gt;, &lt;code&gt;ata=13&lt;/code&gt;, &lt;code&gt;900&lt;/code&gt;, và 1 đoạn khó hiểu cuối cùng &lt;code&gt;gGT6V6³Ó$&lt;/code&gt; hoặc hexa là &lt;code&gt;674797065436865636b3d30324&lt;/code&gt; thì tạm thời mình bỏ qua&lt;/p&gt;
+&lt;p&gt;Thực ra thì khi gửi request liên tục bằng Burpsuite với 1 số báo danh duy nhất thì ngoại trừ 4 cái liệt kê bên trên ra thì còn lại cũng thay đổi liên tục theo (điều này khiến mình nghĩ rằng nó chẳng có nhiệm vụ nào khác mà chỉ được đưa vào để đánh lừa - thực chất sẽ lấy nhờ giá trị 4 cái ở trên kia)
+Nếu chú ý 1 chút:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ata=13&lt;/code&gt; &amp;lt;&amp;ndash;&amp;gt; &lt;code&gt;YXRhPTEz&lt;/code&gt; tương ứng với 2 số đầu của SBD (tượng trưng cho mã trường)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;900&lt;/code&gt; &amp;lt;&amp;ndash;&amp;gt; &lt;code&gt;OTAw&lt;/code&gt; tương ứng với số thứ tự và lấy thêm 2 ký tự sau sẽ được đẩy đủ 4 số còn lại (theo mã hóa base64)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Từ đây rút ra kết luận, thằng &lt;code&gt;key&lt;/code&gt; này không chỉ là 1 cái base64 mà nó là nhiều cái base64 ghép lại với nhau bằng cách nối lại&lt;/p&gt;
+&lt;p&gt;Bây giờ mình sẽ tách cái base64 kia ra để tiện cho việc viết script cào dữ liệu:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-10.png&#34;
+	width=&#34;1154&#34;
+	height=&#34;223&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-10_hu6c5d4571076e404a8dce9f3245575b1b_14055_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-10_hu6c5d4571076e404a8dce9f3245575b1b_14055_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;517&#34;
+		data-flex-basis=&#34;1241px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Câu chuyện bây giờ trở nên khá dễ dàng (Với mỗi trường chỉ cần đổi lại mã trường 1 lần nhét vào query và chạy vòng lặp để cào từng học sinh trong mã trường đó)&lt;/p&gt;
+&lt;h2 id=&#34;script-tạo-key-của-từng-trường-học&#34;&gt;Script Tạo key của từng trường học&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;generate_key_sequence&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Đoạn mở đầu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;prefix&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://tsdaucap.hanoi.gov.vn/TraCuu/KetQuaTraCuuTuyenSinh10?key=aW5wdXREgBHx5LLwS&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Mã trường&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;field_code&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;YXRhPTEz&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Đoạn giữa&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;middle_code&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;DsqOznbvq&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Đoạn cuối&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;suffix&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;h1D0qxcHiZ0eXBlQ2hlY2s9MDI=&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Duyệt qua các số từ 9001 đến 9999&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Chuyển số sang base64 và loại bỏ hai dấu bằng cuối&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;index_base64&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;base64&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b64encode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;encode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;decode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()[:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Ghép các thành phần để tạo key&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prefix&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;field_code&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;middle_code&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index_base64&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;suffix&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;generate_key_sequence&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Và khi mình để ý thì bộ base64 được gen ra từ số thứ tự không khớp với bộ query của Sở GD&amp;amp;ĐT Hà Nội (Các ký tự cuối được tăng lên 2 giá trị)&lt;/p&gt;
+&lt;p&gt;Ví dụ &lt;code&gt;9001&lt;/code&gt; &amp;ndash;&amp;gt; Có thể là &lt;code&gt;OTAwMQ&lt;/code&gt;, &lt;code&gt;OTAwMR&lt;/code&gt;, &lt;code&gt;OTAwMS&lt;/code&gt; thì bên sở lấy là cái thứ 3 nên mình sẽ phải sửa lại script 1 chút bằng cách tăng 2 giá trị cho char cuối cùng của base đó&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Chuyển số sang base64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;index_base64&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;base64&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b64encode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;encode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;decode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Tăng giá trị ký tự cuối cùng lên 2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;modified_base64&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index_base64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;chr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index_base64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Và thế là mình có full bộ key của 1 trường :3. Nhưng mà chưa dừng lại ở đây được, điều mình muốn là hoàn toàn tự động, mình sẽ cần đến python và 1 vài thư viện như request, BeautifulSoup &amp;hellip; để lấy data về và lọc chúng&lt;/p&gt;
+&lt;h2 id=&#34;script-lọc-thông-tin-từng-học-sinh&#34;&gt;Script lọc thông tin từng học sinh&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Thư viện mình dùng để lấy source raw của từng học sinh về là &lt;code&gt;request&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Thư viện mình dùng để lọc các thông tin từ source raw là &lt;code&gt;BeautifulSoup&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Thư viện mình dùng để lưu data lấy được vào file csv là &lt;code&gt;csv&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ví dụ với 1 học sinh SBD là &lt;code&gt;139033&lt;/code&gt; tương ứng với &lt;code&gt;key=aW5wdXREgBHx5LLwSYXRhPTEzDsqOznbvqOTAzMyh1D0qxcHiZ0eXBlQ2hlY2s9MDI=&lt;/code&gt; thì mình thu được source khá là &amp;ldquo;clean&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-15.png&#34;
+	width=&#34;1270&#34;
+	height=&#34;460&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-15_hu5386d609e4c3a119f25d91a894c3a588_53551_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-15_hu5386d609e4c3a119f25d91a894c3a588_53551_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;276&#34;
+		data-flex-basis=&#34;662px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;source raw:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;row&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;col-md-2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;col-md-8 title-thong-tin-diem&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Thông tin học sinh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;col-md-2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;row&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;card-body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;form-group row&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;col-md-2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;col-md-8 box-thong-tin-diem&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;row&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;margin-bottom: 8px;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Số báo danh:&lt;span class=&#34;ni&#34;&gt;&amp;amp;nbsp;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;139033&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;row&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;margin-bottom: 8px;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Mã học sinh:&lt;span class=&#34;ni&#34;&gt;&amp;amp;nbsp;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;0150333732&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;row&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;margin-bottom: 8px;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Họ và tên:&lt;span class=&#34;ni&#34;&gt;&amp;amp;nbsp;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Nguyễn Hoàng Anh&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;row&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;margin-bottom: 8px;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Điểm thi:&lt;span class=&#34;ni&#34;&gt;&amp;amp;nbsp;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Ngữ văn: 8.50; Ngoại ngữ: 5.75; Toán:  9.00; Tổng điểm XT: 40.75&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;col-md-2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Tư duy của mình ở đây sẽ chỉ là lọc các thông tin có trong thẻ &lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt; và tiến hành viết script luôn&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;requests&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;bs4&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BeautifulSoup&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://tsdaucap.hanoi.gov.vn/TraCuu/KetQuaTraCuuTuyenSinh10?key=aW5wdXREgBHx5LLwSYXRhPTEzDsqOznbvqOTAzMyh1D0qxcHiZ0eXBlQ2hlY2s9MDI=&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Gửi yêu cầu HTTP và lấy về nội dung HTML&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;html_content&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Sử dụng BeautifulSoup để parse HTML&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;soup&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;html_content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;html.parser&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Tìm tất cả các thẻ &amp;lt;b&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;b_tags&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;soup&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;find_all&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Lặp qua từng thẻ và in ra nội dung&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b_tag&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b_tags&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;#Các thông tin cách nhau bởi dấu &amp;#34;,&amp;#34; để tách ra khi sử dụng csv để lưu trữ&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b_tag&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;,&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-11.png&#34;
+	width=&#34;561&#34;
+	height=&#34;48&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-11_hud8699bb38f7e8f5f497047a06e1c07f4_5110_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-11_hud8699bb38f7e8f5f497047a06e1c07f4_5110_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1168&#34;
+		data-flex-basis=&#34;2805px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Vậy là thu được những gì mình cần, ghép 2 đoạn script mình vừa code xong lại với nhau thì được code để in ra danh sách điểm thi học sinh 1 trường (với nhu cầu in nhiều trường hoặc cả Hà Nội thì thêm các vòng for lồng bên ngoài, thay đổi các &lt;code&gt;ata&lt;/code&gt; của từng trường và bộ số thứ tự là xong)&lt;/p&gt;
+&lt;p&gt;Code hoàn chỉnh:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;base64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;bs4&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BeautifulSoup&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;requests&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;prefix&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://tsdaucap.hanoi.gov.vn/TraCuu/KetQuaTraCuuTuyenSinh10?key=aW5wdXREgBHx5LLwS&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;field_code&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;YXRhPTEz&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;middle_code&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;DsqOznbvq&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;suffix&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;h1D0qxcHiZ0eXBlQ2hlY2s9MDI=&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;index_base64&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;base64&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b64encode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;encode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;decode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;modified_base64&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index_base64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;chr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index_base64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prefix&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;field_code&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;middle_code&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;modified_base64&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;suffix&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;raise_for_status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;html_content&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;soup&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;html_content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;html.parser&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;b_tags&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;soup&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;find_all&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;b&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b_tag&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b_tags&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;#Các thông tin cách nhau bởi dấu &amp;#34;,&amp;#34; để tách ra khi sử dụng csv để lưu trữ&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b_tag&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;,&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exceptions&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RequestException&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Error for index &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;Exception&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;An unexpected error occurred for index &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-14.png&#34;
+	width=&#34;758&#34;
+	height=&#34;458&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-14_hua4b433835199479d0c71257e2201d5a2_45983_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-14_hua4b433835199479d0c71257e2201d5a2_45983_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;397px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tổng-kết&#34;&gt;Tổng kết&lt;/h2&gt;
+&lt;p&gt;Tuy vẫn dựa trên &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=064AT5g6eN0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cách cũ của mình ngày trước&lt;/a&gt; nhưng đối với website này của Sở giáo dục thì đã có phần khó hơn chút ở việc mã hóa các key khiến mình mất thêm thời gian đọc, thống kê và tìm ra quy luật giải mã các key này để chạy crawl dữ liệu điểm thi&lt;/p&gt;
+&lt;p&gt;Mong tương lai Sở mã hóa 1 cách khó hơn để thách thức các ae đi cào hơn :333. Tạm biệt!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-17.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;2192&#34;
+	srcset=&#34;/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-17_hu6f4fae845659dc6ef9f7d4311a625138_3524783_480x0_resize_box_3.png 480w, /p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/image-17_hu6f4fae845659dc6ef9f7d4311a625138_3524783_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;87&#34;
+		data-flex-basis=&#34;210px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

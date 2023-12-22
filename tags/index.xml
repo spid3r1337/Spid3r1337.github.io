@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on Spid3r&#39;s Blog</title>
+        <link>/tags/</link>
+        <description>Recent content in Tags on Spid3r&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Mon, 18 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>reverse</title>
+        <link>/tags/reverse/</link>
+        <pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/reverse/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CTF</title>
+        <link>/tags/ctf/</link>
+        <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/ctf/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>crypto</title>
+        <link>/tags/crypto/</link>
+        <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/crypto/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>misc</title>
+        <link>/tags/misc/</link>
+        <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/misc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pwn</title>
+        <link>/tags/pwn/</link>
+        <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/pwn/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Crawl</title>
+        <link>/tags/crawl/</link>
+        <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/crawl/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>forensics</title>
+        <link>/tags/forensics/</link>
+        <pubDate>Wed, 17 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/forensics/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Bot</title>
+        <link>/tags/bot/</link>
+        <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/bot/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Discord</title>
+        <link>/tags/discord/</link>
+        <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/discord/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CVE</title>
+        <link>/tags/cve/</link>
+        <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/cve/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Security</title>
+        <link>/tags/security/</link>
+        <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/security/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>CTF on Spid3r&#39;s Blog</title>
+        <link>/tags/ctf/</link>
+        <description>Recent content in CTF on Spid3r&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ctf/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cyber SEA Game 2023 | Recap</title>
+        <link>/p/cyber-sea-game-2023-recap/</link>
+        <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/p/cyber-sea-game-2023-recap/</guid>
+        <description>&lt;img src="/p/cyber-sea-game-2023-recap/featured.png" alt="Featured image of post Cyber SEA Game 2023 | Recap" /&gt;&lt;p&gt;Post này chỉ để kể câu chuyện đội mình đi thi Cyber SEA Game 2023 tại Bangkok, Thailand (9-10/11/2023)&lt;/p&gt;
+&lt;h1 id=&#34;cyber-sea-game-2023-bangkok---thailand&#34;&gt;Cyber SEA Game 2023 (Bangkok - Thailand)&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-4.png&#34;
+	width=&#34;2190&#34;
+	height=&#34;1597&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-4_hu8c68abd2bad4fc77f6fc9d24a311e633_5821462_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-4_hu8c68abd2bad4fc77f6fc9d24a311e633_5821462_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;137&#34;
+		data-flex-basis=&#34;329px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tổng-quan-về-cuộc-thi-của-đội-việt-nam&#34;&gt;Tổng quan về cuộc thi của đội Việt Nam&lt;/h2&gt;
+&lt;p&gt;Trong 5 phút đầu tiên, khi team Việt Nam nhận server và tài khoản cũng như thực hiện các thao tác về đổi mật khẩu và kiểm tra, chúng tôi ngạc nhiên khi thấy có tới 6 team khác đã lần lượt submit các chủ đề, nhưng chưa rõ điều gì đã xảy ra.&lt;/p&gt;
+&lt;p&gt;Các thành viên trong đội tự quản lý khối lượng công việc một cách rõ ràng, mặc dù hơi tiếc rằng Huy và Thành, chuyên sâu về Binary và Web Exploitation, lại không có chủ đề nào liên quan đến sở trường của họ. Cụ thể:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Việt Anh đảm nhận &lt;code&gt;Cryptography&lt;/code&gt; và &lt;code&gt;Network&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Hoàng Huy chịu trách nhiệm cho &lt;code&gt;Hacking Challenge 1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Thái Sơn thực hiện các nhiệm vụ &lt;code&gt;OSINT&lt;/code&gt;, &lt;code&gt;Steganography&lt;/code&gt;, &lt;code&gt;Forensic&lt;/code&gt;, &lt;code&gt;Reversing&lt;/code&gt;, và &lt;code&gt;Memory&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Chí Thành đảm nhiệm &lt;code&gt;Hacking Challenge 2&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Chúng tôi cảm thấy áp lực khi đội Singapore thực hiện nhanh chóng và hoàn thành trong thời gian ngắn. Tuy nhiên, RobinHust không nản chí và cố gắng hết mình để hoàn thành các thách thức của mình. Đặc biệt, các thách thức không chỉ đòi hỏi sử dụng các kỹ thuật tấn công cơ bản mà còn đòi hỏi sự sáng tạo và &amp;ldquo;cảm nhận từ giác quan&amp;rdquo; (hay còn gọi 1 cách khác là bruteforce :3):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image.png&#34;
+	width=&#34;500&#34;
+	height=&#34;400&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image_hu2613b2db579ae5d3d85d01f913466686_278177_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image_hu2613b2db579ae5d3d85d01f913466686_278177_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;125&#34;
+		data-flex-basis=&#34;300px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trong bài &lt;code&gt;Flag #03: Cracking a Zip File&lt;/code&gt; của chủ đề &lt;code&gt;Cryptography&lt;/code&gt;, có một yêu cầu là phải giải mã mật khẩu &lt;code&gt;openthesamesenovemberXXXX&lt;/code&gt;, và việc bruteforce 4 ký tự cuối có thể mất một khoảng thời gian (theo lời giải chính thức đến từ BTC). Tuy nhiên, thông qua khả năng suy luận, chúng tôi đã thử nghiệm thành công với 4 ký tự cuối là &lt;code&gt;2023&lt;/code&gt;, giúp quá trình trở nên nhanh chóng và dễ dàng&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hoàng Huy tấn công thành công &lt;code&gt;Hacking Challenge 1&lt;/code&gt;, liên tục vượt qua các thách thức. Team Việt Nam đã thể hiện khả năng xuất sắc trong việc giải quyết thử thách này nhờ đọc kỹ tài liệu từ BTC và thử nghiệm trước.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thái Sơn đã xử lý thành công các thử thách về &lt;code&gt;Steganography&lt;/code&gt;, &lt;code&gt;Memory&lt;/code&gt;, &lt;code&gt;Reversing&lt;/code&gt; và mở các thử thách &lt;code&gt;Forensic&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thành đã chuyển sang hỗ trợ Sơn và Việt Anh trong các thử thách &lt;code&gt;Forensic&lt;/code&gt; và &lt;code&gt;Crypto&lt;/code&gt;, sau đó quay trở lại cùng Hoàng Huy để giải quyết &lt;code&gt;Hacking Challenge 2&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mọi thứ diễn ra mượt mà và suôn sẻ, đội đã hoàn thành toàn bộ các thách thức trong vòng 3 tiếng 30 phút.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trong cuộc thi, hầu hết các đội đều có tỉ lệ submit sai khá lớn cùng 1 lượng thời gian lãng phí quá nhiều vì phải đoán trong thử thách &lt;code&gt;Flag #03 Initial execution&lt;/code&gt; của chủ đề điều tra số &lt;code&gt;Forensic&lt;/code&gt; đưa ra 1 danh sách khá nhiều những flag giả mà chúng tôi phải thử để giải quyết&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-5.png&#34;
+	width=&#34;1381&#34;
+	height=&#34;568&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-5_hu093b01d85f0d6b94ffe6146dcc38bf9a_59012_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-5_hu093b01d85f0d6b94ffe6146dcc38bf9a_59012_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;583px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;phase-1-khởi-đầu-của-cuộc-thi-khoảng-1-tiếng-từ-sau-khi-cuộc-thi-bắt-đầu&#34;&gt;Phase 1: khởi đầu của cuộc thi (Khoảng 1 tiếng từ sau khi cuộc thi bắt đầu)&lt;/h2&gt;
+&lt;p&gt;Đội của chúng tôi khởi đầu không mấy thuận lợi khi trở thành đội chậm nhất trong số 10 đội giải quyết thử thách đầu tiên.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-6.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;559&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-6_hu893ea3014420445cfd18fec3528e2772_222932_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-6_hu893ea3014420445cfd18fec3528e2772_222932_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;325&#34;
+		data-flex-basis=&#34;781px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Các đội khác bắt đầu submit từng thử thách từ 12:00 và đến tận 12:22 team Việt Nam mới submit được challenge đầu của Việt Anh (Thật sự khâm phục các thành viên trong đội vì giữ được sự bình tĩnh đến không ngờ)&lt;/p&gt;
+&lt;p&gt;Sau đó các thành viên lần lượt submit các bài đầu tiên của từng chủ đề (tới lúc này vẫn giữ vị trí cuối bảng do các đội khác đã submit rất nhiều các thử thách khác từ trước đó một lúc)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-2.png&#34;
+	width=&#34;892&#34;
+	height=&#34;283&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-2_hu67758333ccd90867fa52b86671aea235_27318_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-2_hu67758333ccd90867fa52b86671aea235_27318_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;315&#34;
+		data-flex-basis=&#34;756px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;phase-2-mid-game-khoảng-2-tiếng-từ-sau-khi-cuộc-thi-bắt-đầu&#34;&gt;Phase 2: mid game (Khoảng 2 tiếng từ sau khi cuộc thi bắt đầu)&lt;/h2&gt;
+&lt;p&gt;Sau khi bị mắc kẹt ở những thử thách ban đầu, đội của chúng tôi đã khôi phục được phong độ và thành công trong việc giải quyết các thách thức tiếp theo một cách nhanh chóng.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bứt tốc lần 1&lt;/strong&gt;: sau khoảng 30 phút kể từ khi giải được challenge đầu tiên, team đã bứt tốc từ vị trí cuối bảng lên vị trí 6, bị dẫn trước bởi các team Singapore, Malaysia, Thái, Brunei và Myanmar&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-7.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;503&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-7_hu28c1867bb4f21c20780cdfcaf6e5ac16_217633_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-7_hu28c1867bb4f21c20780cdfcaf6e5ac16_217633_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;361&#34;
+		data-flex-basis=&#34;868px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sau hơn một giờ diễn ra cuộc thi, đội Singapore đã gây ấn tượng khi hoàn thành tất cả các thử thách, kèm theo việc lắc chuông mỗi khi &amp;ldquo;clear&amp;rdquo; một chủ đề nào đó. Lúc này, tâm lý của đội chúng tôi có chút &amp;ldquo;sốc&amp;rdquo;, nhưng đã nhanh chóng ổn định tinh thần và tiếp tục vượt qua mọi thách thức.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-8.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;569&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-8_hu104fd973131cd2bcc7e67e8eebcb43db_283170_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-8_hu104fd973131cd2bcc7e67e8eebcb43db_283170_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;319&#34;
+		data-flex-basis=&#34;767px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bứt tốc lần 2&lt;/strong&gt;: Khoảng 1 giờ 45 phút đến 2 giờ sau khi cuộc thi bắt đầu, đội của chúng tôi liên tục giải quyết các thử thách về &lt;code&gt;Crypto&lt;/code&gt;, &lt;code&gt;Hacking Challenge 1&lt;/code&gt; và &lt;code&gt;Forensic&lt;/code&gt;. Việc này giúp đội chúng tôi vượt qua đội Thái Lan, đồng thời chiếm top 3 trên Bảng xếp hạng, chỉ đứng sau đội Singapore và Malaysia.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-9.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;474&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-9_hucfb71be9b083fae39f7cf47ab786a1ec_210567_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-9_hucfb71be9b083fae39f7cf47ab786a1ec_210567_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;383&#34;
+		data-flex-basis=&#34;921px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;phase-3-end-game&#34;&gt;Phase 3: End game&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Bứt tốc lần 3&lt;/strong&gt;: Sau một thời gian dài bế tắc ở các thách thức &lt;code&gt;Forensic&lt;/code&gt; và &lt;code&gt;Hacking Challenge 2&lt;/code&gt; bởi độ guessing của chúng, bằng thiên phú &amp;ldquo;bruteforce&amp;rdquo; của các thành viên, đội của chúng tôi cuối cùng cũng vượt qua khó khăn, giải quyết một lượt toàn bộ các thử thách Forensic (tới lúc này Thái Sơn gần như đã thuộc toàn bộ source của 7 thử thách &lt;code&gt;Forensic&lt;/code&gt; vì luẩn quẩn ở đây quá lâu 🤣)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-10.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;701&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-10_hua0acddcad1c9d04fa0ea08314d524dca_243252_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-10_hua0acddcad1c9d04fa0ea08314d524dca_243252_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;259&#34;
+		data-flex-basis=&#34;623px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Chốt hạ &lt;code&gt;Cyber SEA Game 2023&lt;/code&gt; với Việt Nam là thử thách cuối của &lt;code&gt;Hacking Challenge 2&lt;/code&gt; bằng cú submit của Hoàng Huy. Điều này giúp chúng tôi vượt qua đội Malaysia, trở thành đội thứ hai giải toàn bộ các thử thách, sau gần 4 tiếng đồng hồ.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-11.png&#34;
+	width=&#34;1820&#34;
+	height=&#34;561&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-11_hu78b11554762b5f847b6b89a14a0f3d44_274057_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-11_hu78b11554762b5f847b6b89a14a0f3d44_274057_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;324&#34;
+		data-flex-basis=&#34;778px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;P/s: Sau đó khoảng 1 tiếng thì đội thứ 3 là Team Thailand cũng hoàn thành toàn bộ thử thách và BTC đã có thể định ra 3 đội trao Nhất, Nhì, Ba của toàn giải Cyber SEA Game.&lt;/p&gt;
+&lt;h2 id=&#34;bảng-xếp-hạng&#34;&gt;Bảng xếp hạng&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-12.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;702&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-12_hu81dc5661121b48c4f7ea107e1336e19c_247392_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-12_hu81dc5661121b48c4f7ea107e1336e19c_247392_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;350px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;trao-giải&#34;&gt;Trao Giải&lt;/h2&gt;
+&lt;p&gt;Tuy có chút tiếc nuối về việc không đạt được chiếc cúp vô địch của &lt;strong&gt;Cyber SEA Game&lt;/strong&gt; nhưng &lt;code&gt;Nu_RobinHust&lt;/code&gt; cũng rút ra được bài học rất lớn về việc chuẩn bị kỹ càng mọi thứ trước khi tham gia 1 cuộc thi cũng như sự bình tĩnh khi gặp các khó khăn đột ngột.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cyber-sea-game-2023-recap/image-13.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;683&#34;
+	srcset=&#34;/p/cyber-sea-game-2023-recap/image-13_hub76161efc6f76292563de67e1b107986_1352387_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-13_hub76161efc6f76292563de67e1b107986_1352387_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;149&#34;
+		data-flex-basis=&#34;359px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Đây sẽ là bước tiến rất lớn cho team cũng như Đại học Bách khoa Hà Nội, chúng mình cũng sẽ lấy đó làm kinh nghiệm và động lực để phát triển bản thân mình trong tương lai.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

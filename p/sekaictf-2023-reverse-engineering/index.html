@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Wibu time, this writeup is about the RE challenges I solved in SekaiCTF 2023'>
+<title>SekaiCTF 2023 | Reverse Engineering</title>
+
+<link rel='canonical' href='/p/sekaictf-2023-reverse-engineering/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='SekaiCTF 2023 | Reverse Engineering'>
+<meta property='og:description' content='Wibu time, this writeup is about the RE challenges I solved in SekaiCTF 2023'>
+<meta property='og:url' content='/p/sekaictf-2023-reverse-engineering/'>
+<meta property='og:site_name' content='Spid3r&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Reverse' /><meta property='article:published_time' content='2023-08-27T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-08-27T00:00:00&#43;00:00'/><meta property='og:image' content='/p/sekaictf-2023-reverse-engineering/featured-image.png' />
+<meta name="twitter:title" content="SekaiCTF 2023 | Reverse Engineering">
+<meta name="twitter:description" content="Wibu time, this writeup is about the RE challenges I solved in SekaiCTF 2023"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='/p/sekaictf-2023-reverse-engineering/featured-image.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu00444b9dc497f000ae7c4bf05fddc77b_89774_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👾</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Spid3r&#39;s Blog</a></h1>
+            <h2 class="site-description">I&#39;ll use this site to share writeups of CTFs or post articles related to cybersecurity.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/spid3r1337'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/spid3r1337'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#azusawas-gacha-world">Azusawa’s Gacha World</a>
+      <ol>
+        <li><a href="#challenge-structure-analysis">Challenge structure analysis</a></li>
+        <li><a href="#where-does-the-server-receive-requests">Where does the server receive requests?</a></li>
+        <li><a href="#gacha-time">Gacha time</a></li>
+      </ol>
+    </li>
+    <li><a href="#guardians-of-the-kernel">Guardians of the Kernel</a>
+      <ol>
+        <li><a href="#challenge-analysis">Challenge analysis</a></li>
+        <li><a href="#processing-layer-1">Processing layer 1</a></li>
+        <li><a href="#check-layer-2">Check layer 2</a></li>
+      </ol>
+    </li>
+    <li><a href="#sekaictf-2023---rev-reviews">SekaiCTF 2023 - REV Reviews</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/sekaictf-2023-reverse-engineering/">
+                <img src="/p/sekaictf-2023-reverse-engineering/featured-image_hu53ff5d738f6f6b8e65c2845372b95fb7_671573_800x0_resize_box_3.png"
+                        srcset="/p/sekaictf-2023-reverse-engineering/featured-image_hu53ff5d738f6f6b8e65c2845372b95fb7_671573_800x0_resize_box_3.png 800w, /p/sekaictf-2023-reverse-engineering/featured-image_hu53ff5d738f6f6b8e65c2845372b95fb7_671573_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="410" 
+                        loading="lazy"
+                        alt="Featured image of post SekaiCTF 2023 | Reverse Engineering" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/writeups/" >
+                Writeups
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/sekaictf-2023-reverse-engineering/">SekaiCTF 2023 | Reverse Engineering</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Wibu time, this writeup is about the RE challenges I solved in SekaiCTF 2023
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 27, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Unfortunately, during the tournament, I was tricked into debugging the <code>Teyvat Travel Guide</code> challenge, which led me to go the wrong way and give up while making myself feel like I had no hope (when it was really only at medium level):&lt; and lost. Quite a bit of effort for the <code>Guardians of the Kernel</code> challenge</p>
+<h2 id="azusawas-gacha-world">Azusawa’s Gacha World</h2>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-6.png"
+	width="824"
+	height="463"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-6_huadb66026012aee61489e90ffd35d3fd3_895252_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-6_huadb66026012aee61489e90ffd35d3fd3_895252_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="427px"
+	
+></p>
+<p>Author: enscribe</p>
+<blockquote>
+<p>❖ Note
+The website only contains the challenge description, and is not needed to solve the challenge.</p>
+</blockquote>
+<h3 id="challenge-structure-analysis">Challenge structure analysis</h3>
+<p>In the first challenge, I received a full folder of Sekai&rsquo;s Gacha game (Created by Unity)</p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-7.png"
+	width="641"
+	height="176"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-7_hu46b40fbef6458cf03566633a3c1e9585_13685_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-7_hu46b40fbef6458cf03566633a3c1e9585_13685_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="364"
+		data-flex-basis="874px"
+	
+></p>
+<p>While searching through folders, I found a file named <code>Assembly-CSharp.dll</code></p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-8.png"
+	width="647"
+	height="409"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-8_hu1f2825f2408295befa20604357cc0813_33078_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-8_hu1f2825f2408295befa20604357cc0813_33078_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+></p>
+<p>Knowing it was related to Csharp, I loaded it into DnSpy to get started. Luckily, this file is not too complicated, the information is clear.</p>
+<p><strong>1. Character</strong></p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-9.png"
+	width="393"
+	height="449"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-9_hu788e95ba64d4c24090b756df8a42f579_22398_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-9_hu788e95ba64d4c24090b756df8a42f579_22398_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="87"
+		data-flex-basis="210px"
+	
+></p>
+<p><strong>2. GachaRequest</strong></p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-10.png"
+	width="537"
+	height="404"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-10_hu1e1f8e67f5ab7cccf081938f5c20e496_21572_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-10_hu1e1f8e67f5ab7cccf081938f5c20e496_21572_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="319px"
+	
+></p>
+<p><strong>3. GachaResponse</strong></p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-11.png"
+	width="371"
+	height="179"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-11_huf041df784ef6785b16545645141adbfe_8153_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-11_huf041df784ef6785b16545645141adbfe_8153_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="497px"
+	
+></p>
+<p>Reading these 3 classes, I concluded that when I gacha, I will send the parameters in <code>GachaRequest</code> including <code>crystals</code>, <code>pulls</code> and <code>numPulls</code> to the server and receive <code>GachaResponse</code> containing the class <code>character</code> and which includes <code>flag</code></p>
+<h3 id="where-does-the-server-receive-requests">Where does the server receive requests?</h3>
+<p><strong>4. CreateGachaWebRequest</strong></p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-12.png"
+	width="897"
+	height="338"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-12_hue0cb23a48d866694b60de8daec192d22_45339_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-12_hue0cb23a48d866694b60de8daec192d22_45339_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="265"
+		data-flex-basis="636px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Csharp" data-lang="Csharp"><span class="line"><span class="cl"><span class="c1">// GachaManager</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Token: 0x06000016 RID: 22 RVA: 0x0000259C File Offset: 0x0000079C</span>
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">UnityWebRequest</span> <span class="n">CreateGachaWebRequest</span><span class="p">(</span><span class="kt">string</span> <span class="n">json</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">byte</span><span class="p">[]</span> <span class="n">bytes</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="s">&#34;aHR0cDovLzE3Mi44Ni42NC44OTozMDAwL2dhY2hh&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">UnityWebRequest</span> <span class="n">unityWebRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnityWebRequest</span><span class="p">(</span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">Convert</span><span class="p">.</span><span class="n">FromBase64String</span><span class="p">(</span><span class="n">s</span><span class="p">)),</span> <span class="s">&#34;POST&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">unityWebRequest</span><span class="p">.</span><span class="n">uploadHandler</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UploadHandlerRaw</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">unityWebRequest</span><span class="p">.</span><span class="n">downloadHandler</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DownloadHandlerBuffer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">unityWebRequest</span><span class="p">.</span><span class="n">SetRequestHeader</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="s">&#34;application/json&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">unityWebRequest</span><span class="p">.</span><span class="n">SetRequestHeader</span><span class="p">(</span><span class="s">&#34;User-Agent&#34;</span><span class="p">,</span> <span class="s">&#34;SekaiCTF&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">unityWebRequest</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>aHR0cDovLzE3Mi44Ni42NC44OTozMDAwL2dhY2hh</code> là mã hoá base64 của <code>http://172.86.64.89:3000/gacha</code></p>
+<p>Yah, so I have found a server + some payload setup, here I can solve it with burpsuite or send it via shell :&raquo;, I choose via shell for convenience</p>
+<p>P/s: There is also an option for game-style challs like this: <a class="link" href="https://www.cheatengine.org/"  target="_blank" rel="noopener"
+    >Cheat Engine</a> is quite simple, it can determine the exact address of the objects and modify them (in this writeup I will not mention it because it is not pure REV)</p>
+<h3 id="gacha-time">Gacha time</h3>
+<p>So, based on what I analyze, I can write a shell curl to retrieve data like I&rsquo;m gacha with the example parameters being 1000, 1, 1. (ie I have 1000 diamonds, new spin 1 time and spin 1 more time)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="line"><span class="cl">curl -s -X POST http://172.86.64.89:3000/gacha -d <span class="s1">&#39;{&#34;crystals&#34;:1,&#34;pulls&#34;:1,&#34;numPulls&#34;:1}&#39;</span> -H <span class="s1">&#39;Content-type: application/json&#39;</span> -H <span class="s1">&#39;User-Agent: SekaiCTF&#39;</span> <span class="p">|</span> jq .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/sekaictf-2023-reverse-engineering/image-13.png"
+	width="944"
+	height="349"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-13_hu4b5354799ab74625497e0442aefd8c49_21851_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-13_hu4b5354799ab74625497e0442aefd8c49_21851_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="270"
+		data-flex-basis="649px"
+	
+></p>
+<p>Maybe I still need to open the game to check what the parameters are</p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-14.png"
+	width="1018"
+	height="321"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-14_hu7196c8447623186c3d8312a67e2450b9_677632_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-14_hu7196c8447623186c3d8312a67e2450b9_677632_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="317"
+		data-flex-basis="761px"
+	
+></p>
+<p>Yah, here it is, the chance of winning gacha is 0% and can only be received when spinning 1 million times :)). So it&rsquo;s simple, because the number of spins per request is only between 1 and 10, so setup pulls will be 999999 and numPulls will be 1, and crystals will be set to 1000.</p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-15.png"
+	width="931"
+	height="627"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-15_hue0e4e8490ef21292ace6206d16f14081_105092_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-15_hue0e4e8490ef21292ace6206d16f14081_105092_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="356px"
+	
+></p>
+<p>Put the jumbled part into cyberchef with base64 and convert it to an image</p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-16.png"
+	width="906"
+	height="235"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-16_hua723eca8186c0ac83a62f01246547b3b_149725_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-16_hua723eca8186c0ac83a62f01246547b3b_149725_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="FLAG"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="385"
+		data-flex-basis="925px"
+	
+></p>
+<p><strong>flag: SEKAI{D0N7_73LL_53G4_1_C0P13D_7H31R_G4M3}</strong></p>
+<h2 id="guardians-of-the-kernel">Guardians of the Kernel</h2>
+<p>Author: Iyed</p>
+<blockquote>
+<p>❖ Note
+It’s just a warmup but with another layer which is the kernel.</p>
+</blockquote>
+<h3 id="challenge-analysis">Challenge analysis</h3>
+<p>In this chall, I received an attachment consisting of 2 quite strange files</p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image.png"
+	width="612"
+	height="140"
+	srcset="/p/sekaictf-2023-reverse-engineering/image_hu0d99372959e0fdc6b21f2201612c8e65_9017_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image_hu0d99372959e0fdc6b21f2201612c8e65_9017_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="437"
+		data-flex-basis="1049px"
+	
+></p>
+<p>After researching, I understand that bzImage is a kernel image file that loads and initializes the kernel while booting the system and the <code>.cpio</code> file is like a file system restorer (because it manages data structures and file lists)</p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-1.png"
+	width="674"
+	height="136"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-1_hud0013242e169398cd32ece519c0995ad_26818_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-1_hud0013242e169398cd32ece519c0995ad_26818_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="495"
+		data-flex-basis="1189px"
+	
+></p>
+<p>So I can completely build the kernel image (here I can use qemu), but this build chall is a bit redundant (I don&rsquo;t need debug).</p>
+<p>We an easily run this kernel with the command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="line"><span class="cl">qemu-system-x86_64 -kernel bzImage -initrd initramfs.cpio -nographic   -monitor none   -no-reboot -append <span class="s2">&#34;console=ttyS0&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/sekaictf-2023-reverse-engineering/image-17.png"
+	width="1131"
+	height="856"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-17_huea269103797842fd425ae155639d8a4e_109493_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-17_huea269103797842fd425ae155639d8a4e_109493_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="317px"
+	
+></p>
+<p>Instead, I decompress the files in <code>initramfs.cpio</code> with the command: <code>cpio -idv -F inittramfs.cpio</code></p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-2.png"
+	width="603"
+	height="355"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-2_hu06dab922fad1229933157c810f853e2c_52962_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-2_hu06dab922fad1229933157c810f853e2c_52962_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="169"
+		data-flex-basis="407px"
+	
+></p>
+<p>Notice that there is a file <code>flag_checker.ko</code> (this file contains information about loading modules into the kernel), so maybe I won&rsquo;t need to debug through the kernel anymore, I&rsquo;ll just load it into IDA</p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-3.png"
+	width="389"
+	height="217"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-3_hu10f8554bace8a3e66bcc59138c2db2a5_9832_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-3_hu10f8554bace8a3e66bcc59138c2db2a5_9832_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="179"
+		data-flex-basis="430px"
+	
+></p>
+<p>Great, there is <code>device_ioctl</code> that handles I/O Control, so I exploited this part and bonus</p>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-4.png"
+	width="755"
+	height="714"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-4_huae85e5ee75119553ca2fa1f41a94b855_81808_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-4_huae85e5ee75119553ca2fa1f41a94b855_81808_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="105"
+		data-flex-basis="253px"
+	
+></p>
+<p>The main stream</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kr">__int64</span> <span class="kr">__fastcall</span> <span class="nf">device_ioctl</span><span class="p">(</span><span class="kr">__int64</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">,</span> <span class="kr">__int64</span> <span class="n">a3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">__int64</span> <span class="n">result</span><span class="p">;</span> <span class="c1">// rax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kr">__int8</span> <span class="o">*</span><span class="n">v6</span><span class="p">;</span> <span class="c1">// rax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">v7</span><span class="p">;</span> <span class="c1">// edx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">v8</span><span class="p">;</span> <span class="c1">// eax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">v9</span><span class="p">;</span> <span class="c1">// eax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">__int64</span> <span class="n">v10</span><span class="p">;</span> <span class="c1">// rdx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="n">a2</span> <span class="o">==</span> <span class="mi">28673</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">copy_from_user</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="mi">7LL</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">buffer</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">v6</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kr">__int8</span><span class="p">)(</span><span class="o">*</span><span class="n">v6</span> <span class="o">-</span> <span class="mi">48</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">9u</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">==</span> <span class="o">++</span><span class="n">v6</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">v7</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="nf">__ROL4__</span><span class="p">(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="nf">__ROR4__</span><span class="p">(</span><span class="mi">422871738</span> <span class="o">*</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="mi">11</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">v8</span> <span class="o">=</span> <span class="nf">__ROR4__</span><span class="p">(</span><span class="mi">422871738</span> <span class="o">*</span> <span class="p">((</span><span class="n">buffer</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="mi">15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">v9</span> <span class="o">=</span> <span class="mi">1984242169</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="p">((</span><span class="n">v7</span> <span class="o">+</span> <span class="mi">1204333666</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">v8</span><span class="p">)</span> <span class="o">^</span> <span class="mi">7</span> <span class="o">^</span> <span class="p">(((</span><span class="n">v7</span> <span class="o">+</span> <span class="mi">1204333666</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">v8</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span> <span class="p">(((</span><span class="o">-</span><span class="mi">1817436554</span> <span class="o">*</span> <span class="p">((</span><span class="n">v9</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">^</span> <span class="n">v9</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">-</span><span class="mi">1817436554</span> <span class="o">*</span> <span class="p">((</span><span class="n">v9</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">^</span> <span class="n">v9</span><span class="p">)))</span> <span class="o">!=</span> <span class="mi">261736481</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="nf">device_ioctl_cold</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">14LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="n">a2</span> <span class="o">==</span> <span class="mi">28674</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">layers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v10</span> <span class="o">=</span> <span class="nf">copy_from_user</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="mi">12LL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">v10</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">do</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">buffer</span><span class="p">[</span><span class="n">v10</span><span class="p">]</span> <span class="o">+=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">v10</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="o">~</span><span class="p">(</span><span class="n">_BYTE</span><span class="p">)</span><span class="n">v10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">++</span><span class="n">v10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span> <span class="n">v10</span> <span class="o">!=</span> <span class="mi">12</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span> <span class="o">*</span><span class="p">(</span><span class="n">_QWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span> <span class="o">!=</span> <span class="mh">0x788C88B91D88AF0ELL</span> <span class="o">||</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2113081836</span> <span class="o">||</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">printk</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unk_2EB</span><span class="p">,</span> <span class="n">a3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">1LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">14LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="n">a2</span> <span class="o">!=</span> <span class="mi">28672</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printk</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unk_302</span><span class="p">,</span> <span class="n">a3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="nf">copy_from_user</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="mi">6LL</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">14LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span> <span class="o">!=</span> <span class="mi">1095451987</span> <span class="o">||</span> <span class="o">*</span><span class="p">(</span><span class="n">_WORD</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">31561</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printk</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unk_2B6</span><span class="p">,</span> <span class="n">a3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">result</span> <span class="o">=</span> <span class="mi">1LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As in the text view, we can see that the format of the flag is <code>SEKAI{</code>, then that is the end of the stream &lt;&ndash; Change the value from dec to char for clearer display</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span> <span class="o">!=</span> <span class="err">&#39;</span><span class="n">AKES</span><span class="err">&#39;</span> <span class="o">||</span> <span class="o">*</span><span class="p">(</span><span class="n">_WORD</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">!=</span> <span class="err">&#39;</span><span class="p">{</span><span class="n">I</span><span class="err">&#39;</span> <span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="processing-layer-1">Processing layer 1</h3>
+<p>Maybe this is the part that takes up all my time during the tournament :)))), being lazy should be punished by God :(</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">copy_from_user</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="mi">7LL</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">buffer</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">v6</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kr">__int8</span><span class="p">)(</span><span class="o">*</span><span class="n">v6</span> <span class="o">-</span> <span class="mi">48</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">9u</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">==</span> <span class="o">++</span><span class="n">v6</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">v7</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="nf">__ROL4__</span><span class="p">(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="nf">__ROR4__</span><span class="p">(</span><span class="mi">422871738</span> <span class="o">*</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="mi">11</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">v8</span> <span class="o">=</span> <span class="nf">__ROR4__</span><span class="p">(</span><span class="mi">422871738</span> <span class="o">*</span> <span class="p">((</span><span class="n">buffer</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="mi">15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">v9</span> <span class="o">=</span> <span class="mi">1984242169</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="p">((</span><span class="n">v7</span> <span class="o">+</span> <span class="mi">1204333666</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">v8</span><span class="p">)</span> <span class="o">^</span> <span class="mi">7</span> <span class="o">^</span> <span class="p">(((</span><span class="n">v7</span> <span class="o">+</span> <span class="mi">1204333666</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">v8</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span> <span class="p">(((</span><span class="o">-</span><span class="mi">1817436554</span> <span class="o">*</span> <span class="p">((</span><span class="n">v9</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">^</span> <span class="n">v9</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">-</span><span class="mi">1817436554</span> <span class="o">*</span> <span class="p">((</span><span class="n">v9</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">^</span> <span class="n">v9</span><span class="p">)))</span> <span class="o">!=</span> <span class="mi">261736481</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="nf">device_ioctl_cold</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After writing a lot of failed solutions using rev, I switched to bruteforce.</p>
+<p>It can be seen that layer 1 contains 7 chars, the algorithm is a bit complicated (and still confused between signed and unsigned type), so I will bruteforce this quickly (actually, while thinking about how to write bruteforce, I can finish the third rev challenge 🐧)</p>
+<p>script bruteforce:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">__ROL4__</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">bits</span><span class="p">,</span> <span class="n">bit_size</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;&lt;</span> <span class="n">bits</span> <span class="o">%</span> <span class="n">bit_size</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">bit_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">val</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">bit_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="n">bit_size</span> <span class="o">-</span> <span class="p">(</span><span class="n">bits</span> <span class="o">%</span> <span class="n">bit_size</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">__ROR4__</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">bits</span><span class="p">,</span> <span class="n">bit_size</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">((</span><span class="n">val</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">bit_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">bits</span> <span class="o">%</span> <span class="n">bit_size</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">bit_size</span> <span class="o">-</span> <span class="p">(</span><span class="n">bits</span> <span class="o">%</span> <span class="n">bit_size</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">bit_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">f</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="n">tmp</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">v7</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">__ROL4__</span><span class="p">(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">__ROR4__</span><span class="p">(</span><span class="mi">422871738</span> <span class="o">*</span> <span class="n">tmp</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="mi">11</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">v8</span> <span class="o">=</span> <span class="n">__ROR4__</span><span class="p">(</span><span class="mi">422871738</span> <span class="o">*</span> <span class="p">((</span><span class="n">f</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="n">f</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="mi">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">v9</span> <span class="o">=</span> <span class="mi">1984242169</span> <span class="o">*</span> <span class="p">(((</span><span class="n">v7</span> <span class="o">+</span> <span class="mh">0x47C8AC62</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">v8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">)</span> <span class="o">^</span> <span class="mi">7</span> <span class="o">^</span> <span class="p">((((</span><span class="n">v7</span> <span class="o">+</span> <span class="mh">0x47C8AC62</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">v8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">v9</span> <span class="o">&amp;=</span> <span class="mh">0xFFFFFFFF</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">((((</span><span class="mi">2477530742</span> <span class="o">*</span> <span class="p">((</span><span class="n">v9</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">^</span> <span class="n">v9</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="mi">2477530742</span> <span class="o">*</span> <span class="p">((</span><span class="n">v9</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">^</span> <span class="n">v9</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">))</span> <span class="o">==</span> <span class="mi">261736481</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>&ndash;&gt; <code>6001337</code></p>
+<p>The solution other with z3 makes me bitter</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">buffer</span> <span class="o">=</span> <span class="p">[</span><span class="n">BitVec</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">_buffer</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[:]</span>
+</span></span><span class="line"><span class="cl"><span class="n">buffer</span> <span class="o">=</span> <span class="p">[</span><span class="n">ZeroExt</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">buffer</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">v8</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">RotateLeft</span><span class="p">(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">RotateRight</span><span class="p">(</span><span class="mi">422871738</span> <span class="o">*</span> <span class="n">Concat</span><span class="p">(</span><span class="o">*</span><span class="n">_buffer</span><span class="p">[:</span><span class="mi">4</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">15</span><span class="p">),</span> <span class="mi">11</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">v9</span> <span class="o">=</span> <span class="n">RotateRight</span><span class="p">(</span><span class="mi">422871738</span> <span class="o">*</span> <span class="p">((</span><span class="n">buffer</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="mi">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">v10</span> <span class="o">=</span> <span class="mi">1984242169</span> <span class="o">*</span> <span class="p">((</span><span class="n">v8</span> <span class="o">+</span> <span class="mi">1204333666</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">v9</span><span class="p">)</span> <span class="o">^</span> <span class="mi">7</span> <span class="o">^</span> <span class="n">LShR</span><span class="p">((</span><span class="n">v8</span> <span class="o">+</span> <span class="mi">1204333666</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="mi">1507359807</span> <span class="o">*</span> <span class="n">v9</span><span class="p">),</span> <span class="mi">16</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">([</span><span class="n">And</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mh">0x30</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mh">0x39</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_buffer</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">shr13</span> <span class="o">=</span> <span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">v10</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span> <span class="o">^</span> <span class="n">v10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">LShR</span><span class="p">((</span><span class="o">-</span><span class="mi">1817436554</span> <span class="o">*</span> <span class="n">shr13</span><span class="p">),</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">-</span><span class="mi">1817436554</span> <span class="o">*</span> <span class="n">shr13</span><span class="p">))</span> <span class="o">==</span> <span class="mi">261736481</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">s</span><span class="o">.</span><span class="n">model</span><span class="p">()[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">as_long</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_buffer</span><span class="p">]))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="check-layer-2">Check layer 2</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">v10</span> <span class="o">=</span> <span class="nf">copy_from_user</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="mi">12LL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">v10</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">buffer</span><span class="p">[</span><span class="n">v10</span><span class="p">]</span> <span class="o">+=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">v10</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="o">~</span><span class="p">(</span><span class="n">_BYTE</span><span class="p">)</span><span class="n">v10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">++</span><span class="n">v10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span> <span class="n">v10</span> <span class="o">!=</span> <span class="mi">12</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="o">*</span><span class="p">(</span><span class="n">_QWORD</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span> <span class="o">!=</span> <span class="mh">0x788C88B91D88AF0ELL</span> <span class="o">||</span> <span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2113081836</span> <span class="o">||</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printk</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unk_2EB</span><span class="p">,</span> <span class="n">a3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">1LL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Layer 2, although it has 12 char, is easier to solve. Here, we will have 1 more hint to make solving easier, that the last character will be &ldquo;}&rdquo; :&gt;</p>
+<p>There are also other conditions:</p>
+<ul>
+<li>buffer[i] += buffer[i + 1] * ~(_BYTE)v10; (i from 0 to 12)</li>
+<li>buffer[12] = 0 so buffer[11] = &lsquo;}&rsquo;</li>
+</ul>
+<p>Based on this, I can build the code through z3:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solve_buffer</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">buffer</span> <span class="o">=</span> <span class="p">[</span><span class="n">BitVec</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">buffer_</span> <span class="o">=</span> <span class="p">[</span><span class="n">BitVec</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">buffer_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">buffer</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="o">~</span><span class="n">BitVecVal</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">And</span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mh">0x20</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0x7e</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Concat</span><span class="p">(</span><span class="n">buffer_</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mh">0x788C88B91D88AF0E</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Concat</span><span class="p">(</span><span class="n">buffer_</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">buffer_</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2113081836</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">check</span><span class="p">()</span> <span class="o">==</span> <span class="n">sat</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]])))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">solve_buffer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">result</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>&ndash;&gt; <code>SEKAIPL@YER}</code></p>
+<p><strong>flag: SEKAI{6001337SEKAIPL@YER}</strong></p>
+<h2 id="sekaictf-2023---rev-reviews">SekaiCTF 2023 - REV Reviews</h2>
+<ol>
+<li>The reverse challenges of SekaiCTF are diverse, new + extremely difficult</li>
+<li>If I let myself play only one topic, I&rsquo;ll probably cry, so I should play a few more to keep rank :&lt;</li>
+<li>The most unfortunate thing about this tournament is probably not re3 but the lack of pwn1 (wasting too much time doing pwn2), that&rsquo;s all, stopping at top xx/981 is good, next year I will take revenge: &gt;</li>
+</ol>
+<p><img src="/p/sekaictf-2023-reverse-engineering/image-5.png"
+	width="688"
+	height="156"
+	srcset="/p/sekaictf-2023-reverse-engineering/image-5_hu8d7af87462168aa5dfb3b682ab6d253e_11028_480x0_resize_box_3.png 480w, /p/sekaictf-2023-reverse-engineering/image-5_hu8d7af87462168aa5dfb3b682ab6d253e_11028_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="441"
+		data-flex-basis="1058px"
+	
+></p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/reverse/">reverse</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed By Spid3r</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/corctf-2022-reverse-engineering/">
+        
+        
+            <div class="article-image">
+                <img src="/p/corctf-2022-reverse-engineering/featured-image.2fd80d1927dfc258bd0f81de82ee6e33_huc527355a429b7d0660ac9e16fd98331c_24593_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post CorCTF 2022 | Reverse Engineering"
+                        
+                        data-hash="md5-L9gNGSffwli9D4Hegu5uMw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CorCTF 2022 | Reverse Engineering</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/wargame-whitehat-11-writeups/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Wargame Whitehat 11 | Writeups</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/backdoor-ctf-2023-reverse-engineering/">
+        
+        
+            <div class="article-image">
+                <img src="/p/backdoor-ctf-2023-reverse-engineering/featured.86b1b3b583da13a095d641e51cb99e82_hu1633d773772b68a8a46d663a367faa24_195597_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Backdoor CTF 2023 | Reverse Engineering"
+                        
+                        data-hash="md5-hrGztYPaE6CV1kHlHLmegg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Backdoor CTF 2023 | Reverse Engineering</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/buckeye-ctf-2023-writeups/">
+        
+        
+            <div class="article-image">
+                <img src="/p/buckeye-ctf-2023-writeups/featured-image.27a5aed6c10513bcfb9164509564e319_hu5fad3dab004c0aa4880db40f68baffb0_36302_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Buckeye CTF 2023 | Writeups"
+                        
+                        data-hash="md5-J6Wu1sEFE7z7kWRQlWTjGQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Buckeye CTF 2023 | Writeups</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/umdctf-2023-digital-forensics/">
+        
+        
+            <div class="article-image">
+                <img src="/p/umdctf-2023-digital-forensics/featured.2a8aa883bb482dd1d5f4b41b8414809b_hu521915a03207d3ded912c6c781e96e24_122168_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post UMDCTF 2023 | Digital Forensics"
+                        
+                        data-hash="md5-Koqog7tILdHV9LQbhBSAmw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">UMDCTF 2023 | Digital Forensics</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 Spid3r&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

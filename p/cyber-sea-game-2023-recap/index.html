@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Post này chỉ để kể câu chuyện đội mình đi thi Cyber SEA Game 2023 tại Bangkok, Thailand (9-10/11/2023)'>
+<title>Cyber SEA Game 2023 | Recap</title>
+
+<link rel='canonical' href='/p/cyber-sea-game-2023-recap/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='Cyber SEA Game 2023 | Recap'>
+<meta property='og:description' content='Post này chỉ để kể câu chuyện đội mình đi thi Cyber SEA Game 2023 tại Bangkok, Thailand (9-10/11/2023)'>
+<meta property='og:url' content='/p/cyber-sea-game-2023-recap/'>
+<meta property='og:site_name' content='Spid3r&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:published_time' content='2023-11-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-11-10T00:00:00&#43;00:00'/><meta property='og:image' content='/p/cyber-sea-game-2023-recap/featured.png' />
+<meta name="twitter:title" content="Cyber SEA Game 2023 | Recap">
+<meta name="twitter:description" content="Post này chỉ để kể câu chuyện đội mình đi thi Cyber SEA Game 2023 tại Bangkok, Thailand (9-10/11/2023)"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='/p/cyber-sea-game-2023-recap/featured.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu00444b9dc497f000ae7c4bf05fddc77b_89774_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👾</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Spid3r&#39;s Blog</a></h1>
+            <h2 class="site-description">I&#39;ll use this site to share writeups of CTFs or post articles related to cybersecurity.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/spid3r1337'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/spid3r1337'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#tổng-quan-về-cuộc-thi-của-đội-việt-nam">Tổng quan về cuộc thi của đội Việt Nam</a></li>
+    <li><a href="#phase-1-khởi-đầu-của-cuộc-thi-khoảng-1-tiếng-từ-sau-khi-cuộc-thi-bắt-đầu">Phase 1: khởi đầu của cuộc thi (Khoảng 1 tiếng từ sau khi cuộc thi bắt đầu)</a></li>
+    <li><a href="#phase-2-mid-game-khoảng-2-tiếng-từ-sau-khi-cuộc-thi-bắt-đầu">Phase 2: mid game (Khoảng 2 tiếng từ sau khi cuộc thi bắt đầu)</a></li>
+    <li><a href="#phase-3-end-game">Phase 3: End game</a></li>
+    <li><a href="#bảng-xếp-hạng">Bảng xếp hạng</a></li>
+    <li><a href="#trao-giải">Trao Giải</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/cyber-sea-game-2023-recap/">
+                <img src="/p/cyber-sea-game-2023-recap/featured_hu59a906ccfb75fefec7be147e7f623c55_262995_800x0_resize_box_3.png"
+                        srcset="/p/cyber-sea-game-2023-recap/featured_hu59a906ccfb75fefec7be147e7f623c55_262995_800x0_resize_box_3.png 800w, /p/cyber-sea-game-2023-recap/featured_hu59a906ccfb75fefec7be147e7f623c55_262995_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="448" 
+                        loading="lazy"
+                        alt="Featured image of post Cyber SEA Game 2023 | Recap" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/story/" >
+                Story
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/cyber-sea-game-2023-recap/">Cyber SEA Game 2023 | Recap</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Post này chỉ để kể câu chuyện đội mình đi thi Cyber SEA Game 2023 tại Bangkok, Thailand (9-10/11/2023)
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 10, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Post này chỉ để kể câu chuyện đội mình đi thi Cyber SEA Game 2023 tại Bangkok, Thailand (9-10/11/2023)</p>
+<h1 id="cyber-sea-game-2023-bangkok---thailand">Cyber SEA Game 2023 (Bangkok - Thailand)</h1>
+<p><img src="/p/cyber-sea-game-2023-recap/image-4.png"
+	width="2190"
+	height="1597"
+	srcset="/p/cyber-sea-game-2023-recap/image-4_hu8c68abd2bad4fc77f6fc9d24a311e633_5821462_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-4_hu8c68abd2bad4fc77f6fc9d24a311e633_5821462_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="137"
+		data-flex-basis="329px"
+	
+></p>
+<h2 id="tổng-quan-về-cuộc-thi-của-đội-việt-nam">Tổng quan về cuộc thi của đội Việt Nam</h2>
+<p>Trong 5 phút đầu tiên, khi team Việt Nam nhận server và tài khoản cũng như thực hiện các thao tác về đổi mật khẩu và kiểm tra, chúng tôi ngạc nhiên khi thấy có tới 6 team khác đã lần lượt submit các chủ đề, nhưng chưa rõ điều gì đã xảy ra.</p>
+<p>Các thành viên trong đội tự quản lý khối lượng công việc một cách rõ ràng, mặc dù hơi tiếc rằng Huy và Thành, chuyên sâu về Binary và Web Exploitation, lại không có chủ đề nào liên quan đến sở trường của họ. Cụ thể:</p>
+<ul>
+<li>Việt Anh đảm nhận <code>Cryptography</code> và <code>Network</code></li>
+<li>Hoàng Huy chịu trách nhiệm cho <code>Hacking Challenge 1</code></li>
+<li>Thái Sơn thực hiện các nhiệm vụ <code>OSINT</code>, <code>Steganography</code>, <code>Forensic</code>, <code>Reversing</code>, và <code>Memory</code></li>
+<li>Chí Thành đảm nhiệm <code>Hacking Challenge 2</code>.</li>
+</ul>
+<p>Chúng tôi cảm thấy áp lực khi đội Singapore thực hiện nhanh chóng và hoàn thành trong thời gian ngắn. Tuy nhiên, RobinHust không nản chí và cố gắng hết mình để hoàn thành các thách thức của mình. Đặc biệt, các thách thức không chỉ đòi hỏi sử dụng các kỹ thuật tấn công cơ bản mà còn đòi hỏi sự sáng tạo và &ldquo;cảm nhận từ giác quan&rdquo; (hay còn gọi 1 cách khác là bruteforce :3):</p>
+<ul>
+<li>
+<p><img src="/p/cyber-sea-game-2023-recap/image.png"
+	width="500"
+	height="400"
+	srcset="/p/cyber-sea-game-2023-recap/image_hu2613b2db579ae5d3d85d01f913466686_278177_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image_hu2613b2db579ae5d3d85d01f913466686_278177_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="125"
+		data-flex-basis="300px"
+	
+></p>
+</li>
+<li>
+<p>Trong bài <code>Flag #03: Cracking a Zip File</code> của chủ đề <code>Cryptography</code>, có một yêu cầu là phải giải mã mật khẩu <code>openthesamesenovemberXXXX</code>, và việc bruteforce 4 ký tự cuối có thể mất một khoảng thời gian (theo lời giải chính thức đến từ BTC). Tuy nhiên, thông qua khả năng suy luận, chúng tôi đã thử nghiệm thành công với 4 ký tự cuối là <code>2023</code>, giúp quá trình trở nên nhanh chóng và dễ dàng</p>
+</li>
+<li>
+<p>Hoàng Huy tấn công thành công <code>Hacking Challenge 1</code>, liên tục vượt qua các thách thức. Team Việt Nam đã thể hiện khả năng xuất sắc trong việc giải quyết thử thách này nhờ đọc kỹ tài liệu từ BTC và thử nghiệm trước.</p>
+</li>
+<li>
+<p>Thái Sơn đã xử lý thành công các thử thách về <code>Steganography</code>, <code>Memory</code>, <code>Reversing</code> và mở các thử thách <code>Forensic</code>.</p>
+</li>
+<li>
+<p>Thành đã chuyển sang hỗ trợ Sơn và Việt Anh trong các thử thách <code>Forensic</code> và <code>Crypto</code>, sau đó quay trở lại cùng Hoàng Huy để giải quyết <code>Hacking Challenge 2</code>.</p>
+</li>
+<li>
+<p>Mọi thứ diễn ra mượt mà và suôn sẻ, đội đã hoàn thành toàn bộ các thách thức trong vòng 3 tiếng 30 phút.</p>
+</li>
+<li>
+<p>Trong cuộc thi, hầu hết các đội đều có tỉ lệ submit sai khá lớn cùng 1 lượng thời gian lãng phí quá nhiều vì phải đoán trong thử thách <code>Flag #03 Initial execution</code> của chủ đề điều tra số <code>Forensic</code> đưa ra 1 danh sách khá nhiều những flag giả mà chúng tôi phải thử để giải quyết</p>
+</li>
+</ul>
+<p><img src="/p/cyber-sea-game-2023-recap/image-5.png"
+	width="1381"
+	height="568"
+	srcset="/p/cyber-sea-game-2023-recap/image-5_hu093b01d85f0d6b94ffe6146dcc38bf9a_59012_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-5_hu093b01d85f0d6b94ffe6146dcc38bf9a_59012_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="243"
+		data-flex-basis="583px"
+	
+></p>
+<h2 id="phase-1-khởi-đầu-của-cuộc-thi-khoảng-1-tiếng-từ-sau-khi-cuộc-thi-bắt-đầu">Phase 1: khởi đầu của cuộc thi (Khoảng 1 tiếng từ sau khi cuộc thi bắt đầu)</h2>
+<p>Đội của chúng tôi khởi đầu không mấy thuận lợi khi trở thành đội chậm nhất trong số 10 đội giải quyết thử thách đầu tiên.</p>
+<p><img src="/p/cyber-sea-game-2023-recap/image-6.png"
+	width="1820"
+	height="559"
+	srcset="/p/cyber-sea-game-2023-recap/image-6_hu893ea3014420445cfd18fec3528e2772_222932_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-6_hu893ea3014420445cfd18fec3528e2772_222932_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="325"
+		data-flex-basis="781px"
+	
+></p>
+<p>Các đội khác bắt đầu submit từng thử thách từ 12:00 và đến tận 12:22 team Việt Nam mới submit được challenge đầu của Việt Anh (Thật sự khâm phục các thành viên trong đội vì giữ được sự bình tĩnh đến không ngờ)</p>
+<p>Sau đó các thành viên lần lượt submit các bài đầu tiên của từng chủ đề (tới lúc này vẫn giữ vị trí cuối bảng do các đội khác đã submit rất nhiều các thử thách khác từ trước đó một lúc)</p>
+<p><img src="/p/cyber-sea-game-2023-recap/image-2.png"
+	width="892"
+	height="283"
+	srcset="/p/cyber-sea-game-2023-recap/image-2_hu67758333ccd90867fa52b86671aea235_27318_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-2_hu67758333ccd90867fa52b86671aea235_27318_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="315"
+		data-flex-basis="756px"
+	
+></p>
+<h2 id="phase-2-mid-game-khoảng-2-tiếng-từ-sau-khi-cuộc-thi-bắt-đầu">Phase 2: mid game (Khoảng 2 tiếng từ sau khi cuộc thi bắt đầu)</h2>
+<p>Sau khi bị mắc kẹt ở những thử thách ban đầu, đội của chúng tôi đã khôi phục được phong độ và thành công trong việc giải quyết các thách thức tiếp theo một cách nhanh chóng.</p>
+<p><strong>Bứt tốc lần 1</strong>: sau khoảng 30 phút kể từ khi giải được challenge đầu tiên, team đã bứt tốc từ vị trí cuối bảng lên vị trí 6, bị dẫn trước bởi các team Singapore, Malaysia, Thái, Brunei và Myanmar</p>
+<p><img src="/p/cyber-sea-game-2023-recap/image-7.png"
+	width="1820"
+	height="503"
+	srcset="/p/cyber-sea-game-2023-recap/image-7_hu28c1867bb4f21c20780cdfcaf6e5ac16_217633_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-7_hu28c1867bb4f21c20780cdfcaf6e5ac16_217633_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="361"
+		data-flex-basis="868px"
+	
+></p>
+<p>Sau hơn một giờ diễn ra cuộc thi, đội Singapore đã gây ấn tượng khi hoàn thành tất cả các thử thách, kèm theo việc lắc chuông mỗi khi &ldquo;clear&rdquo; một chủ đề nào đó. Lúc này, tâm lý của đội chúng tôi có chút &ldquo;sốc&rdquo;, nhưng đã nhanh chóng ổn định tinh thần và tiếp tục vượt qua mọi thách thức.</p>
+<p><img src="/p/cyber-sea-game-2023-recap/image-8.png"
+	width="1820"
+	height="569"
+	srcset="/p/cyber-sea-game-2023-recap/image-8_hu104fd973131cd2bcc7e67e8eebcb43db_283170_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-8_hu104fd973131cd2bcc7e67e8eebcb43db_283170_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="319"
+		data-flex-basis="767px"
+	
+></p>
+<p><strong>Bứt tốc lần 2</strong>: Khoảng 1 giờ 45 phút đến 2 giờ sau khi cuộc thi bắt đầu, đội của chúng tôi liên tục giải quyết các thử thách về <code>Crypto</code>, <code>Hacking Challenge 1</code> và <code>Forensic</code>. Việc này giúp đội chúng tôi vượt qua đội Thái Lan, đồng thời chiếm top 3 trên Bảng xếp hạng, chỉ đứng sau đội Singapore và Malaysia.</p>
+<p><img src="/p/cyber-sea-game-2023-recap/image-9.png"
+	width="1820"
+	height="474"
+	srcset="/p/cyber-sea-game-2023-recap/image-9_hucfb71be9b083fae39f7cf47ab786a1ec_210567_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-9_hucfb71be9b083fae39f7cf47ab786a1ec_210567_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="383"
+		data-flex-basis="921px"
+	
+></p>
+<h2 id="phase-3-end-game">Phase 3: End game</h2>
+<p><strong>Bứt tốc lần 3</strong>: Sau một thời gian dài bế tắc ở các thách thức <code>Forensic</code> và <code>Hacking Challenge 2</code> bởi độ guessing của chúng, bằng thiên phú &ldquo;bruteforce&rdquo; của các thành viên, đội của chúng tôi cuối cùng cũng vượt qua khó khăn, giải quyết một lượt toàn bộ các thử thách Forensic (tới lúc này Thái Sơn gần như đã thuộc toàn bộ source của 7 thử thách <code>Forensic</code> vì luẩn quẩn ở đây quá lâu 🤣)</p>
+<p><img src="/p/cyber-sea-game-2023-recap/image-10.png"
+	width="1820"
+	height="701"
+	srcset="/p/cyber-sea-game-2023-recap/image-10_hua0acddcad1c9d04fa0ea08314d524dca_243252_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-10_hua0acddcad1c9d04fa0ea08314d524dca_243252_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="259"
+		data-flex-basis="623px"
+	
+></p>
+<p>Chốt hạ <code>Cyber SEA Game 2023</code> với Việt Nam là thử thách cuối của <code>Hacking Challenge 2</code> bằng cú submit của Hoàng Huy. Điều này giúp chúng tôi vượt qua đội Malaysia, trở thành đội thứ hai giải toàn bộ các thử thách, sau gần 4 tiếng đồng hồ.</p>
+<p><img src="/p/cyber-sea-game-2023-recap/image-11.png"
+	width="1820"
+	height="561"
+	srcset="/p/cyber-sea-game-2023-recap/image-11_hu78b11554762b5f847b6b89a14a0f3d44_274057_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-11_hu78b11554762b5f847b6b89a14a0f3d44_274057_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="324"
+		data-flex-basis="778px"
+	
+></p>
+<p>P/s: Sau đó khoảng 1 tiếng thì đội thứ 3 là Team Thailand cũng hoàn thành toàn bộ thử thách và BTC đã có thể định ra 3 đội trao Nhất, Nhì, Ba của toàn giải Cyber SEA Game.</p>
+<h2 id="bảng-xếp-hạng">Bảng xếp hạng</h2>
+<p><img src="/p/cyber-sea-game-2023-recap/image-12.png"
+	width="1024"
+	height="702"
+	srcset="/p/cyber-sea-game-2023-recap/image-12_hu81dc5661121b48c4f7ea107e1336e19c_247392_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-12_hu81dc5661121b48c4f7ea107e1336e19c_247392_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="350px"
+	
+></p>
+<h2 id="trao-giải">Trao Giải</h2>
+<p>Tuy có chút tiếc nuối về việc không đạt được chiếc cúp vô địch của <strong>Cyber SEA Game</strong> nhưng <code>Nu_RobinHust</code> cũng rút ra được bài học rất lớn về việc chuẩn bị kỹ càng mọi thứ trước khi tham gia 1 cuộc thi cũng như sự bình tĩnh khi gặp các khó khăn đột ngột.</p>
+<p><img src="/p/cyber-sea-game-2023-recap/image-13.png"
+	width="1024"
+	height="683"
+	srcset="/p/cyber-sea-game-2023-recap/image-13_hub76161efc6f76292563de67e1b107986_1352387_480x0_resize_box_3.png 480w, /p/cyber-sea-game-2023-recap/image-13_hub76161efc6f76292563de67e1b107986_1352387_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="149"
+		data-flex-basis="359px"
+	
+></p>
+<p>Đây sẽ là bước tiến rất lớn cho team cũng như Đại học Bách khoa Hà Nội, chúng mình cũng sẽ lấy đó làm kinh nghiệm và động lực để phát triển bản thân mình trong tương lai.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ctf/">CTF</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed By Spid3r</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/">
+        
+        
+            <div class="article-image">
+                <img src="/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/featured-image.3279a5947f22652e3ae9ab4fb262176b_hu9606a149dde0434114ff29c189625cf2_909641_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Câu chuyện cào điểm thi Hà Nội đầy gian nan"
+                        
+                        data-hash="md5-MnmllH8iZS466atPsmIXaw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Câu chuyện cào điểm thi Hà Nội đầy gian nan</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 Spid3r&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

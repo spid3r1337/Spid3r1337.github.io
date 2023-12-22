@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Writeups một số challenge mình giải được trong thời gian giải diễn ra'>
+<title>Wargame Whitehat 11 | Writeups</title>
+
+<link rel='canonical' href='/p/wargame-whitehat-11-writeups/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='Wargame Whitehat 11 | Writeups'>
+<meta property='og:description' content='Writeups một số challenge mình giải được trong thời gian giải diễn ra'>
+<meta property='og:url' content='/p/wargame-whitehat-11-writeups/'>
+<meta property='og:site_name' content='Spid3r&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Reverse' /><meta property='article:tag' content='crypto' /><meta property='article:tag' content='misc' /><meta property='article:tag' content='forensics' /><meta property='article:published_time' content='2022-07-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-01T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Wargame Whitehat 11 | Writeups">
+<meta name="twitter:description" content="Writeups một số challenge mình giải được trong thời gian giải diễn ra">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu00444b9dc497f000ae7c4bf05fddc77b_89774_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👾</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Spid3r&#39;s Blog</a></h1>
+            <h2 class="site-description">I&#39;ll use this site to share writeups of CTFs or post articles related to cybersecurity.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/spid3r1337'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/spid3r1337'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#misc">MISC</a>
+      <ol>
+        <li><a href="#discord-check">Discord check</a></li>
+        <li><a href="#audio">Audio</a></li>
+      </ol>
+    </li>
+    <li><a href="#reverse-engineering">REVERSE ENGINEERING</a>
+      <ol>
+        <li><a href="#whitehatplay11v1">WhiteHatPlay11v1</a></li>
+        <li><a href="#whitehatplay11v2">WhiteHatPlay11v2</a></li>
+        <li><a href="#startr3">startr3</a></li>
+        <li><a href="#baby-re">Baby RE</a></li>
+        <li><a href="#flagcheck">flagcheck</a></li>
+      </ol>
+    </li>
+    <li><a href="#cryptography">CRYPTOGRAPHY</a>
+      <ol>
+        <li><a href="#b64xor">b64&amp;xor</a></li>
+        <li><a href="#programmer">Programmer</a></li>
+      </ol>
+    </li>
+    <li><a href="#digital-forensics">DIGITAL FORENSICS</a>
+      <ol>
+        <li><a href="#corrupt">Corrupt</a></li>
+      </ol>
+    </li>
+    <li><a href="#osint">OSINT</a>
+      <ol>
+        <li><a href="#summer-vacation-flight-flight-flight">Summer vacation: Flight Flight Flight</a></li>
+        <li><a href="#adultery-i">Adultery I</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/writeups/" >
+                Writeups
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/wargame-whitehat-11-writeups/">Wargame Whitehat 11 | Writeups</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Writeups một số challenge mình giải được trong thời gian giải diễn ra
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 01, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    11 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Writeups một số challenge mình giải được trong thời gian giải diễn ra</p>
+<h2 id="misc">MISC</h2>
+<h3 id="discord-check">Discord check</h3>
+<p>Flag được ghim ở <code>Annoucements</code></p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/194205206-809b86c6-52e1-4083-900b-8ab2090c36df.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>flag: <code>WhiteHat{Ready_for_WhiteHatPlay11_Ready_for_a_vibrant_summer}</code></p>
+<h3 id="audio">Audio</h3>
+<p>Ở bài này chúng ta sẽ nhận được 1 file wav (file âm thanh). Ta tiến hành mở file bằng <a class="link" href="https://www.audacityteam.org/"  target="_blank" rel="noopener"
+    >Audacity</a></p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/194205436-69a1ff05-5e9e-4231-a43f-37be92fc39eb.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Chuyển qua xem dưới dạng ảnh phổ ta được:</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/194205786-65d0f9aa-b1f7-436c-885a-39027efeb7e2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Sử dụng cài đặt ảnh phổ và điều chỉnh thông số sao cho phù hợp, hoặc lăn chuột để phổ giãn đều:</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/194205835-6527f8d2-1f16-4d5a-ad17-5e709d00f0c1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>-–&gt; 3u1b_51_n0dn01 (ở đây vẫn chẳng có nghĩa gì)</p>
+<p>Xem lại hint của đề bài: <code>A big football team in London</code> &ndash;&gt; Đảo ngược lại cụm ở trên ta được flag</p>
+<p>flag: <code>WhiteHat{10nd0n_15_b1u3}</code></p>
+<h2 id="reverse-engineering">REVERSE ENGINEERING</h2>
+<h3 id="whitehatplay11v1">WhiteHatPlay11v1</h3>
+<p>Load file vào IDA, để ý <code>_main</code></p>
+<p><img src="/https:/i.imgur.com/CUhZMdd.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>ở đây có hàm <code>sub_4010A0</code>, <code>sub_401190</code> và <code>sub_401440</code> là đáng chú ý, kiểm tra từng hàm một</p>
+<p><strong>sub_4010A0</strong></p>
+<p><img src="/https:/i.imgur.com/cgIeoyN.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Tới đây thì có <code>byte_40EFB0</code> là không rõ ràng, tìm hiểu sâu vào</p>
+<p><img src="/https:/i.imgur.com/UchJQlL.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Để ý kỹ 1 chút ở ngay bên dưới thì có xuất hiện đặc điểm của base85</p>
+<p><strong>sub_401190</strong></p>
+<p><img src="/https:/i.imgur.com/YrMhKuV.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Thấy có <code>byte_410F0C</code>, kiểm tra thì có</p>
+<p><img src="/https:/i.imgur.com/OQxAf3f.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Đến đây là đã xong, dịch base85 bằng cyberchef</p>
+<p><img src="/https:/i.imgur.com/lfgcKNR.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>flag: <code>Whit3H4t11H4v34N1C3D4yR3VeRs31!</code></p>
+<blockquote>
+<p>Bài này chắc là vì lý do chỉ có click&amp;click nên số sao dành tặng cho chall chỉ là 2/5</p>
+</blockquote>
+<h3 id="whitehatplay11v2">WhiteHatPlay11v2</h3>
+<p>Mở file .dll nhận được bằng IDA</p>
+<p>Hàm WhiteHat()</p>
+<p>1 số điều cần chú ý ở hàm đặc biệt này:</p>
+<p><strong>biến local:</strong></p>
+<p><img src="/https:/i.imgur.com/NVovlKm.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><strong>check biến vào:</strong></p>
+<p><img src="/https:/i.imgur.com/QpjDskX.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><strong>LABEL_6:</strong></p>
+<p><img src="/https:/i.imgur.com/ImI1A1I.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/https:/i.imgur.com/AQZT4Nu.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><strong>LABEL_41</strong></p>
+<p><img src="/https:/i.imgur.com/i7FLJjA.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Chức năng</p>
+<p>Tại <strong>LABEL_6:</strong></p>
+<ul>
+<li>
+<p><code>strncpy_s(Destination, 260u, Str, 36u);</code> và <code>v4 = Destination;</code> sẽ hiểu là biến <code>v4 = Destination</code> sẽ lấy 36 ký tự đầu của Str</p>
+</li>
+<li>
+<p>Một phần nữa là <code>QDIwMjI=</code> base64 là @2022 sẽ là 5 ký tự cuối của flag</p>
+</li>
+</ul>
+<p>Hàm check 36 ký tự đầu của input và đối chiếu với flag:</p>
+<p><img src="/https:/i.imgur.com/RMMRTpR.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>mặt khác lại có các byte tương ứng để đối chiếu</p>
+<p><img src="/https:/i.imgur.com/uh8BuFQ.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Theo mình hiểu code sẽ là qua hàm lấy từng ký tự của input xor với</p>
+<p>Để ý call ngay trước 5 byte cuối sẽ là hàm <code>sub_10001EC0</code> xử lý 36 byte đầu của input</p>
+<p><img src="/https:/i.imgur.com/aJZkT0O.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Hàm này có công dụng gọi 36 byte đầu của input và mỗi ký tự khi gọi sẽ được xor với 0x11 (^ 0x11) và sau đó cộng với 11</p>
+<p>Viết script:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">decode</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x70</span><span class="p">,</span> <span class="mh">0x83</span><span class="p">,</span> <span class="mh">0x84</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x70</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x64</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x72</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x68</span><span class="p">,</span> <span class="mh">0x82</span><span class="p">,</span> <span class="mh">0x83</span><span class="p">,</span> <span class="mh">0x68</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x6F</span><span class="p">,</span> <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x53</span><span class="p">,</span> <span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0x87</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x4E</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0x87</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">decode</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">((</span><span class="n">decode</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">11</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x11</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Nhưng có vẻ chưa ổn lắm vì bị ngược (sau 4 byte nó tự đổi)</p>
+<p>Whit3H4t &ndash;&gt; tihWt4H3</p>
+<p>Script giải</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">decode</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x70</span><span class="p">,</span> <span class="mh">0x83</span><span class="p">,</span> <span class="mh">0x84</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x70</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x64</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x72</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x68</span><span class="p">,</span> <span class="mh">0x82</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="mh">0x83</span><span class="p">,</span> <span class="mh">0x68</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x6F</span><span class="p">,</span> <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x53</span><span class="p">,</span> <span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0x87</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x4E</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0x87</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">decode</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">chr</span><span class="p">((</span><span class="n">decode</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">11</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x11</span><span class="p">))</span> <span class="c1"># dịch các ký tự</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">decode</span><span class="p">),</span> <span class="mi">4</span><span class="p">):</span> <span class="c1"># đổi chỗ các ký tự</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">tmp1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp1</span> <span class="c1"># Đổi thứ tự 1, 4 --&gt; 4, 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">tmp2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp2</span> <span class="c1"># đổi thứ tự 2, 3 --&gt; 3, 2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>flag: <code>WhiteHat{Whit3H4t11S0L1v34LifeY0uW1llR3memB3r}</code></p>
+<blockquote>
+<p>Bài này mình thấy khá hay nhưng sao lại ít sao thế nhỉ? (1/5 sao)</p>
+</blockquote>
+<h3 id="startr3">startr3</h3>
+<p>Với bài này mở file bằng ida64 &ndash;&gt; free flag</p>
+<p><img src="/https:/i.imgur.com/tXQv15A.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>flag: <code>WhiteHat{start_r3_ez_game}</code></p>
+<blockquote>
+<p>:))) mà cũng chẳng hiểu sao bài này lại là bài re3 mà lại còn 3 sao</p>
+</blockquote>
+<h3 id="baby-re">Baby RE</h3>
+<p>Nhìn file tải về là biết nó liên quan đến python, là 1 người chơi rev chắc hẳn sẽ biết đến pyc (đã từng được mình nhắc đến trong chall của BlueHens)</p>
+<p><img src="/https:/i.imgur.com/yb488Vi.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Sau một hồi loay hoay thì mình tìm được tool để decompile file này là <a class="link" href="https://github.com/extremecoders-re/pyinstxtractor"  target="_blank" rel="noopener"
+    >pyinstxtractor</a></p>
+<p>Sau khi chạy pyinstxtractor:</p>
+<p><img src="/https:/i.imgur.com/JVBREYP.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Và ra file quewridg.pyc, sử dụng <a class="link" href="https://github.com/rocky/python-uncompyle6"  target="_blank" rel="noopener"
+    >Uncompyle6</a> hoặc <a class="link" href="https://www.decompiler.com/"  target="_blank" rel="noopener"
+    >Decompiler Tools</a></p>
+<p><strong>Code</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># uncompyle6 version 3.7.4</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Python bytecode 3.7 (3394)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Decompiled from: Python 2.7.17 (default, Sep 30 2020, 13:38:04) </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [GCC 7.5.0]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Warning: this version of Python has problems handling the Python 3 &#34;byte&#34; type in constants properly.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Embedded file name: quewridg.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">str2</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">k</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="n">h</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">re</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">h</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">k</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;VOhEdHV0YIRVVLF0S9&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;92Mp5GXI5XV79DMO1F&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">str1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">str2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">str1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">str2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">write_1</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;USERPROFILE&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s1">&#39;XEFwcERhdGFcTG9jYWxcVGVtcFw=&#39;</span><span class="p">),</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s1">&#39;LnR4dA==&#39;</span><span class="p">),</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">f</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;YmFuIGNvIHRoYXkgY29uIGJhY2ggdHVvYyBrZXUga2hvbmc=&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;USERPROFILE&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s1">&#39;XEFwcERhdGFcUm9hbWluZ1w=&#39;</span><span class="p">),</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">h</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s1">&#39;LnR4dA==&#39;</span><span class="p">),</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">f</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;dGltIHRodSB4ZW0=&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">content</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">banner</span> <span class="o">=</span> <span class="s2">&#34;.__   __.  __    ______   ___   .___________.____    _  _    .___  ___. </span><span class="se">\n</span><span class="s2">|  </span><span class="se">\\</span><span class="s2"> |  | /_ |  /      | / _ </span><span class="se">\\</span><span class="s2">  |           |___ </span><span class="se">\\</span><span class="s2">  | || |   |   </span><span class="se">\\</span><span class="s2">/   | </span><span class="se">\n</span><span class="s2">|   </span><span class="se">\\</span><span class="s2">|  |  | | |  ,----&#39;| | | | `---|  |----` __) | | || |_  |  </span><span class="se">\\</span><span class="s2">  /  | </span><span class="se">\n</span><span class="s2">|  . `  |  | | |  |     | | | |     |  |     |__ &lt;  |__   _| |  |</span><span class="se">\\</span><span class="s2">/|  | </span><span class="se">\n</span><span class="s2">|  |</span><span class="se">\\</span><span class="s2">   |  | | |  `----.| |_| |     |  |     ___) |    | |   |  |  |  | </span><span class="se">\n</span><span class="s2">|__| </span><span class="se">\\</span><span class="s2">__|  |_|  </span><span class="se">\\</span><span class="s2">______| </span><span class="se">\\</span><span class="s2">___/      |__|    |____/     |_|   |__|  |__|&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">banner</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=======================================================================================&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;                      https://www.youtube.com/shorts/t1u-h4rlNSY                       &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=======================================================================================&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">re</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">write_1</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Đọc code thì có thể thấy ở hàm <code>write_1()</code> chỉ là sử dụng base64 để đánh lừa, khi biên dịch ra thực chất chỉ là tạo file và điền vào đó vài cụm từ vô nghĩa với mục đích chúng ta cần, hàm <code>content()</code></p>
+<p>Vậy ở đây chắc chỉ dùng được hàm <code>re()</code></p>
+<p>ta thấy h và k đã được trải qua nhiều lệnh nhưng lại không để làm gì nên sẽ in ra xem nó sẽ làm gì</p>
+<p>Khi in ra thì <code>h = V2hpdGVIYXR7VDFOSF</code> và <code>k = 9OME5HX05IVV9LM019</code></p>
+<p>Dịch thử base64</p>
+<p><img src="/https:/i.imgur.com/bpciw0o.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>flag: <code>WhiteHat{T1NH_N0NG_NHU_K3M}</code></p>
+<blockquote>
+<p>Có lẽ tác giả ra đến đây bí ý tưởng :)) chứ không thể xàm như này được</p>
+</blockquote>
+<h3 id="flagcheck">flagcheck</h3>
+<p>Check main:
+<img src="/https:/user-images.githubusercontent.com/87920408/212787344-f09c6b93-049e-43f3-a31f-082960e8d06f.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Qua check hàm main thì dễ thấy hàm này đơn giản là cho 1 dãy ký tự đầu vào, sau đó chúng ta phải nhập flag và hàm này sẽ check từng ký tự rồi xor với số thứ tự của chúng (đã cộng thêm 1)</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212787564-e6cb90ed-c0ff-4e6e-9cb7-3324e6e8b09d.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Và sau đó so sánh bộ ký tự mới được in ra và bộ ký tự ban đầu cho, vậy nên đến đây có thể viết script để có được flag</p>
+<p>code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">encode_flag</span> <span class="o">=</span> <span class="s2">&#34;Vjjp`Nf|roqSua}Ow}aKg%H{q{wpxpxE~mLTX&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">encode_flag</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">encode_flag</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">^</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">end</span> <span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>flag: <code>WhiteHat{ez_xor_for_r3_challenge_Oop}</code></p>
+<h2 id="cryptography">CRYPTOGRAPHY</h2>
+<h3 id="b64xor">b64&amp;xor</h3>
+<p>Đề bài cho 1 đoạn base64 dịch sang thì thành 1 đoạn không hề có nghĩa gì lắm</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212610428-1e796fe0-6324-4608-bbd1-2e24c01ff014.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Mà đề bài lại là xor&amp;b64 nhưng lại chẳng cho thứ cần xor là gì nên mình nghĩ sẽ check thử với format của đề bài: <code>WhiteHat{</code></p>
+<p>và sau vài lần thử thì mình đã thành công bằng việc chuyển đoạn cipher ban đầu từ base64 decode ra về byte rồi xor với các byte của format đề</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">coded_string</span> <span class="o">=</span> <span class="s2">&#34;NFwcKxN4DxMGLVxFABUAADgQFgAqMgNRMQ89PAAbNyldXg4iF1xBJik=&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">format_flag</span>  <span class="o">=</span> <span class="s2">&#34;WhiteHat{&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">format_flag</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">coded_string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">((</span><span class="nb">chr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span> <span class="n">end</span> <span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Đoạn này ra tương ứng với <code>c4u_v0ng}</code>, mình thử thêm nhiều <code>WhiteHat{</code> nữa vào format flag và nó trả về như này</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212610967-27eaa92b-70d2-467f-b71c-26d75f5aea6b.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Không có ý nghĩa gì lắm nên trở lại thì mình chợt nghĩ ra, nếu xor từ <code>WhiteHat{</code> thành được <code>c4u_v0ng}</code> vậy thì từ <code>c4u_v0ng}</code> cũng về được <code>WhiteHat{</code>
+và mục tiêu bây giờ chỉ cần kiếm cái đoạn đằng sau cái <code>WhiteHat{</code> đó bằng cách mình thêm rất nhiều cụm <code>c4u_v0ng}</code> vào format_flag</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">coded_string</span> <span class="o">=</span> <span class="s2">&#34;NFwcKxN4DxMGLVxFABUAADgQFgAqMgNRMQ89PAAbNyldXg4iF1xBJik=&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">format_flag</span>  <span class="o">=</span> <span class="s2">&#34;c4u_v0ng}c4u_v0ng}c4u_v0ng}c4u_v0ng}c4u_v0ng}c4u_v0ng}c4u_v0ng}c4u_v0ng}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">format_flag</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">coded_string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">41</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">((</span><span class="nb">chr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span> <span class="n">end</span> <span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>flag: <code>WhiteHat{Nh0_c0n_mu4_mua_h@_4nh_m0i_th4y_c4u_v0ng}</code></p>
+<h3 id="programmer">Programmer</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">flag</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">cal_flag</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="n">output</span><span class="o">=</span><span class="p">[]</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flag</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">	    <span class="n">temp</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">17</span><span class="o">%</span><span class="mi">3233</span>
+</span></span><span class="line"><span class="cl">	    <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cal_flag</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#[604, 2170, 3179, 884, 1313, 3000, 1632, 884, 855, 3179, 119, 1632, 2271, 119, 612, 2412, 2185, 2923, 2412, 1632, 2271, 2271, 1313, 2412, 119, 3179, 119, 2170, 1632, 2578, 1313, 119, 2235, 2185, 119, 745, 3179, 1369, 1313, 1516]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Đọc kỹ đề có thể thấy từ việc ta có 1 flag cho sẵn của đề –&gt; ta sẽ biến đổi từng phần tử flag qua hàm <code>cal_flag</code> bằng cách với mỗi ký tự của flag vào sẽ được mũ 17 lên và lấy phần dư với 3233</p>
+<p>Ta tiến hành viết lại code để chuyển đổi từng số trong output trở lại thành flag</p>
+<p>Do mình cũng không biết có cách nào hay hơn nên mình chỉ đơn giản là bruteforce cái encode đó về lại thành flag với cấu trúc lệnh duy nhất là <code>**17%3233</code> (với mỗi ký tự thuộc khoảng (0, 127) sẽ cho qua lệnh để xem nó có phải là ký tự của encode tương ứng không)</p>
+<p>code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">encode</span> <span class="o">=</span> <span class="p">[</span><span class="mi">604</span><span class="p">,</span> <span class="mi">2170</span><span class="p">,</span> <span class="mi">3179</span><span class="p">,</span> <span class="mi">884</span><span class="p">,</span> <span class="mi">1313</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">1632</span><span class="p">,</span> <span class="mi">884</span><span class="p">,</span> <span class="mi">855</span><span class="p">,</span> <span class="mi">3179</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">1632</span><span class="p">,</span> <span class="mi">2271</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">612</span><span class="p">,</span> <span class="mi">2412</span><span class="p">,</span> <span class="mi">2185</span><span class="p">,</span> <span class="mi">2923</span><span class="p">,</span> <span class="mi">2412</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="mi">1632</span><span class="p">,</span> <span class="mi">2271</span><span class="p">,</span> <span class="mi">2271</span><span class="p">,</span> <span class="mi">1313</span><span class="p">,</span> <span class="mi">2412</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">3179</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">2170</span><span class="p">,</span> <span class="mi">1632</span><span class="p">,</span> <span class="mi">2578</span><span class="p">,</span> <span class="mi">1313</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">2235</span><span class="p">,</span> <span class="mi">2185</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">745</span><span class="p">,</span> <span class="mi">3179</span><span class="p">,</span> <span class="mi">1369</span><span class="p">,</span> <span class="mi">1313</span><span class="p">,</span> <span class="mi">1516</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">encode</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">17</span> <span class="o">%</span> <span class="mi">3233</span><span class="p">)</span> <span class="o">==</span> <span class="n">i</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>flag: <code>WhiteHat{i_am_programmer_i_have_no_life}</code></p>
+<h2 id="digital-forensics">DIGITAL FORENSICS</h2>
+<h3 id="corrupt">Corrupt</h3>
+<p>Đầu tiên chúng ta sẽ nhận được 1 file .png mở lên thì thấy không được :3</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212944051-880dfff7-7139-40b2-9173-6ddeb276edd1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>kiểm tra hex của nó thì cũng thấy lạ vì không trùng với magic bytes phổ biến nào (các hex đầu)</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212944716-d970804a-c23a-4396-a738-fbdaeeb8b283.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Và phía sau đoạn hex đó lại có 1 số đoạn strings quen thuộc như <code>.png</code>, <code>IHDR</code>, <code>IDAT</code> nên mình nghĩ tác giả cố tình chèn 1 vài đoạn strings lạ vào để đánh lừa và thực ra file này ban đầu là 1 ảnh PNG thật, việc của chúng ta bây giờ chỉ cần sửa lại các hex để đưa ra ảnh đúng</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212945543-9d5c25e9-59c0-4314-b0c8-ff9f9fa4a03a.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Ở đây mình sử dụng <code>bless</code> để thay đổi các hex trong file ảnh PNG này</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212945730-5541dd33-63fd-4c73-aedc-916d8fb71900.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212945860-5e121166-f32d-47f9-a636-65eb4ff856de.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Ở đây có lẽ mình sẽ xoá hết các hex không liên quan đoạn đằng trước <code>.png</code> và sau đó đổi <code>.png</code> thành <code>.PNG</code> bằng cách chuyển bộ số hex từ <code>89 70 6E 67</code> thành <code>89 50 4e 47</code> tương ứng <code>.png</code> &ndash;&gt; <code>.PNG</code></p>
+<p>Check thấy <code>IHDR</code> và <code>IDAT</code> đã đúng</p>
+<p>Vì tiêu đề PNG có End Of Line cụ thể được nhận dạng trên Linux. Tiêu đề PNG ban đầu của file Corrupt là <code>89 50 4E 47 0D 1A 0A 1A</code> và mình sẽ sửa thành <code>89 50 4E 47 0D 0A 1A 0A</code></p>
+<p><strong>Giải thích:</strong></p>
+<ul>
+<li><code>89</code> có bit cao được đặt để phát hiện các hệ thống truyền dẫn không hỗ trợ dữ liệu 8 bit và để giảm khả năng tệp văn bản bị hiểu nhầm là PNG hoặc ngược lại.</li>
+<li><code>50</code> <code>4E</code> <code>47</code> Trong ASCII, các chữ cái PNG, cho phép một người dễ dàng xác định định dạng nếu nó được xem trong trình soạn thảo văn bản.</li>
+<li><code>0D</code> <code>0A</code>	Một dòng kiểu DOS kết thúc ( CRLF ) để phát hiện chuyển đổi kết thúc dòng DOS-Unix của dữ liệu.</li>
+<li><code>1A</code> Một byte dừng hiển thị tệp trong DOS khi loại lệnh đã được sử dụng — ký tự cuối tệp.</li>
+<li><code>0A</code> Một dòng kiểu Unix kết thúc ( LF ) để phát hiện chuyển đổi kết thúc dòng Unix-DOS.</li>
+</ul>
+<p>Lưu lại và chúng ta sẽ thấy sự khác biệt, bình thường sau bước này mình sẽ check thêm bằng <code>pngcheck</code> để xem có lỗi thêm gì không và ở đây may mắn là không lỗi</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212949862-256f1ae0-8538-430c-9542-0b3b6f36d4bb.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>&ndash;&gt; có <a class="link" href="/solutions/Corrupt_full.png" >ảnh ban đầu</a>:</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212951189-19e1f834-ae9f-4f90-a56e-3cb83c3f5ff4.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Try hard vẽ lại bằng pixel cái QR: thì ở các phần bị thiếu sẽ bổ sung được vài thứ quan trọng</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212953135-1b97b97e-67b3-4014-aa83-7c2c181a43f5.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Giải thích:
+Do sau khi nhập các phần viền của các phần ô vuông, thì nó tự nhận diện và fill nốt cái viền còn lại</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212953322-d9a2ae87-77a8-47cb-94b0-99dd2d70d0c0.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Quét cái QR bên trên thì ra flag</p>
+<p>flag: <code>WhiteHat{4a5y_W4rmup_ch4lleng3_f0r_SUMMER_RACEEE}</code></p>
+<h2 id="osint">OSINT</h2>
+<h3 id="summer-vacation-flight-flight-flight">Summer vacation: Flight Flight Flight</h3>
+<blockquote>
+<p>Incent Eva went to Hanoi with her friend. I am very curious about her friend and flight information. Help me. Flag fomat: WhiteHat{NAME_FLIGHT_SEAT_DATE} osint02 can be solved before osint01.</p>
+</blockquote>
+<p>Đề bài có nhắc tới 1 nhân vật Incent Eva –&gt; nghĩ tới việc sử dụng 1 vài công cụ osint để tìm ra các tài khoản mạng xã hội của người này.</p>
+<p>Sau khi thử, đã tìm được tài khoản twitter có username: <code>@incent_eva</code></p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212586906-475dbfa6-1322-4763-a0d4-04ee212a553f.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Chuyển sang mục Likes, ta thấy có 1 tài khoản khác xuất hiện –&gt; <code>@vy_tran_11</code></p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212586988-a6f459e0-c35f-4bcc-81b8-2f91c6cdd2e5.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>Check thử link trong trang cá nhân của người kia, và sau khi check ảnh trong page người đó, ta được:</p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212587028-8e5a260c-0b06-4cd4-abbb-ed24e4b6227d.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p><img src="/https:/user-images.githubusercontent.com/87920408/212587072-380bb881-caa1-4442-a213-62b005d4c5d8.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<p>flag: <code>WhiteHat{VYTRAN_VJ375_3F_30MAR}</code></p>
+<h3 id="adultery-i">Adultery I</h3>
+<blockquote>
+<p>A client hired me as a private investigator to track down her husband, Cuming Brian, because she suspected him of having an affair. Check out his social media accounts to see if there&rsquo;s anything interesting</p>
+</blockquote>
+<p>Đề bài có nhắc đến 1 nhân vật là <strong>Cuming Brian</strong>, thì theo thói quen chúng ta cứ tìm kiếm trên instagram hoặc twitter thanh niên này thì có kết quả</p>
+<p><img src="/https:/i.imgur.com/GYtTKoB.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>flag: <code>WhiteHat{N3xt_p4rt_1S_h@rd3r_g0_9o_bruh}</code></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/reverse/">reverse</a>
+        
+            <a href="/tags/crypto/">crypto</a>
+        
+            <a href="/tags/misc/">misc</a>
+        
+            <a href="/tags/forensics/">forensics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed By Spid3r</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/buckeye-ctf-2023-writeups/">
+        
+        
+            <div class="article-image">
+                <img src="/p/buckeye-ctf-2023-writeups/featured-image.27a5aed6c10513bcfb9164509564e319_hu5fad3dab004c0aa4880db40f68baffb0_36302_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Buckeye CTF 2023 | Writeups"
+                        
+                        data-hash="md5-J6Wu1sEFE7z7kWRQlWTjGQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Buckeye CTF 2023 | Writeups</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/sekaictf-2023-reverse-engineering/">
+        
+        
+            <div class="article-image">
+                <img src="/p/sekaictf-2023-reverse-engineering/featured-image.77f31e339d1dd761644fd8c209773b4b_hu53ff5d738f6f6b8e65c2845372b95fb7_671573_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post SekaiCTF 2023 | Reverse Engineering"
+                        
+                        data-hash="md5-d/MeM50d12FkT9jCCXc7Sw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SekaiCTF 2023 | Reverse Engineering</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/umdctf-2023-digital-forensics/">
+        
+        
+            <div class="article-image">
+                <img src="/p/umdctf-2023-digital-forensics/featured.2a8aa883bb482dd1d5f4b41b8414809b_hu521915a03207d3ded912c6c781e96e24_122168_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post UMDCTF 2023 | Digital Forensics"
+                        
+                        data-hash="md5-Koqog7tILdHV9LQbhBSAmw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">UMDCTF 2023 | Digital Forensics</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/corctf-2022-reverse-engineering/">
+        
+        
+            <div class="article-image">
+                <img src="/p/corctf-2022-reverse-engineering/featured-image.2fd80d1927dfc258bd0f81de82ee6e33_huc527355a429b7d0660ac9e16fd98331c_24593_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post CorCTF 2022 | Reverse Engineering"
+                        
+                        data-hash="md5-L9gNGSffwli9D4Hegu5uMw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CorCTF 2022 | Reverse Engineering</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/backdoor-ctf-2023-reverse-engineering/">
+        
+        
+            <div class="article-image">
+                <img src="/p/backdoor-ctf-2023-reverse-engineering/featured.86b1b3b583da13a095d641e51cb99e82_hu1633d773772b68a8a46d663a367faa24_195597_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Backdoor CTF 2023 | Reverse Engineering"
+                        
+                        data-hash="md5-hrGztYPaE6CV1kHlHLmegg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Backdoor CTF 2023 | Reverse Engineering</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 Spid3r&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
