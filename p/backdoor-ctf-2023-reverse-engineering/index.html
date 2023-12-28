@@ -249,13 +249,7 @@
     <li><a href="#open-sesame">Open Sesame</a></li>
     <li><a href="#secret-door">Secret Door</a></li>
     <li><a href="#baby-ebpf">baby eBPF</a></li>
-    <li><a href="#sl4ydroid">Sl4ydroid</a>
-      <ol>
-        <li><a href="#java_com_backdoor_sl4ydroid_mainactivity_kim">Java_com_backdoor_sl4ydroid_MainActivity_kim</a></li>
-        <li><a href="#java_com_backdoor_sl4ydroid_mainactivity_damn">Java_com_backdoor_sl4ydroid_MainActivity_damn</a></li>
-        <li><a href="#java_com_backdoor_sl4ydroid_mainactivity_k2">Java_com_backdoor_sl4ydroid_MainActivity_k2</a></li>
-      </ol>
-    </li>
+    <li><a href="#sl4ydroid">Sl4ydroid</a></li>
   </ol>
 </nav>
         </div>
@@ -1270,6 +1264,18 @@ like the Open Sesame challenge, we will use <a class="link" href="https://www.de
     >Decompiler.com</a> to decompile this apk</p>
 <p>In this challenge, during the ctf, I only completed 3/4 of flag, which is quite unfortunate</p>
 <p>I use <code>jadx</code> to decompile this apk and export lib because nothing java usefull in source :&laquo;</p>
+<p><img src="/p/backdoor-ctf-2023-reverse-engineering/image-6.png"
+	width="473"
+	height="273"
+	srcset="/p/backdoor-ctf-2023-reverse-engineering/image-6_hu8214043099e7701db6f4abc5dd86b75c_15853_480x0_resize_box_3.png 480w, /p/backdoor-ctf-2023-reverse-engineering/image-6_hu8214043099e7701db6f4abc5dd86b75c_15853_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="415px"
+	
+></p>
 <p><img src="/p/backdoor-ctf-2023-reverse-engineering/image-4.png"
 	width="435"
 	height="216"
@@ -1348,7 +1354,7 @@ like the Open Sesame challenge, we will use <a class="link" href="https://www.de
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>when i convert it to python and run, i receive <code>b4ckd00r2023</code>, so it will be RC4</p>
-<h3 id="java_com_backdoor_sl4ydroid_mainactivity_kim">Java_com_backdoor_sl4ydroid_MainActivity_kim</h3>
+<p><strong>1.</strong> Java_com_backdoor_sl4ydroid_MainActivity_kim</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1474,7 +1480,7 @@ like the Open Sesame challenge, we will use <a class="link" href="https://www.de
 </span></span><span class="line"><span class="cl"><span class="c1"># 666c61677b52697a --&gt; flag{Riz</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="java_com_backdoor_sl4ydroid_mainactivity_damn">Java_com_backdoor_sl4ydroid_MainActivity_damn</h3>
+</div><p><strong>2.</strong> Java_com_backdoor_sl4ydroid_MainActivity_damn</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1594,7 +1600,7 @@ like the Open Sesame challenge, we will use <a class="link" href="https://www.de
 </span></span><span class="line"><span class="cl"><span class="c1"># c4_R3v3r</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="java_com_backdoor_sl4ydroid_mainactivity_k2">Java_com_backdoor_sl4ydroid_MainActivity_k2</h3>
+</div><p><strong>3.</strong> Java_com_backdoor_sl4ydroid_MainActivity_k2</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1711,6 +1717,32 @@ like the Open Sesame challenge, we will use <a class="link" href="https://www.de
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>I receive <code>flag{Riz....c4_R3v3r51Ngg_RrR!:}</code> and stuck with <code>ring</code> function in <code>Java_com_backdoor_sl4ydroid_MainActivity_nim</code>.</p>
+<p>We can use gdb to debug this function &amp; get script</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;yeahh&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">k2</span> <span class="o">=</span> <span class="s2">&#34;0,S[)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">flag2</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k2</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">flag2</span><span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">^</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">k2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">^</span> <span class="mh">0x13</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">flag2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ZZ! R</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>flag: <code>flag{RizZZ! Rc4_R3v3r51Ngg_RrR!:}</code></p>
 <p>It&rsquo;s a pity because this challenge is&rsquo;t hard hix :((. We can use log in Android Studio to check flag easily xDDD (From Vietzett)</p>
 <p><img src="/p/backdoor-ctf-2023-reverse-engineering/image-5.png"
 	width="737"

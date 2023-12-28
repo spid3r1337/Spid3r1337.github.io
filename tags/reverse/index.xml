@@ -931,6 +931,18 @@ like the Open Sesame challenge, we will use &lt;a class=&#34;link&#34; href=&#34
     &gt;Decompiler.com&lt;/a&gt; to decompile this apk&lt;/p&gt;
 &lt;p&gt;In this challenge, during the ctf, I only completed 3/4 of flag, which is quite unfortunate&lt;/p&gt;
 &lt;p&gt;I use &lt;code&gt;jadx&lt;/code&gt; to decompile this apk and export lib because nothing java usefull in source :&amp;laquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/backdoor-ctf-2023-reverse-engineering/image-6.png&#34;
+	width=&#34;473&#34;
+	height=&#34;273&#34;
+	srcset=&#34;/p/backdoor-ctf-2023-reverse-engineering/image-6_hu8214043099e7701db6f4abc5dd86b75c_15853_480x0_resize_box_3.png 480w, /p/backdoor-ctf-2023-reverse-engineering/image-6_hu8214043099e7701db6f4abc5dd86b75c_15853_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;415px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/p/backdoor-ctf-2023-reverse-engineering/image-4.png&#34;
 	width=&#34;435&#34;
 	height=&#34;216&#34;
@@ -1009,7 +1021,7 @@ like the Open Sesame challenge, we will use &lt;a class=&#34;link&#34; href=&#34
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;when i convert it to python and run, i receive &lt;code&gt;b4ckd00r2023&lt;/code&gt;, so it will be RC4&lt;/p&gt;
-&lt;h3 id=&#34;java_com_backdoor_sl4ydroid_mainactivity_kim&#34;&gt;Java_com_backdoor_sl4ydroid_MainActivity_kim&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Java_com_backdoor_sl4ydroid_MainActivity_kim&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -1135,7 +1147,7 @@ like the Open Sesame challenge, we will use &lt;a class=&#34;link&#34; href=&#34
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 666c61677b52697a --&amp;gt; flag{Riz&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;java_com_backdoor_sl4ydroid_mainactivity_damn&#34;&gt;Java_com_backdoor_sl4ydroid_MainActivity_damn&lt;/h3&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Java_com_backdoor_sl4ydroid_MainActivity_damn&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -1255,7 +1267,7 @@ like the Open Sesame challenge, we will use &lt;a class=&#34;link&#34; href=&#34
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# c4_R3v3r&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;java_com_backdoor_sl4ydroid_mainactivity_k2&#34;&gt;Java_com_backdoor_sl4ydroid_MainActivity_k2&lt;/h3&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Java_com_backdoor_sl4ydroid_MainActivity_k2&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -1372,6 +1384,32 @@ like the Open Sesame challenge, we will use &lt;a class=&#34;link&#34; href=&#34
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;I receive &lt;code&gt;flag{Riz....c4_R3v3r51Ngg_RrR!:}&lt;/code&gt; and stuck with &lt;code&gt;ring&lt;/code&gt; function in &lt;code&gt;Java_com_backdoor_sl4ydroid_MainActivity_nim&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We can use gdb to debug this function &amp;amp; get script&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;yeahh&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;k2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;0,S[)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;flag2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;flag2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;chr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;^&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;^&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x13&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;flag2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ZZ! R&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;flag: &lt;code&gt;flag{RizZZ! Rc4_R3v3r51Ngg_RrR!:}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s a pity because this challenge is&amp;rsquo;t hard hix :((. We can use log in Android Studio to check flag easily xDDD (From Vietzett)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/p/backdoor-ctf-2023-reverse-engineering/image-5.png&#34;
 	width=&#34;737&#34;
