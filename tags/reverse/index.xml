@@ -4338,7 +4338,7 @@ Do sau khi nhập các phần viền của các phần ô vuông, thì nó tự 
         
         <guid>/p/awesome-reverse-engineering/</guid>
         <description>&lt;img src="/p/awesome-reverse-engineering/featured.png" alt="Featured image of post Awesome Reverse Engineering" /&gt;&lt;p&gt;Thanks to Mr. Rc (HACKE-RC) for sharing knowledge about Reverse Engineering!&lt;/p&gt;
-&lt;h2 id=&#34;reverse-engineering-resources-&#34;&gt;Reverse Engineering Resources ⚡&lt;/h2&gt;
+&lt;h2 id=&#34;reverse-engineering-resources&#34;&gt;Reverse Engineering Resources&lt;/h2&gt;
 &lt;p&gt;Highest quality resources to learn Reverse Engineering from start to end! &lt;a class=&#34;link&#34; href=&#34;https://wiki.bi0s.in/reversing/roadmap&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Roadmap&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;assembly&#34;&gt;Assembly&lt;/h2&gt;
