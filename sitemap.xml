@@ -3,24 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/p/backdoor-ctf-2023-reverse-engineering/</loc>
-    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/p/cstv-capture-the-flag-2023-forensics/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/</loc>
-    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/reverse/</loc>
-    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/writeups/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/p/backdoor-ctf-2023-reverse-engineering/</loc>
     <lastmod>2023-12-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/ctf/</loc>
