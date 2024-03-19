@@ -8,11 +8,11 @@
         <language>en</language>
         <lastBuildDate>Sat, 18 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/study/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Awesome Reverse Engineering</title>
-        <link>/p/awesome-reverse-engineering/</link>
+        <link>/post/awesome_rev/</link>
         <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
         
-        <guid>/p/awesome-reverse-engineering/</guid>
-        <description>&lt;img src="/p/awesome-reverse-engineering/featured.png" alt="Featured image of post Awesome Reverse Engineering" /&gt;&lt;p&gt;Thanks to Mr. Rc (HACKE-RC) for sharing knowledge about Reverse Engineering!&lt;/p&gt;
+        <guid>/post/awesome_rev/</guid>
+        <description>&lt;img src="/post/awesome_rev/featured.png" alt="Featured image of post Awesome Reverse Engineering" /&gt;&lt;p&gt;Thanks to Mr. Rc (HACKE-RC) for sharing knowledge about Reverse Engineering!&lt;/p&gt;
 &lt;h2 id=&#34;reverse-engineering-resources&#34;&gt;Reverse Engineering Resources&lt;/h2&gt;
 &lt;p&gt;Highest quality resources to learn Reverse Engineering from start to end! &lt;a class=&#34;link&#34; href=&#34;https://wiki.bi0s.in/reversing/roadmap&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Roadmap&lt;/a&gt;&lt;/p&gt;
