@@ -6,7 +6,15 @@
         <description>Recent content in Tags on Spid3r&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>technique</title>
+        <link>/tags/technique/</link>
+        <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/technique/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>reverse</title>
         <link>/tags/reverse/</link>
         <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
