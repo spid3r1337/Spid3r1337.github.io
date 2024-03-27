@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>technique on Spid3r&#39;s Blog</title>
-        <link>/tags/technique/</link>
-        <description>Recent content in technique on Spid3r&#39;s Blog</description>
+        <title>Tech on Spid3r&#39;s Blog</title>
+        <link>/tags/tech/</link>
+        <description>Recent content in Tech on Spid3r&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/technique/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tech/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>How to build &amp; deploy Flask project on Glitch?</title>
         <link>/p/how-to-build-deploy-flask-project-on-glitch/</link>
         <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
