@@ -8,18 +8,18 @@
         <language>en</language>
         <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/bot/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Build Bot Discord 24/7 with Replit and Uptime RoBot (Python)</title>
-        <link>/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/</link>
+        <link>/post/discord-bot-with-replit-uptime-robot/</link>
         <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
         
-        <guid>/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/</guid>
-        <description>&lt;img src="/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/featured.png" alt="Featured image of post Build Bot Discord 24/7 with Replit and Uptime RoBot (Python)" /&gt;&lt;h2 id=&#34;create-bot-discord--basic-config&#34;&gt;Create Bot Discord &amp;amp; basic config&lt;/h2&gt;
+        <guid>/post/discord-bot-with-replit-uptime-robot/</guid>
+        <description>&lt;img src="/post/discord-bot-with-replit-uptime-robot/featured.png" alt="Featured image of post Build Bot Discord 24/7 with Replit and Uptime RoBot (Python)" /&gt;&lt;h2 id=&#34;create-bot-discord--basic-config&#34;&gt;Create Bot Discord &amp;amp; basic config&lt;/h2&gt;
 &lt;h3 id=&#34;use-developer-portal-to-create-bot&#34;&gt;Use DEVELOPER PORTAL to create Bot&lt;/h3&gt;
 &lt;p&gt;We can use &lt;a class=&#34;link&#34; href=&#34;https://discord.com/developers/applications&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;DEVELOPER PORTAL&lt;/a&gt; during the process of creating and using the Bot&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/discord-bot-with-replit-uptime-robot/image.png&#34;
 	width=&#34;943&#34;
 	height=&#34;369&#34;
-	srcset=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image_hu348c041be06f5634530a7e66c3a161e3_52661_480x0_resize_box_3.png 480w, /p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image_hu348c041be06f5634530a7e66c3a161e3_52661_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/discord-bot-with-replit-uptime-robot/image_hu348c041be06f5634530a7e66c3a161e3_52661_480x0_resize_box_3.png 480w, /post/discord-bot-with-replit-uptime-robot/image_hu348c041be06f5634530a7e66c3a161e3_52661_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -29,10 +29,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Select &lt;strong&gt;New Application&lt;/strong&gt; to create a completely new Discord Bot&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/discord-bot-with-replit-uptime-robot/image-1.png&#34;
 	width=&#34;647&#34;
 	height=&#34;395&#34;
-	srcset=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-1_hufafa831bcc8b80ebac037e9165216978_31890_480x0_resize_box_3.png 480w, /p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-1_hufafa831bcc8b80ebac037e9165216978_31890_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/discord-bot-with-replit-uptime-robot/image-1_hufafa831bcc8b80ebac037e9165216978_31890_480x0_resize_box_3.png 480w, /post/discord-bot-with-replit-uptime-robot/image-1_hufafa831bcc8b80ebac037e9165216978_31890_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -45,10 +45,10 @@
 &lt;h3 id=&#34;token-bot&#34;&gt;Token Bot&lt;/h3&gt;
 &lt;h4 id=&#34;instructions-bot---reset-token&#34;&gt;Instructions: Bot -&amp;gt; Reset Token&lt;/h4&gt;
 &lt;p&gt;In addition to basic operations such as changing the name of the Bot, changing the avatar of the Bot,&amp;hellip; there is also a notable item is Token (click on Reset Token to display Token for first use)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-2.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/discord-bot-with-replit-uptime-robot/image-2.png&#34;
 	width=&#34;526&#34;
 	height=&#34;247&#34;
-	srcset=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-2_hu2582d63d77fc688244537e3b3905c67b_17448_480x0_resize_box_3.png 480w, /p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-2_hu2582d63d77fc688244537e3b3905c67b_17448_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/discord-bot-with-replit-uptime-robot/image-2_hu2582d63d77fc688244537e3b3905c67b_17448_480x0_resize_box_3.png 480w, /post/discord-bot-with-replit-uptime-robot/image-2_hu2582d63d77fc688244537e3b3905c67b_17448_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -190,10 +190,10 @@
 &lt;p&gt;Let&amp;rsquo;s talk a little bit about &lt;a class=&#34;link&#34; href=&#34;https://replit.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Replit&lt;/a&gt;, this is a very good online IDE that supports many programming languages ​​(I often use python here for the purpose of being able to install libs). specific to CTF without error). So if you can host a Bot on your computer, you can also host it on Replit&lt;/p&gt;
 &lt;p&gt;Hosting Bot is extremely easy by just putting the last 2 python files onto Replit and running it&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-3.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/discord-bot-with-replit-uptime-robot/image-3.png&#34;
 	width=&#34;525&#34;
 	height=&#34;125&#34;
-	srcset=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-3_hu962c1e816d2b0b52b47b9ac2d9bdbf85_13003_480x0_resize_box_3.png 480w, /p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-3_hu962c1e816d2b0b52b47b9ac2d9bdbf85_13003_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/discord-bot-with-replit-uptime-robot/image-3_hu962c1e816d2b0b52b47b9ac2d9bdbf85_13003_480x0_resize_box_3.png 480w, /post/discord-bot-with-replit-uptime-robot/image-3_hu962c1e816d2b0b52b47b9ac2d9bdbf85_13003_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -207,10 +207,10 @@
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://uptimeroBot.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Uptime RoBot&lt;/a&gt; through the &lt;code&gt;keep_alive.py&lt;/code&gt; file set up above helps check if the Bot is active and will ping it to replit to revive it so that it can be revived. Hang Bot 24/7 without fear of death.&lt;/p&gt;
 &lt;p&gt;Example with uptime statistics of my old Bot &lt;em&gt;(Since 2710 hrs, 23 mins (2023-06-09 17:46:19))&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-4.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/discord-bot-with-replit-uptime-robot/image-4.png&#34;
 	width=&#34;1272&#34;
 	height=&#34;488&#34;
-	srcset=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-4_hu1cfdd15d0c794de8551fd24749c3942d_77352_480x0_resize_box_3.png 480w, /p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-4_hu1cfdd15d0c794de8551fd24749c3942d_77352_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/discord-bot-with-replit-uptime-robot/image-4_hu1cfdd15d0c794de8551fd24749c3942d_77352_480x0_resize_box_3.png 480w, /post/discord-bot-with-replit-uptime-robot/image-4_hu1cfdd15d0c794de8551fd24749c3942d_77352_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -227,10 +227,10 @@
 &lt;li&gt;Set &lt;code&gt;Monitoring Interval&lt;/code&gt; to every 5 minutes (in accordance with Replit)&lt;/li&gt;
 &lt;li&gt;Select &lt;code&gt;Create Monitor&lt;/code&gt; and the setup is complete&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-5.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/discord-bot-with-replit-uptime-robot/image-5.png&#34;
 	width=&#34;785&#34;
 	height=&#34;622&#34;
-	srcset=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-5_hufa3bc4a689abcaae54311cb2e299ecb6_43168_480x0_resize_box_3.png 480w, /p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-5_hufa3bc4a689abcaae54311cb2e299ecb6_43168_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/discord-bot-with-replit-uptime-robot/image-5_hufa3bc4a689abcaae54311cb2e299ecb6_43168_480x0_resize_box_3.png 480w, /post/discord-bot-with-replit-uptime-robot/image-5_hufa3bc4a689abcaae54311cb2e299ecb6_43168_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -243,10 +243,10 @@
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;This article was posted because my Bot was reported, forcing me to re-create a new Bot, so I&amp;rsquo;ll have to read it again later&lt;/p&gt;
 &lt;p&gt;Remember to always respect Discord&amp;rsquo;s Terms of Service when running a bot so you don&amp;rsquo;t get banned like me&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-6.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/discord-bot-with-replit-uptime-robot/image-6.png&#34;
 	width=&#34;720&#34;
 	height=&#34;720&#34;
-	srcset=&#34;/p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-6_hu5629d74d608a2fe2ffffa219e21618c1_256201_480x0_resize_box_3.png 480w, /p/build-bot-discord-24/7-with-replit-and-uptime-robot-python/image-6_hu5629d74d608a2fe2ffffa219e21618c1_256201_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/discord-bot-with-replit-uptime-robot/image-6_hu5629d74d608a2fe2ffffa219e21618c1_256201_480x0_resize_box_3.png 480w, /post/discord-bot-with-replit-uptime-robot/image-6_hu5629d74d608a2fe2ffffa219e21618c1_256201_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	

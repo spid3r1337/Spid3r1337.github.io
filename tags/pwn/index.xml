@@ -8,11 +8,11 @@
         <language>en</language>
         <lastBuildDate>Mon, 02 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/pwn/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Buckeye CTF 2023 | Writeups</title>
-        <link>/p/buckeye-ctf-2023-writeups/</link>
+        <link>/post/buckeyectf-2023/</link>
         <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
         
-        <guid>/p/buckeye-ctf-2023-writeups/</guid>
-        <description>&lt;img src="/p/buckeye-ctf-2023-writeups/featured-image.png" alt="Featured image of post Buckeye CTF 2023 | Writeups" /&gt;&lt;p&gt;Here is writeups for some challs that i solved in this competition!&lt;/p&gt;
+        <guid>/post/buckeyectf-2023/</guid>
+        <description>&lt;img src="/post/buckeyectf-2023/featured-image.png" alt="Featured image of post Buckeye CTF 2023 | Writeups" /&gt;&lt;p&gt;Here is writeups for some challs that i solved in this competition!&lt;/p&gt;
 &lt;h2 id=&#34;currency-converter--rev&#34;&gt;Currency Converter | REV&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;attachment: &lt;a class=&#34;link&#34; href=&#34;converter.jar&#34; &gt;converter.jar&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -20,10 +20,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;Receive attachment include 1 &lt;code&gt;jar&lt;/code&gt; file, so use &lt;a class=&#34;link&#34; href=&#34;https://www.decompiler.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Decompiler - Jar String Editor&lt;/a&gt; decompile jar to java&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image.png&#34;
 	width=&#34;500&#34;
 	height=&#34;251&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image_hu814c8796467b4b00c9baefb7b47b95b5_10902_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image_hu814c8796467b4b00c9baefb7b47b95b5_10902_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image_hu814c8796467b4b00c9baefb7b47b95b5_10902_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image_hu814c8796467b4b00c9baefb7b47b95b5_10902_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -85,10 +85,10 @@
 &lt;p&gt;Let me guide you to the flag.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;When extract file, i receive an elf file (8ball)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-11.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-11.png&#34;
 	width=&#34;1794&#34;
 	height=&#34;238&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-11_hu3cd6dd005b2ca10c34f931e7bc7426a7_227700_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-11_hu3cd6dd005b2ca10c34f931e7bc7426a7_227700_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-11_hu3cd6dd005b2ca10c34f931e7bc7426a7_227700_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-11_hu3cd6dd005b2ca10c34f931e7bc7426a7_227700_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -98,10 +98,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;then load it into IDA, and follow the main part&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-4.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-4.png&#34;
 	width=&#34;496&#34;
 	height=&#34;472&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-4_hu6c4e58cb1a6a11fd6ad20e6c5cb2ecc1_36684_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-4_hu6c4e58cb1a6a11fd6ad20e6c5cb2ecc1_36684_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-4_hu6c4e58cb1a6a11fd6ad20e6c5cb2ecc1_36684_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-4_hu6c4e58cb1a6a11fd6ad20e6c5cb2ecc1_36684_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -111,10 +111,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;and function &lt;code&gt;print_flag()&lt;/code&gt; (but we can skip it bcuz it seem difficult)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-3.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-3.png&#34;
 	width=&#34;424&#34;
 	height=&#34;486&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-3_hu491ba2914a3b6423832bcf2bd8b76d54_35709_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-3_hu491ba2914a3b6423832bcf2bd8b76d54_35709_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-3_hu491ba2914a3b6423832bcf2bd8b76d54_35709_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-3_hu491ba2914a3b6423832bcf2bd8b76d54_35709_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -124,10 +124,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;In &lt;code&gt;main&lt;/code&gt;, we have: &lt;code&gt;if ( argc != 2 )&lt;/code&gt;, &lt;code&gt;!strcmp(*argv, &amp;quot;./magic8ball&amp;quot;)&lt;/code&gt; and &lt;code&gt;if ( v8 &amp;amp;&amp;amp; strstr(argv[1], &amp;quot;flag&amp;quot;) )&lt;/code&gt; so i think i must rename the file (&lt;code&gt;8ball&lt;/code&gt; to &lt;code&gt;magic8ball&lt;/code&gt;) and argument is &lt;code&gt;flag&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-8.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-8.png&#34;
 	width=&#34;448&#34;
 	height=&#34;197&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-8_hu53a0b3e0ce5105c6379899f38cd060c1_71119_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-8_hu53a0b3e0ce5105c6379899f38cd060c1_71119_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-8_hu53a0b3e0ce5105c6379899f38cd060c1_71119_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-8_hu53a0b3e0ce5105c6379899f38cd060c1_71119_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -143,10 +143,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;netcat:&lt;/strong&gt; &lt;code&gt;nc chall.pwnoh.io 13371&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;In this chall, we can see the game with guess number (each netcat connection)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-5.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-5.png&#34;
 	width=&#34;471&#34;
 	height=&#34;337&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-5_hu075792f3d484f3b7a970cb39883217f7_117896_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-5_hu075792f3d484f3b7a970cb39883217f7_117896_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-5_hu075792f3d484f3b7a970cb39883217f7_117896_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-5_hu075792f3d484f3b7a970cb39883217f7_117896_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -268,10 +268,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;but i found vuln :&amp;gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-6.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-6.png&#34;
 	width=&#34;305&#34;
 	height=&#34;83&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-6_hu8c654062c66e3a4d67f222749b76ce02_5016_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-6_hu8c654062c66e3a4d67f222749b76ce02_5016_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-6_hu8c654062c66e3a4d67f222749b76ce02_5016_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-6_hu8c654062c66e3a4d67f222749b76ce02_5016_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -280,10 +280,10 @@
 		data-flex-basis=&#34;881px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-7.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-7.png&#34;
 	width=&#34;304&#34;
 	height=&#34;83&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-7_hu6c205becdbf19c3a71d8ff3607f6f860_4892_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-7_hu6c205becdbf19c3a71d8ff3607f6f860_4892_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-7_hu6c205becdbf19c3a71d8ff3607f6f860_4892_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-7_hu6c205becdbf19c3a71d8ff3607f6f860_4892_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -293,10 +293,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;so we can press Enter into the &lt;code&gt;select option&lt;/code&gt; of netcat to get flag&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-2.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-2.png&#34;
 	width=&#34;462&#34;
 	height=&#34;239&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-2_hu1e492164c7dd9af938dad9ff2a087586_84987_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-2_hu1e492164c7dd9af938dad9ff2a087586_84987_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-2_hu1e492164c7dd9af938dad9ff2a087586_84987_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-2_hu1e492164c7dd9af938dad9ff2a087586_84987_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -312,10 +312,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;netcat:&lt;/strong&gt; &lt;code&gt;nc chall.pwnoh.io 13372&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;I see the buffer overflow vulnerability here&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-9.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-9.png&#34;
 	width=&#34;468&#34;
 	height=&#34;302&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-9_hue3dfa7a4530287857c56d5d480a57907_19132_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-9_hue3dfa7a4530287857c56d5d480a57907_19132_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-9_hue3dfa7a4530287857c56d5d480a57907_19132_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-9_hue3dfa7a4530287857c56d5d480a57907_19132_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -350,10 +350,10 @@
 &lt;/div&gt;&lt;h2 id=&#34;needle-in-the-wifi-stack--misc&#34;&gt;Needle in the Wifi Stack | MISC&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;attachment: &lt;a class=&#34;link&#34; href=&#34;frames.pcap&#34; &gt;frames.pcap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This chall has a &lt;code&gt;.pcap&lt;/code&gt; file, as usual, i&amp;rsquo;ll &lt;code&gt;strings + grep&lt;/code&gt; first and it has many base64 strings&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-12.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-12.png&#34;
 	width=&#34;709&#34;
 	height=&#34;267&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-12_hue9af27dd9ad283ac95437e606082c0d6_135591_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-12_hue9af27dd9ad283ac95437e606082c0d6_135591_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-12_hue9af27dd9ad283ac95437e606082c0d6_135591_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-12_hue9af27dd9ad283ac95437e606082c0d6_135591_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -363,10 +363,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;so i think we can find with the format of flag: &lt;code&gt;btcf{&lt;/code&gt; encode to base64: &lt;code&gt;YmN0Zn&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-13.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-13.png&#34;
 	width=&#34;490&#34;
 	height=&#34;82&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-13_hu037a16009fed8344b11d10ca90b7d562_37606_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-13_hu037a16009fed8344b11d10ca90b7d562_37606_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-13_hu037a16009fed8344b11d10ca90b7d562_37606_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-13_hu037a16009fed8344b11d10ca90b7d562_37606_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -376,10 +376,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Convert &lt;code&gt;YmN0Znt0dzBfcG8xbnRfNF9nMzNfYzBuZzNzN2kwbn0K0&lt;/code&gt; to base64&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-14.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-14.png&#34;
 	width=&#34;760&#34;
 	height=&#34;85&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-14_hucd171a902f7bf84fde53f8c425116853_46094_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-14_hucd171a902f7bf84fde53f8c425116853_46094_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-14_hucd171a902f7bf84fde53f8c425116853_46094_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-14_hucd171a902f7bf84fde53f8c425116853_46094_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -394,10 +394,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;server:&lt;/strong&gt; &lt;code&gt;chall.pwnoh.io:13389&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;This challenge is a minecraft parkour server created by the author in version 1.20.1&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-15.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-15.png&#34;
 	width=&#34;704&#34;
 	height=&#34;449&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-15_hucf25a10777ba5f24c7ab58eab25bc005_222241_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-15_hucf25a10777ba5f24c7ab58eab25bc005_222241_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-15_hucf25a10777ba5f24c7ab58eab25bc005_222241_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-15_hucf25a10777ba5f24c7ab58eab25bc005_222241_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -418,10 +418,10 @@ After many unsuccessful attempts to jump on the blocks, i decided to cheat :333 
 &lt;/div&gt;
 
 &lt;p&gt;After cheating with the Wurst Client, you can fly to the flag in the sky and get it&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-16.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-16.png&#34;
 	width=&#34;722&#34;
 	height=&#34;383&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-16_hu8b37145af736bcc1cd21530fa663a938_82878_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-16_hu8b37145af736bcc1cd21530fa663a938_82878_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-16_hu8b37145af736bcc1cd21530fa663a938_82878_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-16_hu8b37145af736bcc1cd21530fa663a938_82878_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -557,10 +557,10 @@ After many unsuccessful attempts to jump on the blocks, i decided to cheat :333 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to_bytes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bit_length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;big&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-17.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-17.png&#34;
 	width=&#34;389&#34;
 	height=&#34;90&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-17_hu63593699c5a30f553ba355b3576835b3_22566_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-17_hu63593699c5a30f553ba355b3576835b3_22566_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-17_hu63593699c5a30f553ba355b3576835b3_22566_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-17_hu63593699c5a30f553ba355b3576835b3_22566_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -577,10 +577,10 @@ LOL you &lt;code&gt;snub_wrestle&lt;/code&gt;. Good luck trying to undo my xor k
 &lt;/blockquote&gt;
 &lt;p&gt;I think this is easy chall about xor&lt;/p&gt;
 &lt;p&gt;First, we must remove &lt;code&gt;:&lt;/code&gt; from the encryp, it gives us: &lt;code&gt;110d01042413420b540033091c5e1e3d2a272d161d010e3a043c10110b1b1b0b1409&lt;/code&gt;, then convert from hex to byte &amp;amp; xor with &lt;code&gt;snub_wrestle&lt;/code&gt; to get flag&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/p/buckeye-ctf-2023-writeups/image-18.png&#34;
+&lt;p&gt;&lt;img src=&#34;/post/buckeyectf-2023/image-18.png&#34;
 	width=&#34;746&#34;
 	height=&#34;489&#34;
-	srcset=&#34;/p/buckeye-ctf-2023-writeups/image-18_huab6060ec45616a9bd7eff9b1dbb447af_30810_480x0_resize_box_3.png 480w, /p/buckeye-ctf-2023-writeups/image-18_huab6060ec45616a9bd7eff9b1dbb447af_30810_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;/post/buckeyectf-2023/image-18_huab6060ec45616a9bd7eff9b1dbb447af_30810_480x0_resize_box_3.png 480w, /post/buckeyectf-2023/image-18_huab6060ec45616a9bd7eff9b1dbb447af_30810_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
