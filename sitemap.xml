@@ -14,13 +14,19 @@
     <loc>/post/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/reverse/</loc>
+    <loc>/tags/segfault/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/study/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
+    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tunnel/</loc>
+    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/vps/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/p/how-to-build-deploy-flask-project-on-glitch/</loc>
@@ -30,6 +36,9 @@
     <lastmod>2024-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/p/cstv-capture-the-flag-2023-forensics/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/reverse/</loc>
     <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/writeups/</loc>

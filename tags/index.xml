@@ -7,11 +7,27 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>reverse</title>
-        <link>/tags/reverse/</link>
+        <title>Segfault</title>
+        <link>/tags/segfault/</link>
         <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
         
-        <guid>/tags/reverse/</guid>
+        <guid>/tags/segfault/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Tunnel</title>
+        <link>/tags/tunnel/</link>
+        <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/tunnel/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>VPS</title>
+        <link>/tags/vps/</link>
+        <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/vps/</guid>
         <description></description>
         </item>
         <item>
@@ -20,6 +36,14 @@
         <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
         
         <guid>/tags/tech/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>reverse</title>
+        <link>/tags/reverse/</link>
+        <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
+        
+        <guid>/tags/reverse/</guid>
         <description></description>
         </item>
         <item>
