@@ -6,7 +6,395 @@
         <description>Recent content in Study on Spid3r&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/categories/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="/categories/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Kali Linux VPS for Free: A Segfault Tutorial That Makes It Possible</title>
+        <link>/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/</link>
+        <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
+        
+        <guid>/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/</guid>
+        <description>&lt;img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/featured.png" alt="Featured image of post Kali Linux VPS for Free: A Segfault Tutorial That Makes It Possible" /&gt;&lt;p&gt;&lt;em&gt;Original Article in &lt;strong&gt;Medium&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://sondt1337.medium.com/kali-linux-vps-for-free-it-appears-so-segfault-tutorial-6c9dd0642ff0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://sondt1337.medium.com/kali-linux-vps-for-free-it-appears-so-segfault-tutorial-6c9dd0642ff0&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Segfault&lt;/strong&gt;, created by The Hacker’s Choice, is a complimentary application for Cyber Security Researcher. It provides an unlimited server with Root access. With each new server that is generated, SSH connection is established for communal use.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image.png&#34;
+	width=&#34;1100&#34;
+	height=&#34;77&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image_hu5374e3d759213a534bd313868ce2a7a0_73078_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image_hu5374e3d759213a534bd313868ce2a7a0_73078_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;SSH Connection&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1428&#34;
+		data-flex-basis=&#34;3428px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;login-server&#34;&gt;LOGIN Server&lt;/h2&gt;
+&lt;p&gt;To connect to Segfault via SSH, use the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh root@segfault.net &lt;span class=&#34;c1&#34;&gt;# The password is &amp;#39;segfault&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;When initially connecting to Segfault to open a root and SSH server, a 60-second wait is required. However, this duration is not typical for subsequent connections (probably less).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-1.png&#34;
+	width=&#34;647&#34;
+	height=&#34;426&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-1_hu5c0be1c2c610ae038291187be722adef_260548_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-1_hu5c0be1c2c610ae038291187be722adef_260548_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;364px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Once successfully connected to the server, it will provide details such as &lt;code&gt;SSH&lt;/code&gt; and &lt;code&gt;IP address&lt;/code&gt;. (It’s important to save this information for future reference.)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-2.png&#34;
+	width=&#34;1215&#34;
+	height=&#34;773&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-2_hud7fb940c09e090bb9cf7b93bdef4b9e7_451163_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-2_hud7fb940c09e090bb9cf7b93bdef4b9e7_451163_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Connection info&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;377px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Later, to log in again, simply execute the SSH command provided below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-3.png&#34;
+	width=&#34;1320&#34;
+	height=&#34;217&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-3_hu76e1aba48b89272f1cccccea9e04db4e_273031_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-3_hu76e1aba48b89272f1cccccea9e04db4e_273031_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;SSH COMMAND&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;608&#34;
+		data-flex-basis=&#34;1459px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh -o &lt;span class=&#34;s2&#34;&gt;&amp;#34;SetEnv SECRET=YOUR_KEY_PRIVATE&amp;#34;&lt;/span&gt; root@lulz.segfault.net
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Once logged in, this Kali server can be utilized as a virtual machine equipped with a comprehensive suite of tools for security and networking, … (&lt;a class=&#34;link&#34; href=&#34;https://www.thc.org/segfault/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Segfault’s homepage&lt;/a&gt; for more details).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-4.png&#34;
+	width=&#34;686&#34;
+	height=&#34;325&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-4_hu38c0f0498fd0118b4e6a9864aec0c86a_223596_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-4_hu38c0f0498fd0118b4e6a9864aec0c86a_223596_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Working with Kali Linux VPS&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;211&#34;
+		data-flex-basis=&#34;506px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;To log out of the server, simply use the &lt;code&gt;exit&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-5.png&#34;
+	width=&#34;889&#34;
+	height=&#34;173&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-5_hu46769a6d7a14dfc8fabe8c624c5303c7_129294_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-5_hu46769a6d7a14dfc8fabe8c624c5303c7_129294_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;513&#34;
+		data-flex-basis=&#34;1233px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tunnel-server---argo-tunnel-cloudflare-tunnel&#34;&gt;TUNNEL Server - Argo Tunnel (Cloudflare Tunnel)&lt;/h2&gt;
+&lt;p&gt;Although the server we have is nearly identical to a real Kali Linux virtual machine, it can initiate connections from the inside, but external connections cannot reach it using common protocols like HTTP, TCP, etc. For this, I will need to utilize a powerful Cloudflare feature called Tunnel.&lt;/p&gt;
+&lt;p&gt;Initially, you must establish a tunnel from Cloudflare to the Kali Linux server using &lt;a class=&#34;link&#34; href=&#34;https://www.cloudflare.com/learning/security/glossary/what-is-zero-trust/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zero Trust&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;create-a-tunnel&#34;&gt;Create a tunnel&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-6.png&#34;
+	width=&#34;1871&#34;
+	height=&#34;935&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-6_hu7e71689e880715d9d20063778989975b_306195_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-6_hu7e71689e880715d9d20063778989975b_306195_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Create a tunnel from Cloudflare&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;200&#34;
+		data-flex-basis=&#34;480px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;name-your-tunnel&#34;&gt;Name your tunnel&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-7.png&#34;
+	width=&#34;1096&#34;
+	height=&#34;243&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-7_hu89c87f5eb64d12a77c28d64f16ab2def_57525_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-7_hu89c87f5eb64d12a77c28d64f16ab2def_57525_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Name your tunnel&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;451&#34;
+		data-flex-basis=&#34;1082px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;install-and-run-connectors&#34;&gt;Install and run connectors&lt;/h3&gt;
+&lt;p&gt;In the “Choose your environment” options, select Debian — 64-bit.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-8.png&#34;
+	width=&#34;1025&#34;
+	height=&#34;280&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-8_hu3949ca5fa27f2357d7f214755f9bd2dd_91690_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-8_hu3949ca5fa27f2357d7f214755f9bd2dd_91690_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;366&#34;
+		data-flex-basis=&#34;878px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-9.png&#34;
+	width=&#34;1493&#34;
+	height=&#34;324&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-9_hu123009d113363bae0789c16878248bf6_192787_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-9_hu123009d113363bae0789c16878248bf6_192787_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;460&#34;
+		data-flex-basis=&#34;1105px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dpkg -i cloudflared.deb 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo cloudflared service install &lt;span class=&#34;s2&#34;&gt;&amp;#34;YOUR_TOKEN_CLOUDFLARE&amp;#34;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# Replace YOUR_TOKEN_CLOUDFLARE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Upon a successful connection, Connectors will display both ID and Status.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-10.png&#34;
+	width=&#34;956&#34;
+	height=&#34;194&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-10_hu926456ad1a2e9911bdb5c15c31793491_35592_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-10_hu926456ad1a2e9911bdb5c15c31793491_35592_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;492&#34;
+		data-flex-basis=&#34;1182px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;route-traffic&#34;&gt;Route Traffic&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-11.png&#34;
+	width=&#34;1582&#34;
+	height=&#34;832&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-11_hu588261e5a4b73d38b6d8d0dd774ff57d_268074_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-11_hu588261e5a4b73d38b6d8d0dd774ff57d_268074_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Config Localhost &amp; Domain&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;190&#34;
+		data-flex-basis=&#34;456px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;In “Route Traffic,” you must fill in the &lt;strong&gt;Domain&lt;/strong&gt; (at least one domain is required) and the method + URL (localhost).&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;http.server&lt;/code&gt; in background to tunnel from machine to cloudflare.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-12.png&#34;
+	width=&#34;507&#34;
+	height=&#34;81&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-12_hu56f7b2bfc8731ab5583ebb4c43c7acdc_33881_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-12_hu56f7b2bfc8731ab5583ebb4c43c7acdc_33881_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;625&#34;
+		data-flex-basis=&#34;1502px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;When the http.server is running in the background, a Cloudflare tunnel can be configured to a domain, allowing access via: &lt;a class=&#34;link&#34; href=&#34;https://segfault.sondt.id.vn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://segfault.sondt.id.vn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-13.png&#34;
+	width=&#34;405&#34;
+	height=&#34;374&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-13_hu23d6530f6a64f50fa04181b1b8c14c1d_56238_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-13_hu23d6530f6a64f50fa04181b1b8c14c1d_56238_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;108&#34;
+		data-flex-basis=&#34;259px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(If you’re still able to access this page, it indicates that the article remains accurate. LOL)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can create an HTML file in the background to display a welcome page :&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-14.png&#34;
+	width=&#34;1904&#34;
+	height=&#34;922&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-14_hu06b4a00d0c73163485a2fa05619d4b2a_179411_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-14_hu06b4a00d0c73163485a2fa05619d4b2a_179411_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Welcome Page&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;206&#34;
+		data-flex-basis=&#34;495px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;uptime-server&#34;&gt;UPTIME Server&lt;/h2&gt;
+&lt;p&gt;However, if the requirement is to establish a connection that remains active indefinitely, allowing applications to run continuously, what should be done?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-15.png&#34;
+	width=&#34;1037&#34;
+	height=&#34;326&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-15_huc3a671bac7028914f008a797f44bcf9c_354088_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-15_huc3a671bac7028914f008a797f44bcf9c_354088_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;318&#34;
+		data-flex-basis=&#34;763px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;According to the segfault announcement, the server will remain up as long as you are logged into the Segfault. This means your progress will be preserved as long as you maintain an SSH connection to segfault.net.&lt;/p&gt;
+&lt;p&gt;So we need to make something that can automatically connect “ssh” to the segfault server.&lt;/p&gt;
+&lt;h3 id=&#34;github-actions&#34;&gt;Github Actions&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/actions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub Actions&lt;/a&gt; is a complimentary service offered by GitHub that facilitates the automation of the CI/CD process. It enables users to create workflows that automate tasks within the software development lifecycle.&lt;/p&gt;
+&lt;p&gt;When you create a repository in Github, you can choose Actions to start Github Actions, choose the simple workflow.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-16.png&#34;
+	width=&#34;1261&#34;
+	height=&#34;551&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-16_hu4d96109f6120bfc70d56bd620f4f4240_143957_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-16_hu4d96109f6120bfc70d56bd620f4f4240_143957_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;228&#34;
+		data-flex-basis=&#34;549px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-17.png&#34;
+	width=&#34;1014&#34;
+	height=&#34;450&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-17_hu35323aa266f8a005aeb187b387e27bce_137180_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-17_hu35323aa266f8a005aeb187b387e27bce_137180_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;225&#34;
+		data-flex-basis=&#34;540px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;I have created a &lt;strong&gt;YAML script&lt;/strong&gt; to automate the process of repeatedly establishing an SSH connection with a set interval.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;SEGFAULT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;push&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;branches&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;main]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;pull_request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;branches&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;main]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;cron&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;*/20 * * * *&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Restart each 20 minutes&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;jobs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;runs-on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ubuntu-latest&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;steps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Checkout code&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;uses&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;actions/checkout@v4&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Install sshpass&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;sudo apt-get install -y sshpass&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Connect to SSH and run command&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# automatic connect ssh from github actions&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;          sshpass -p &amp;#34;segfault&amp;#34; ssh -o &amp;#34;SetEnv SECRET=YOUR_KEY&amp;#34; -o &amp;#34;StrictHostKeyChecking=no&amp;#34; root@lulz.segfault.net &amp;#34;ls&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;This rules will make automatically connect to SSH every 20 minutes, making the SSH connection process uninterrupted for too long.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-18.png&#34;
+	width=&#34;1896&#34;
+	height=&#34;901&#34;
+	srcset=&#34;/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-18_hu94fa51b58243f62e8e50fc56199eaa27_289834_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-18_hu94fa51b58243f62e8e50fc56199eaa27_289834_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Connect to SSH and run command&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;210&#34;
+		data-flex-basis=&#34;505px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We have successfully established a continuous SSH connection to the server, ensuring it remains active for our needs.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;CONCLUSION&lt;/h2&gt;
+&lt;p&gt;This article demonstrates how to establish a connection to a Segfault, create a tunnel from the Segfault server to an external destination with domain, and maintain it with 100% uptime.&lt;/p&gt;
+&lt;p&gt;If you find this guide helpful, please consider sharing it with your friends.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thank you for visting!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Buy me a coffee ☕: &lt;a class=&#34;link&#34; href=&#34;https://www.buymeacoffee.com/spid3r&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.buymeacoffee.com/spid3r&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>How to build &amp; deploy Flask project on Glitch?</title>
         <link>/p/how-to-build-deploy-flask-project-on-glitch/</link>
         <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>

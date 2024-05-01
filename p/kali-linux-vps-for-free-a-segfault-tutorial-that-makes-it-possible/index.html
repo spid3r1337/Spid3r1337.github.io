@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='VPS Freeeeee'>
+<title>Kali Linux VPS for Free: A Segfault Tutorial That Makes It Possible</title>
+
+<link rel='canonical' href='/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='Kali Linux VPS for Free: A Segfault Tutorial That Makes It Possible'>
+<meta property='og:description' content='VPS Freeeeee'>
+<meta property='og:url' content='/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/'>
+<meta property='og:site_name' content='Spid3r&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='reverse' /><meta property='article:published_time' content='2024-04-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-04-30T00:00:00&#43;00:00'/><meta property='og:image' content='/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/featured.png' />
+<meta name="twitter:title" content="Kali Linux VPS for Free: A Segfault Tutorial That Makes It Possible">
+<meta name="twitter:description" content="VPS Freeeeee"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/featured.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2c1cbf790ae634c9c5ba0e293f98fbef_58595_300x0_resize_box_3.png" width="300"
+                            height="301" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👾</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Spid3r&#39;s Blog</a></h1>
+            <h2 class="site-description">Some cool about infosec ...</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sondt1337'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/sondt1337'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#login-server">LOGIN Server</a></li>
+    <li><a href="#tunnel-server---argo-tunnel-cloudflare-tunnel">TUNNEL Server - Argo Tunnel (Cloudflare Tunnel)</a>
+      <ol>
+        <li><a href="#create-a-tunnel">Create a tunnel</a></li>
+        <li><a href="#name-your-tunnel">Name your tunnel</a></li>
+        <li><a href="#install-and-run-connectors">Install and run connectors</a></li>
+        <li><a href="#route-traffic">Route Traffic</a></li>
+      </ol>
+    </li>
+    <li><a href="#uptime-server">UPTIME Server</a>
+      <ol>
+        <li><a href="#github-actions">Github Actions</a></li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">CONCLUSION</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/">
+                <img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/featured_hu27284f875c3d9d81c0ece0963df46d0e_36612_800x0_resize_box_3.png"
+                        srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/featured_hu27284f875c3d9d81c0ece0963df46d0e_36612_800x0_resize_box_3.png 800w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/featured_hu27284f875c3d9d81c0ece0963df46d0e_36612_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="380" 
+                        loading="lazy"
+                        alt="Featured image of post Kali Linux VPS for Free: A Segfault Tutorial That Makes It Possible" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/study/" >
+                Study
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/">Kali Linux VPS for Free: A Segfault Tutorial That Makes It Possible</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            VPS Freeeeee
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 30, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><em>Original Article in <strong>Medium</strong>: <a class="link" href="https://sondt1337.medium.com/kali-linux-vps-for-free-it-appears-so-segfault-tutorial-6c9dd0642ff0"  target="_blank" rel="noopener"
+    >https://sondt1337.medium.com/kali-linux-vps-for-free-it-appears-so-segfault-tutorial-6c9dd0642ff0</a></em></p>
+<p><strong>Segfault</strong>, created by The Hacker’s Choice, is a complimentary application for Cyber Security Researcher. It provides an unlimited server with Root access. With each new server that is generated, SSH connection is established for communal use.</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image.png"
+	width="1100"
+	height="77"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image_hu5374e3d759213a534bd313868ce2a7a0_73078_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image_hu5374e3d759213a534bd313868ce2a7a0_73078_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="SSH Connection"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1428"
+		data-flex-basis="3428px"
+	
+></p>
+<h2 id="login-server">LOGIN Server</h2>
+<p>To connect to Segfault via SSH, use the following command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh root@segfault.net <span class="c1"># The password is &#39;segfault&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>When initially connecting to Segfault to open a root and SSH server, a 60-second wait is required. However, this duration is not typical for subsequent connections (probably less).</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-1.png"
+	width="647"
+	height="426"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-1_hu5c0be1c2c610ae038291187be722adef_260548_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-1_hu5c0be1c2c610ae038291187be722adef_260548_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
+	
+></p>
+<p>Once successfully connected to the server, it will provide details such as <code>SSH</code> and <code>IP address</code>. (It’s important to save this information for future reference.)</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-2.png"
+	width="1215"
+	height="773"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-2_hud7fb940c09e090bb9cf7b93bdef4b9e7_451163_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-2_hud7fb940c09e090bb9cf7b93bdef4b9e7_451163_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Connection info"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="157"
+		data-flex-basis="377px"
+	
+></p>
+<p>Later, to log in again, simply execute the SSH command provided below.</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-3.png"
+	width="1320"
+	height="217"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-3_hu76e1aba48b89272f1cccccea9e04db4e_273031_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-3_hu76e1aba48b89272f1cccccea9e04db4e_273031_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="SSH COMMAND"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="608"
+		data-flex-basis="1459px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -o <span class="s2">&#34;SetEnv SECRET=YOUR_KEY_PRIVATE&#34;</span> root@lulz.segfault.net
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once logged in, this Kali server can be utilized as a virtual machine equipped with a comprehensive suite of tools for security and networking, … (<a class="link" href="https://www.thc.org/segfault/"  target="_blank" rel="noopener"
+    >Segfault’s homepage</a> for more details).</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-4.png"
+	width="686"
+	height="325"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-4_hu38c0f0498fd0118b4e6a9864aec0c86a_223596_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-4_hu38c0f0498fd0118b4e6a9864aec0c86a_223596_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Working with Kali Linux VPS"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="506px"
+	
+></p>
+<p>To log out of the server, simply use the <code>exit</code> command.</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-5.png"
+	width="889"
+	height="173"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-5_hu46769a6d7a14dfc8fabe8c624c5303c7_129294_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-5_hu46769a6d7a14dfc8fabe8c624c5303c7_129294_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="513"
+		data-flex-basis="1233px"
+	
+></p>
+<h2 id="tunnel-server---argo-tunnel-cloudflare-tunnel">TUNNEL Server - Argo Tunnel (Cloudflare Tunnel)</h2>
+<p>Although the server we have is nearly identical to a real Kali Linux virtual machine, it can initiate connections from the inside, but external connections cannot reach it using common protocols like HTTP, TCP, etc. For this, I will need to utilize a powerful Cloudflare feature called Tunnel.</p>
+<p>Initially, you must establish a tunnel from Cloudflare to the Kali Linux server using <a class="link" href="https://www.cloudflare.com/learning/security/glossary/what-is-zero-trust/"  target="_blank" rel="noopener"
+    >Zero Trust</a>.</p>
+<h3 id="create-a-tunnel">Create a tunnel</h3>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-6.png"
+	width="1871"
+	height="935"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-6_hu7e71689e880715d9d20063778989975b_306195_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-6_hu7e71689e880715d9d20063778989975b_306195_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Create a tunnel from Cloudflare"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="480px"
+	
+></p>
+<h3 id="name-your-tunnel">Name your tunnel</h3>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-7.png"
+	width="1096"
+	height="243"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-7_hu89c87f5eb64d12a77c28d64f16ab2def_57525_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-7_hu89c87f5eb64d12a77c28d64f16ab2def_57525_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Name your tunnel"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="451"
+		data-flex-basis="1082px"
+	
+></p>
+<h3 id="install-and-run-connectors">Install and run connectors</h3>
+<p>In the “Choose your environment” options, select Debian — 64-bit.</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-8.png"
+	width="1025"
+	height="280"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-8_hu3949ca5fa27f2357d7f214755f9bd2dd_91690_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-8_hu3949ca5fa27f2357d7f214755f9bd2dd_91690_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="366"
+		data-flex-basis="878px"
+	
+></p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-9.png"
+	width="1493"
+	height="324"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-9_hu123009d113363bae0789c16878248bf6_192787_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-9_hu123009d113363bae0789c16878248bf6_192787_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="460"
+		data-flex-basis="1105px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo dpkg -i cloudflared.deb 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo cloudflared service install <span class="s2">&#34;YOUR_TOKEN_CLOUDFLARE&#34;</span> <span class="c1"># Replace YOUR_TOKEN_CLOUDFLARE</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Upon a successful connection, Connectors will display both ID and Status.</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-10.png"
+	width="956"
+	height="194"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-10_hu926456ad1a2e9911bdb5c15c31793491_35592_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-10_hu926456ad1a2e9911bdb5c15c31793491_35592_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="492"
+		data-flex-basis="1182px"
+	
+></p>
+<h3 id="route-traffic">Route Traffic</h3>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-11.png"
+	width="1582"
+	height="832"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-11_hu588261e5a4b73d38b6d8d0dd774ff57d_268074_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-11_hu588261e5a4b73d38b6d8d0dd774ff57d_268074_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Config Localhost & Domain"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="456px"
+	
+></p>
+<p>In “Route Traffic,” you must fill in the <strong>Domain</strong> (at least one domain is required) and the method + URL (localhost).</p>
+<p>Use <code>http.server</code> in background to tunnel from machine to cloudflare.</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-12.png"
+	width="507"
+	height="81"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-12_hu56f7b2bfc8731ab5583ebb4c43c7acdc_33881_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-12_hu56f7b2bfc8731ab5583ebb4c43c7acdc_33881_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="625"
+		data-flex-basis="1502px"
+	
+></p>
+<p>When the http.server is running in the background, a Cloudflare tunnel can be configured to a domain, allowing access via: <a class="link" href="https://segfault.sondt.id.vn"  target="_blank" rel="noopener"
+    >https://segfault.sondt.id.vn</a></p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-13.png"
+	width="405"
+	height="374"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-13_hu23d6530f6a64f50fa04181b1b8c14c1d_56238_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-13_hu23d6530f6a64f50fa04181b1b8c14c1d_56238_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="108"
+		data-flex-basis="259px"
+	
+></p>
+<blockquote>
+<p>(If you’re still able to access this page, it indicates that the article remains accurate. LOL)</p>
+</blockquote>
+<p>You can create an HTML file in the background to display a welcome page :&gt;</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-14.png"
+	width="1904"
+	height="922"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-14_hu06b4a00d0c73163485a2fa05619d4b2a_179411_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-14_hu06b4a00d0c73163485a2fa05619d4b2a_179411_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Welcome Page"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="206"
+		data-flex-basis="495px"
+	
+></p>
+<h2 id="uptime-server">UPTIME Server</h2>
+<p>However, if the requirement is to establish a connection that remains active indefinitely, allowing applications to run continuously, what should be done?</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-15.png"
+	width="1037"
+	height="326"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-15_huc3a671bac7028914f008a797f44bcf9c_354088_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-15_huc3a671bac7028914f008a797f44bcf9c_354088_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="318"
+		data-flex-basis="763px"
+	
+></p>
+<p>According to the segfault announcement, the server will remain up as long as you are logged into the Segfault. This means your progress will be preserved as long as you maintain an SSH connection to segfault.net.</p>
+<p>So we need to make something that can automatically connect “ssh” to the segfault server.</p>
+<h3 id="github-actions">Github Actions</h3>
+<p><a class="link" href="https://docs.github.com/en/actions"  target="_blank" rel="noopener"
+    >GitHub Actions</a> is a complimentary service offered by GitHub that facilitates the automation of the CI/CD process. It enables users to create workflows that automate tasks within the software development lifecycle.</p>
+<p>When you create a repository in Github, you can choose Actions to start Github Actions, choose the simple workflow.</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-16.png"
+	width="1261"
+	height="551"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-16_hu4d96109f6120bfc70d56bd620f4f4240_143957_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-16_hu4d96109f6120bfc70d56bd620f4f4240_143957_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="228"
+		data-flex-basis="549px"
+	
+></p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-17.png"
+	width="1014"
+	height="450"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-17_hu35323aa266f8a005aeb187b387e27bce_137180_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-17_hu35323aa266f8a005aeb187b387e27bce_137180_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="225"
+		data-flex-basis="540px"
+	
+></p>
+<p>I have created a <strong>YAML script</strong> to automate the process of repeatedly establishing an SSH connection with a set interval.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">SEGFAULT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">main]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">main]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;*/20 * * * *&#39;</span><span class="w"> </span><span class="c"># Restart each 20 minutes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install sshpass</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">sudo apt-get install -y sshpass</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Connect to SSH and run command</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># automatic connect ssh from github actions</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          sshpass -p &#34;segfault&#34; ssh -o &#34;SetEnv SECRET=YOUR_KEY&#34; -o &#34;StrictHostKeyChecking=no&#34; root@lulz.segfault.net &#34;ls&#34;</span><span class="w">          
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>This rules will make automatically connect to SSH every 20 minutes, making the SSH connection process uninterrupted for too long.</p>
+<p><img src="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-18.png"
+	width="1896"
+	height="901"
+	srcset="/p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-18_hu94fa51b58243f62e8e50fc56199eaa27_289834_480x0_resize_box_3.png 480w, /p/kali-linux-vps-for-free-a-segfault-tutorial-that-makes-it-possible/image-18_hu94fa51b58243f62e8e50fc56199eaa27_289834_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Connect to SSH and run command"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="210"
+		data-flex-basis="505px"
+	
+></p>
+<p>We have successfully established a continuous SSH connection to the server, ensuring it remains active for our needs.</p>
+<h2 id="conclusion">CONCLUSION</h2>
+<p>This article demonstrates how to establish a connection to a Segfault, create a tunnel from the Segfault server to an external destination with domain, and maintain it with 100% uptime.</p>
+<p>If you find this guide helpful, please consider sharing it with your friends.</p>
+<p><em>Thank you for visting!</em></p>
+<p>Buy me a coffee ☕: <a class="link" href="https://www.buymeacoffee.com/spid3r"  target="_blank" rel="noopener"
+    >https://www.buymeacoffee.com/spid3r</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/reverse/">reverse</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed By Spid3r</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/how-to-build-deploy-flask-project-on-glitch/">
+        
+        
+            <div class="article-image">
+                <img src="/p/how-to-build-deploy-flask-project-on-glitch/featured.8bde3cd52c73a2f292ca4d5af1ba3770_hu51661e0f756b9d3138ea612a8422b121_38058_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post How to build &amp; deploy Flask project on Glitch?"
+                        
+                        data-hash="md5-i9481SxzovKSyk1a8bo3cA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to build &amp; deploy Flask project on Glitch?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;  2021 -  2024 Spid3r&#39;s Blog
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
